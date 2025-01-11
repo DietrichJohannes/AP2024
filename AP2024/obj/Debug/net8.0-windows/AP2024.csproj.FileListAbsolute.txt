@@ -1,0 +1,16 @@
+G:\Programme\C#\AP2024\AP2024\bin\Debug\net8.0-windows\AP2024.exe
+G:\Programme\C#\AP2024\AP2024\bin\Debug\net8.0-windows\AP2024.deps.json
+G:\Programme\C#\AP2024\AP2024\bin\Debug\net8.0-windows\AP2024.runtimeconfig.json
+G:\Programme\C#\AP2024\AP2024\bin\Debug\net8.0-windows\AP2024.dll
+G:\Programme\C#\AP2024\AP2024\bin\Debug\net8.0-windows\AP2024.pdb
+G:\Programme\C#\AP2024\AP2024\obj\Debug\net8.0-windows\AP2024.Form1.resources
+G:\Programme\C#\AP2024\AP2024\obj\Debug\net8.0-windows\AP2024.csproj.GenerateResource.cache
+G:\Programme\C#\AP2024\AP2024\obj\Debug\net8.0-windows\AP2024.GeneratedMSBuildEditorConfig.editorconfig
+G:\Programme\C#\AP2024\AP2024\obj\Debug\net8.0-windows\AP2024.AssemblyInfoInputs.cache
+G:\Programme\C#\AP2024\AP2024\obj\Debug\net8.0-windows\AP2024.AssemblyInfo.cs
+G:\Programme\C#\AP2024\AP2024\obj\Debug\net8.0-windows\AP2024.csproj.CoreCompileInputs.cache
+G:\Programme\C#\AP2024\AP2024\obj\Debug\net8.0-windows\AP2024.dll
+G:\Programme\C#\AP2024\AP2024\obj\Debug\net8.0-windows\refint\AP2024.dll
+G:\Programme\C#\AP2024\AP2024\obj\Debug\net8.0-windows\AP2024.pdb
+G:\Programme\C#\AP2024\AP2024\obj\Debug\net8.0-windows\AP2024.genruntimeconfig.cache
+G:\Programme\C#\AP2024\AP2024\obj\Debug\net8.0-windows\ref\AP2024.dll
