@@ -27,5 +27,31 @@ namespace AP2024
             // Tagesansicht erstellen
             calendarController.CreateCalendarDay(calendarView);
         }
+
+        private void calendarView_Scroll(object sender, ScrollEventArgs e)
+        {
+            SynchronizeScroll();
+        }
+
+        private void SynchronizeScroll()
+        {
+            if (cwView.FirstDisplayedScrollingRowIndex != calendarView.FirstDisplayedScrollingRowIndex)
+                cwView.FirstDisplayedScrollingRowIndex = calendarView.FirstDisplayedScrollingRowIndex;
+
+            if (monthView.FirstDisplayedScrollingRowIndex != calendarView.FirstDisplayedScrollingRowIndex)
+                monthView.FirstDisplayedScrollingRowIndex = calendarView.FirstDisplayedScrollingRowIndex;
+        }
+
+        private void info‹berDenEntwicklerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DevInfo devInfo = new DevInfo();
+            devInfo.ShowDialog();
+        }
+
+        private void mitarbeiterverwaltungToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            EmployeeManager employeeManager = new EmployeeManager();
+            employeeManager.Show();
+        }
     }
 }

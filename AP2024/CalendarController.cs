@@ -1,4 +1,14 @@
-﻿using System;
+﻿// Purpose: Controller for the calendar view. It creates the calendar view for the month, week and day view.
+// Creator: Johannes Dietrich 2025
+// Created: 15.01.2025
+// Last modified: 15.01.2025
+
+// Zeile 20 - 49 : Erstellen der Monatsansicht
+// Zeile 54 - 92 : Erstellen der Kalenderwochenansicht
+// Zeile 86 - 157 : Erstellen der Tagesansicht
+
+
+using System;
 using System.Drawing;
 using System.Globalization;
 using System.Windows.Forms;
@@ -15,6 +25,7 @@ public class CalendarController
        
         dgv.Rows.Clear();                                                       // DataGridView zurücksetzen
         dgv.Columns.Clear();
+
 
 
         dgv.ColumnHeadersVisible = false;                                       // Spaltenüberschriften ausblenden
@@ -37,6 +48,7 @@ public class CalendarController
             dgv.Rows[0].Cells[i].Value = monthYear;                             // Monat und Jahr in die Zelle schreiben
 
         }
+        dgv.ClearSelection();                                                   // Auswahl aufheben
     }
 
     public void CreateCalendarWeek(DataGridView dgv)                            // Methode: Kalenderwochenansicht erstellen
@@ -76,6 +88,7 @@ public class CalendarController
             string weekLabel = $"KW {kalenderwoche}";                           // Kalenderwoche als Text
             dgv.Rows[0].Cells[i].Value = weekLabel;                             // Kalenderwoche in die Zelle schreiben
         }
+        dgv.ClearSelection();                                                   // Auswahl aufheben
     }
 
     public void CreateCalendarDay(DataGridView dgv)                             // Methode: Tagesansicht erstellen
@@ -115,6 +128,7 @@ public class CalendarController
 
             dgv.Rows.Add();                                                    // Zeile einfügen
 
+
         dgv.Rows[0].Cells[1].Value = "RU";                                     // "RU" -> Resturlaub in die Zelle schreiben
             dgv.Rows[0].Cells[0].Value = "Mitarbeiter";                        // "Mitarbeiter" in die Zelle schreiben
             dgv.Columns[0].Frozen = true;                                      // Erste Spalte fixieren
@@ -140,7 +154,6 @@ public class CalendarController
 
         
         dgv.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;           // Automatische Zeilenhöhe anpassen
+        dgv.ClearSelection();                                                   // Auswahl aufheben
     }
-
-
 }

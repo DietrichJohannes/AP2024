@@ -15,3 +15,7 @@ G:\Programme\C#\AP2024\AP2024\obj\Debug\net8.0-windows\AP2024.pdb
 G:\Programme\C#\AP2024\AP2024\obj\Debug\net8.0-windows\AP2024.genruntimeconfig.cache
 G:\Programme\C#\AP2024\AP2024\obj\Debug\net8.0-windows\ref\AP2024.dll
 G:\Programme\C#\AP2024\AP2024\obj\Debug\net8.0-windows\AP2024.sourcelink.json
+G:\Programme\C#\AP2024\AP2024\obj\Debug\net8.0-windows\AP2024.Properties.Resources.resources
+G:\Programme\C#\AP2024\AP2024\obj\Debug\net8.0-windows\AP2024.DevInfo.resources
+G:\Programme\C#\AP2024\AP2024\obj\Debug\net8.0-windows\AP2024.EmployeeManager.resources
+G:\Programme\C#\AP2024\AP2024\obj\Debug\net8.0-windows\AP2024.NewEmployee.resources
