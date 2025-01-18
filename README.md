@@ -1,8 +1,9 @@
-Horizontaler Kalender - Mitarbeiterverwaltung
+AP2024
 
-Beschreibung
+Beschreibung:
 
-Dieses Programm bietet eine intuitive Möglichkeit, Abwesenheiten (z. B. Urlaub, Krankheit, etc.) von Mitarbeitern zu verwalten. Der Kalender ist horizontal angeordnet, wobei die Spalten für Tage und die Zeilen für Mitarbeiter stehen. Benutzer können Zellen im Kalender markieren und mithilfe eines Rechtsklickmenüs schnell und einfach Einträge hinzufügen.
+Dieses Programm bietet eine intuitive Möglichkeit, Abwesenheiten (z. B. Urlaub, Krankheit, etc.) von Mitarbeitern zu planen und organisieren. Der Kalender ist horizontal angeordnet, wobei die Spalten für Tage und die Zeilen für Mitarbeiter stehen. 
+Benutzer können Zellen im Kalender markieren und mithilfe eines Rechtsklickmenüs schnell und einfach Einträge hinzufügen, bearbeiten.
 
 Features
 
@@ -17,17 +18,6 @@ Visualisierung von Einträgen: Abwesenheiten werden direkt im Kalender farblich 
 Dynamische Anpassung: Der Kalender passt sich flexibel an verschiedene Zeiträume und Mitarbeiteranzahlen an.
 
 
-Abhängigkeiten installieren (falls notwendig):
-
-SQLite (für die Datenbankintegration)
-
-.NET Framework oder .NET Runtime (je nach Version des Programms)
-
-Projekt starten:
-
-Öffnen Sie die Projektdatei in Ihrer bevorzugten Entwicklungsumgebung (z. B. Visual Studio).
-
-Führen Sie das Programm aus.
 
 Verwendung
 
@@ -59,25 +49,6 @@ Abwesenheiten:
 
 Felder: ID, MitarbeiterID, Datum, Typ, etc.
 
-Anforderungen
-
-Windows-Betriebssystem
-
-.NET Framework (Version X oder höher)
-
-SQLite (Version X oder höher)
-
-Geplante Erweiterungen
-
-Unterstützung für unterschiedliche Kalenderansichten (z. B. Monats- oder Wochenansicht).
-
-Exportfunktion für Berichte (z. B. als PDF oder Excel).
-
-Rollenbasierte Benutzerverwaltung.
-
-Mitwirken
-
-Beiträge zu diesem Projekt sind herzlich willkommen! Bitte öffnen Sie ein Issue oder einen Pull Request, um Änderungen vorzuschlagen.
 
 Lizenz
 
@@ -87,9 +58,9 @@ Kontakt
 
 Bei Fragen oder Vorschlägen wenden Sie sich bitte an:
 
-Name: [Ihr Name]
+Name: Johannes Dietrich
 
-E-Mail: [Ihre E-Mail-Adresse]
+E-Mail: dietrichjohannes295@gmail.com
 
-GitHub: [Ihr GitHub-Profil-Link]
+GitHub: 
 
