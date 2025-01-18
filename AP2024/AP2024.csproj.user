@@ -7,10 +7,22 @@
     <Compile Update="EmployeeManager.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Form1.cs">
+    <Compile Update="AP2024.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="NewSuperView.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="NewEmployee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="NewView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="SuperViewManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="ViewManager.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>

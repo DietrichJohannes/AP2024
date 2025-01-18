@@ -1,10 +1,10 @@
 namespace AP2024
 {
-    public partial class Form1 : Form
+    public partial class AP2024 : Form
     {
         private CalendarController calendarController;
 
-        public Form1()
+        public AP2024()
         {
             InitializeComponent();
             initCalendar();
@@ -17,7 +17,7 @@ namespace AP2024
 
         private void initCalendar()
         {
-            // Monatsansicht erstellen
+
             calendarController = new CalendarController();
             calendarController.CreateCalendarMonth(monthView);
 
@@ -52,6 +52,12 @@ namespace AP2024
         {
             EmployeeManager employeeManager = new EmployeeManager();
             employeeManager.Show();
+        }
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            ViewManager viewManager = new ViewManager();
+            viewManager.Show();
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace AP2024
 {
-    partial class Form1
+    partial class AP2024
     {
         /// <summary>
         ///  Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AP2024));
             cwView = new DataGridView();
             statusStrip1 = new StatusStrip();
             menuStrip1 = new MenuStrip();
@@ -141,6 +141,7 @@
             toolStripMenuItem1.Name = "toolStripMenuItem1";
             toolStripMenuItem1.Size = new Size(191, 22);
             toolStripMenuItem1.Text = "Views verwalten";
+            toolStripMenuItem1.Click += toolStripMenuItem1_Click;
             // 
             // toolStripMenuItem2
             // 

@@ -3,7 +3,6 @@ G:\Programme\C#\AP2024\AP2024\bin\Debug\net8.0-windows\AP2024.deps.json
 G:\Programme\C#\AP2024\AP2024\bin\Debug\net8.0-windows\AP2024.runtimeconfig.json
 G:\Programme\C#\AP2024\AP2024\bin\Debug\net8.0-windows\AP2024.dll
 G:\Programme\C#\AP2024\AP2024\bin\Debug\net8.0-windows\AP2024.pdb
-G:\Programme\C#\AP2024\AP2024\obj\Debug\net8.0-windows\AP2024.Form1.resources
 G:\Programme\C#\AP2024\AP2024\obj\Debug\net8.0-windows\AP2024.csproj.GenerateResource.cache
 G:\Programme\C#\AP2024\AP2024\obj\Debug\net8.0-windows\AP2024.GeneratedMSBuildEditorConfig.editorconfig
 G:\Programme\C#\AP2024\AP2024\obj\Debug\net8.0-windows\AP2024.AssemblyInfoInputs.cache
@@ -19,3 +18,8 @@ G:\Programme\C#\AP2024\AP2024\obj\Debug\net8.0-windows\AP2024.Properties.Resourc
 G:\Programme\C#\AP2024\AP2024\obj\Debug\net8.0-windows\AP2024.DevInfo.resources
 G:\Programme\C#\AP2024\AP2024\obj\Debug\net8.0-windows\AP2024.EmployeeManager.resources
 G:\Programme\C#\AP2024\AP2024\obj\Debug\net8.0-windows\AP2024.NewEmployee.resources
+G:\Programme\C#\AP2024\AP2024\obj\Debug\net8.0-windows\AP2024.ViewManager.resources
+G:\Programme\C#\AP2024\AP2024\obj\Debug\net8.0-windows\AP2024.SuperViewManager.resources
+G:\Programme\C#\AP2024\AP2024\obj\Debug\net8.0-windows\AP2024.AP2024.resources
+G:\Programme\C#\AP2024\AP2024\obj\Debug\net8.0-windows\AP2024.NewView.resources
+G:\Programme\C#\AP2024\AP2024\obj\Debug\net8.0-windows\AP2024.NewSuperView.resources
