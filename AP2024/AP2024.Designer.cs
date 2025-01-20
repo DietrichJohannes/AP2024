@@ -40,10 +40,13 @@
             mitarbeiterverwaltungToolStripMenuItem = new ToolStripMenuItem();
             toolStripMenuItem1 = new ToolStripMenuItem();
             toolStripMenuItem2 = new ToolStripMenuItem();
+            toolStripSeparator1 = new ToolStripSeparator();
             feiertagsverwaltungToolStripMenuItem = new ToolStripMenuItem();
+            toolStripSeparator2 = new ToolStripSeparator();
             adminKonsoleToolStripMenuItem = new ToolStripMenuItem();
             aP2024EinstellungenToolStripMenuItem = new ToolStripMenuItem();
             hilfeToolStripMenuItem = new ToolStripMenuItem();
+            anleitungToolStripMenuItem = new ToolStripMenuItem();
             hilfeToolStripMenuItem1 = new ToolStripMenuItem();
             infoÜberDenEntwicklerToolStripMenuItem = new ToolStripMenuItem();
             contextMenuStrip1 = new ContextMenuStrip(components);
@@ -54,6 +57,8 @@
             button3 = new Button();
             calendarView = new DataGridView();
             monthView = new DataGridView();
+            comboBox1 = new ComboBox();
+            label1 = new Label();
             ((System.ComponentModel.ISupportInitialize)cwView).BeginInit();
             menuStrip1.SuspendLayout();
             contextMenuStrip1.SuspendLayout();
@@ -71,6 +76,7 @@
             cwView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             cwView.BorderStyle = BorderStyle.None;
             cwView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            cwView.EditMode = DataGridViewEditMode.EditProgrammatically;
             cwView.Enabled = false;
             cwView.GridColor = Color.LightGray;
             cwView.Location = new Point(347, 120);
@@ -124,7 +130,7 @@
             // 
             // administrationToolStripMenuItem
             // 
-            administrationToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { mitarbeiterverwaltungToolStripMenuItem, toolStripMenuItem1, toolStripMenuItem2, feiertagsverwaltungToolStripMenuItem, adminKonsoleToolStripMenuItem, aP2024EinstellungenToolStripMenuItem });
+            administrationToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { mitarbeiterverwaltungToolStripMenuItem, toolStripMenuItem1, toolStripMenuItem2, toolStripSeparator1, feiertagsverwaltungToolStripMenuItem, toolStripSeparator2, adminKonsoleToolStripMenuItem, aP2024EinstellungenToolStripMenuItem });
             administrationToolStripMenuItem.Name = "administrationToolStripMenuItem";
             administrationToolStripMenuItem.Size = new Size(98, 20);
             administrationToolStripMenuItem.Text = "Administration";
@@ -149,11 +155,21 @@
             toolStripMenuItem2.Size = new Size(191, 22);
             toolStripMenuItem2.Text = "Abwesenheitstypen";
             // 
+            // toolStripSeparator1
+            // 
+            toolStripSeparator1.Name = "toolStripSeparator1";
+            toolStripSeparator1.Size = new Size(188, 6);
+            // 
             // feiertagsverwaltungToolStripMenuItem
             // 
             feiertagsverwaltungToolStripMenuItem.Name = "feiertagsverwaltungToolStripMenuItem";
             feiertagsverwaltungToolStripMenuItem.Size = new Size(191, 22);
             feiertagsverwaltungToolStripMenuItem.Text = "Feiertagsverwaltung";
+            // 
+            // toolStripSeparator2
+            // 
+            toolStripSeparator2.Name = "toolStripSeparator2";
+            toolStripSeparator2.Size = new Size(188, 6);
             // 
             // adminKonsoleToolStripMenuItem
             // 
@@ -169,10 +185,16 @@
             // 
             // hilfeToolStripMenuItem
             // 
-            hilfeToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { hilfeToolStripMenuItem1, infoÜberDenEntwicklerToolStripMenuItem });
+            hilfeToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { anleitungToolStripMenuItem, hilfeToolStripMenuItem1, infoÜberDenEntwicklerToolStripMenuItem });
             hilfeToolStripMenuItem.Name = "hilfeToolStripMenuItem";
             hilfeToolStripMenuItem.Size = new Size(44, 20);
             hilfeToolStripMenuItem.Text = "Hilfe";
+            // 
+            // anleitungToolStripMenuItem
+            // 
+            anleitungToolStripMenuItem.Name = "anleitungToolStripMenuItem";
+            anleitungToolStripMenuItem.Size = new Size(202, 22);
+            anleitungToolStripMenuItem.Text = "Anleitung";
             // 
             // hilfeToolStripMenuItem1
             // 
@@ -207,7 +229,7 @@
             // 
             // button1
             // 
-            button1.Image = Properties.Resources.refresh;
+            button1.Image = (Image)resources.GetObject("button1.Image");
             button1.Location = new Point(12, 27);
             button1.Name = "button1";
             button1.Size = new Size(35, 35);
@@ -217,7 +239,7 @@
             // 
             // button2
             // 
-            button2.Image = Properties.Resources.save;
+            button2.Image = (Image)resources.GetObject("button2.Image");
             button2.Location = new Point(53, 27);
             button2.Name = "button2";
             button2.Size = new Size(35, 35);
@@ -226,12 +248,13 @@
             // 
             // button3
             // 
-            button3.Image = Properties.Resources.arrow1;
+            button3.Image = (Image)resources.GetObject("button3.Image");
             button3.Location = new Point(94, 27);
             button3.Name = "button3";
             button3.Size = new Size(35, 35);
             button3.TabIndex = 7;
             button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
             // 
             // calendarView
             // 
@@ -261,6 +284,7 @@
             monthView.BorderStyle = BorderStyle.None;
             monthView.CausesValidation = false;
             monthView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            monthView.EditMode = DataGridViewEditMode.EditProgrammatically;
             monthView.Enabled = false;
             monthView.GridColor = Color.LightGray;
             monthView.Location = new Point(347, 100);
@@ -276,11 +300,30 @@
             monthView.Size = new Size(866, 20);
             monthView.TabIndex = 9;
             // 
-            // Form1
+            // comboBox1
+            // 
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Location = new Point(347, 39);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(240, 23);
+            comboBox1.TabIndex = 10;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(217, 47);
+            label1.Name = "label1";
+            label1.Size = new Size(81, 15);
+            label1.TabIndex = 11;
+            label1.Text = "Kalender View";
+            // 
+            // AP2024
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1225, 515);
+            Controls.Add(label1);
+            Controls.Add(comboBox1);
             Controls.Add(monthView);
             Controls.Add(calendarView);
             Controls.Add(button3);
@@ -291,7 +334,7 @@
             Controls.Add(cwView);
             Icon = (Icon)resources.GetObject("$this.Icon");
             MainMenuStrip = menuStrip1;
-            Name = "Form1";
+            Name = "AP2024";
             Text = "AP2024";
             ((System.ComponentModel.ISupportInitialize)cwView).EndInit();
             menuStrip1.ResumeLayout(false);
@@ -331,5 +374,10 @@
         private ToolStripMenuItem aP2024EinstellungenToolStripMenuItem;
         private ToolStripMenuItem hilfeToolStripMenuItem1;
         private ToolStripMenuItem infoÜberDenEntwicklerToolStripMenuItem;
+        private ComboBox comboBox1;
+        private Label label1;
+        private ToolStripSeparator toolStripSeparator1;
+        private ToolStripSeparator toolStripSeparator2;
+        private ToolStripMenuItem anleitungToolStripMenuItem;
     }
 }

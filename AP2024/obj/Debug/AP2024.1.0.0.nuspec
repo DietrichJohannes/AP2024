@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>AP2024</id>
+    <version>1.0.0</version>
+    <authors>AP2024</authors>
+    <description>Package Description</description>
+    <repository type="git" />
+    <dependencies>
+      <group targetFramework="net8.0-windows7.0">
+        <dependency id="System.Data.SQLite" version="1.0.118" exclude="Build,Analyzers" />
+        <dependency id="System.Data.SQLite.Core" version="1.0.118" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+    <frameworkReferences>
+      <group targetFramework="net8.0-windows7.0">
+        <frameworkReference name="Microsoft.WindowsDesktop.App.WindowsForms" />
+      </group>
+    </frameworkReferences>
+    <contentFiles>
+      <files include="any/net8.0-windows7.0/island.ico" buildAction="Content" />
+    </contentFiles>
+  </metadata>
+  <files>
+    <file src="G:\Programme\C#\AP2024\AP2024\bin\Debug\net8.0-windows\AP2024.runtimeconfig.json" target="lib\net8.0-windows7.0\AP2024.runtimeconfig.json" />
+    <file src="G:\Programme\C#\AP2024\AP2024\bin\Debug\net8.0-windows\AP2024.dll" target="lib\net8.0-windows7.0\AP2024.dll" />
+    <file src="G:\Programme\C#\AP2024\AP2024\island.ico" target="content\island.ico" />
+    <file src="G:\Programme\C#\AP2024\AP2024\island.ico" target="contentFiles\any\net8.0-windows7.0\island.ico" />
+  </files>
+</package>

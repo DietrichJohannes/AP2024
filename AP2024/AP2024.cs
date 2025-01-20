@@ -7,7 +7,8 @@ namespace AP2024
         public AP2024()
         {
             InitializeComponent();
-            initCalendar();
+            initCalendar();                                                                 // Initialisiere den Kalender
+            DatabaseController.InitializeDatabase();                                        // Initialisiere (Erstelle) die Datenbank
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -58,6 +59,11 @@ namespace AP2024
         {
             ViewManager viewManager = new ViewManager();
             viewManager.Show();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

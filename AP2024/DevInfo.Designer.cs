@@ -48,7 +48,7 @@
             // 
             // pictureBox1
             // 
-            pictureBox1.Image = Properties.Resources.island;
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
             pictureBox1.InitialImage = null;
             pictureBox1.Location = new Point(86, 112);
             pictureBox1.Name = "pictureBox1";
@@ -77,7 +77,9 @@
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
+            MinimizeBox = false;
             Name = "DevInfo";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Über den Entwickler";
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);

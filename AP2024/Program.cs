@@ -8,9 +8,19 @@ namespace AP2024
         [STAThread]
         static void Main()
         {
-            // To customize application configuration such as set high DPI settings or default font,
-            // see https://aka.ms/applicationconfiguration.
-            ApplicationConfiguration.Initialize();
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+
+            // SplashScreen anzeigen
+            SplashScreen splash = new SplashScreen();
+            splash.Show();
+            splash.Refresh();
+
+            // 8 Sekunden warten
+            Thread.Sleep(8000);
+
+            // SplashScreen schlieﬂen und Hauptform starten
+            splash.Close();
             Application.Run(new AP2024());
         }
     }

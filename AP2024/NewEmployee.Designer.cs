@@ -54,6 +54,7 @@
             button1.TabIndex = 0;
             button1.Text = "Speichern";
             button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // textBox1
             // 
