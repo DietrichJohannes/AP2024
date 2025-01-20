@@ -19,11 +19,11 @@
       "RelativeMoniker": "D:0:0:{AABDA589-6458-4542-ADE7-3E1819D4C475}|AP2024\\AP2024.csproj|solutionrelative:ap2024\\newemployee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AABDA589-6458-4542-ADE7-3E1819D4C475}|AP2024\\AP2024.csproj|g:\\programme\\c#\\ap2024\\ap2024\\viewmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{AABDA589-6458-4542-ADE7-3E1819D4C475}|AP2024\\AP2024.csproj|G:\\Programme\\C#\\AP2024\\ap2024\\viewmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{AABDA589-6458-4542-ADE7-3E1819D4C475}|AP2024\\AP2024.csproj|solutionrelative:ap2024\\viewmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AABDA589-6458-4542-ADE7-3E1819D4C475}|AP2024\\AP2024.csproj|g:\\programme\\c#\\ap2024\\ap2024\\superviewmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{AABDA589-6458-4542-ADE7-3E1819D4C475}|AP2024\\AP2024.csproj|G:\\Programme\\C#\\AP2024\\ap2024\\superviewmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{AABDA589-6458-4542-ADE7-3E1819D4C475}|AP2024\\AP2024.csproj|solutionrelative:ap2024\\superviewmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
@@ -31,11 +31,11 @@
       "RelativeMoniker": "D:0:0:{AABDA589-6458-4542-ADE7-3E1819D4C475}|AP2024\\AP2024.csproj|solutionrelative:ap2024\\newemployee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AABDA589-6458-4542-ADE7-3E1819D4C475}|AP2024\\AP2024.csproj|g:\\programme\\c#\\ap2024\\ap2024\\employeemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{AABDA589-6458-4542-ADE7-3E1819D4C475}|AP2024\\AP2024.csproj|G:\\Programme\\C#\\AP2024\\ap2024\\employeemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{AABDA589-6458-4542-ADE7-3E1819D4C475}|AP2024\\AP2024.csproj|solutionrelative:ap2024\\employeemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AABDA589-6458-4542-ADE7-3E1819D4C475}|AP2024\\AP2024.csproj|g:\\programme\\c#\\ap2024\\ap2024\\devinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{AABDA589-6458-4542-ADE7-3E1819D4C475}|AP2024\\AP2024.csproj|G:\\Programme\\C#\\AP2024\\ap2024\\devinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{AABDA589-6458-4542-ADE7-3E1819D4C475}|AP2024\\AP2024.csproj|solutionrelative:ap2024\\devinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
@@ -66,8 +66,7 @@
               "RelativeToolTip": "AP2024\\ApplicationContext.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-20T18:31:04.751Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-20T18:31:04.751Z"
             },
             {
               "$type": "Document",
@@ -78,8 +77,7 @@
               "ToolTip": "G:\\Programme\\C#\\AP2024\\AP2024\\SuperViewManager.cs [Entwurf]",
               "RelativeToolTip": "AP2024\\SuperViewManager.cs [Entwurf]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-20T18:29:10.697Z",
-              "EditorCaption": " [Entwurf]"
+              "WhenOpened": "2025-01-20T18:29:10.697Z"
             },
             {
               "$type": "Document",
@@ -90,8 +88,7 @@
               "ToolTip": "G:\\Programme\\C#\\AP2024\\AP2024\\EmployeeManager.cs [Entwurf]",
               "RelativeToolTip": "AP2024\\EmployeeManager.cs [Entwurf]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-20T18:27:49.598Z",
-              "EditorCaption": " [Entwurf]"
+              "WhenOpened": "2025-01-20T18:27:49.598Z"
             },
             {
               "$type": "Document",
@@ -102,8 +99,7 @@
               "ToolTip": "G:\\Programme\\C#\\AP2024\\AP2024\\DevInfo.cs [Entwurf]",
               "RelativeToolTip": "AP2024\\DevInfo.cs [Entwurf]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-20T18:27:39.612Z",
-              "EditorCaption": " [Entwurf]"
+              "WhenOpened": "2025-01-20T18:27:39.612Z"
             },
             {
               "$type": "Document",
@@ -127,8 +123,7 @@
               "ToolTip": "G:\\Programme\\C#\\AP2024\\AP2024\\ViewManager.cs [Entwurf]",
               "RelativeToolTip": "AP2024\\ViewManager.cs [Entwurf]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-20T18:25:19.694Z",
-              "EditorCaption": " [Entwurf]"
+              "WhenOpened": "2025-01-20T18:25:19.694Z"
             },
             {
               "$type": "Document",
@@ -140,8 +135,7 @@
               "RelativeToolTip": "AP2024\\DatabaseController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAIAAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-20T18:18:29.847Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-20T18:18:29.847Z"
             },
             {
               "$type": "Document",
@@ -165,8 +159,7 @@
               "ToolTip": "G:\\Programme\\C#\\AP2024\\AP2024\\NewEmployee.cs [Entwurf]",
               "RelativeToolTip": "AP2024\\NewEmployee.cs [Entwurf]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-20T17:51:24.668Z",
-              "EditorCaption": " [Entwurf]"
+              "WhenOpened": "2025-01-20T17:51:24.668Z"
             }
           ]
         }
