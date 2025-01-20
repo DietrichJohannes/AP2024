@@ -82,6 +82,7 @@
             Controls.Add(listView1);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "SuperViewManager";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "SuperView Manager";
             ResumeLayout(false);
         }

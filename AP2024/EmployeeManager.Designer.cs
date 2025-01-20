@@ -110,6 +110,7 @@
             Controls.Add(listView1);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "EmployeeManager";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Mitarbeiterverwaltung";
             ResumeLayout(false);
         }

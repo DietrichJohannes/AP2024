@@ -185,7 +185,7 @@
             // 
             // hilfeToolStripMenuItem
             // 
-            hilfeToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { anleitungToolStripMenuItem, hilfeToolStripMenuItem1, infoÜberDenEntwicklerToolStripMenuItem });
+            hilfeToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { hilfeToolStripMenuItem1, anleitungToolStripMenuItem, infoÜberDenEntwicklerToolStripMenuItem });
             hilfeToolStripMenuItem.Name = "hilfeToolStripMenuItem";
             hilfeToolStripMenuItem.Size = new Size(44, 20);
             hilfeToolStripMenuItem.Text = "Hilfe";
@@ -336,6 +336,7 @@
             MainMenuStrip = menuStrip1;
             Name = "AP2024";
             Text = "AP2024";
+            WindowState = FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)cwView).EndInit();
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();

@@ -102,6 +102,7 @@
             Controls.Add(textBox1);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "NewView";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Neues View";
             ResumeLayout(false);
             PerformLayout();

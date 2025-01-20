@@ -173,6 +173,7 @@
             Controls.Add(button1);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "NewEmployee";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Neuer Mitarbeiter";
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown2).EndInit();

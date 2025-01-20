@@ -69,6 +69,7 @@
             Controls.Add(textBox1);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "NewSuperView";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Neues SuperView";
             ResumeLayout(false);
             PerformLayout();

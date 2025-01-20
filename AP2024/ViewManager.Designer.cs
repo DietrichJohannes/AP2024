@@ -94,6 +94,7 @@
             Controls.Add(listView1);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "ViewManager";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "View Manager";
             ResumeLayout(false);
         }

@@ -38,7 +38,7 @@
             // label1
             // 
             label1.Font = new Font("Segoe UI", 48F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.ForeColor = Color.White;
+            label1.ForeColor = Color.Black;
             label1.Location = new Point(12, 12);
             label1.Name = "label1";
             label1.Size = new Size(616, 86);
@@ -58,7 +58,7 @@
             // 
             // label2
             // 
-            label2.ForeColor = Color.White;
+            label2.ForeColor = Color.Black;
             label2.Location = new Point(12, 280);
             label2.Name = "label2";
             label2.Size = new Size(616, 71);
@@ -70,7 +70,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(64, 64, 64);
+            BackColor = SystemColors.Control;
             ClientSize = new Size(640, 360);
             Controls.Add(label2);
             Controls.Add(pictureBox1);
