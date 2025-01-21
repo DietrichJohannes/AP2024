@@ -29,20 +29,34 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ViewManager));
-            listView1 = new ListView();
+            viewList = new ListView();
+            columnHeader1 = new ColumnHeader();
+            columnHeader2 = new ColumnHeader();
             button1 = new Button();
             button2 = new Button();
             button3 = new Button();
             button4 = new Button();
             SuspendLayout();
             // 
-            // listView1
+            // viewList
             // 
-            listView1.Location = new Point(12, 12);
-            listView1.Name = "listView1";
-            listView1.Size = new Size(1029, 443);
-            listView1.TabIndex = 0;
-            listView1.UseCompatibleStateImageBehavior = false;
+            viewList.Columns.AddRange(new ColumnHeader[] { columnHeader1, columnHeader2 });
+            viewList.Location = new Point(12, 12);
+            viewList.Name = "viewList";
+            viewList.Size = new Size(1029, 443);
+            viewList.TabIndex = 0;
+            viewList.UseCompatibleStateImageBehavior = false;
+            viewList.View = View.Details;
+            // 
+            // columnHeader1
+            // 
+            columnHeader1.Text = "View Name";
+            columnHeader1.Width = 510;
+            // 
+            // columnHeader2
+            // 
+            columnHeader2.Text = "SuperView";
+            columnHeader2.Width = 510;
             // 
             // button1
             // 
@@ -91,7 +105,7 @@
             Controls.Add(button3);
             Controls.Add(button2);
             Controls.Add(button1);
-            Controls.Add(listView1);
+            Controls.Add(viewList);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "ViewManager";
             StartPosition = FormStartPosition.CenterScreen;
@@ -101,10 +115,12 @@
 
         #endregion
 
-        private ListView listView1;
+        private ListView viewList;
         private Button button1;
         private Button button2;
         private Button button3;
         private Button button4;
+        private ColumnHeader columnHeader1;
+        private ColumnHeader columnHeader2;
     }
 }

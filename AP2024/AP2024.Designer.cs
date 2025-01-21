@@ -46,8 +46,8 @@
             adminKonsoleToolStripMenuItem = new ToolStripMenuItem();
             aP2024EinstellungenToolStripMenuItem = new ToolStripMenuItem();
             hilfeToolStripMenuItem = new ToolStripMenuItem();
-            anleitungToolStripMenuItem = new ToolStripMenuItem();
             hilfeToolStripMenuItem1 = new ToolStripMenuItem();
+            anleitungToolStripMenuItem = new ToolStripMenuItem();
             infoÜberDenEntwicklerToolStripMenuItem = new ToolStripMenuItem();
             contextMenuStrip1 = new ContextMenuStrip(components);
             testToolStripMenuItem = new ToolStripMenuItem();
@@ -57,7 +57,7 @@
             button3 = new Button();
             calendarView = new DataGridView();
             monthView = new DataGridView();
-            comboBox1 = new ComboBox();
+            viewCB = new ComboBox();
             label1 = new Label();
             ((System.ComponentModel.ISupportInitialize)cwView).BeginInit();
             menuStrip1.SuspendLayout();
@@ -190,17 +190,17 @@
             hilfeToolStripMenuItem.Size = new Size(44, 20);
             hilfeToolStripMenuItem.Text = "Hilfe";
             // 
-            // anleitungToolStripMenuItem
-            // 
-            anleitungToolStripMenuItem.Name = "anleitungToolStripMenuItem";
-            anleitungToolStripMenuItem.Size = new Size(202, 22);
-            anleitungToolStripMenuItem.Text = "Anleitung";
-            // 
             // hilfeToolStripMenuItem1
             // 
             hilfeToolStripMenuItem1.Name = "hilfeToolStripMenuItem1";
             hilfeToolStripMenuItem1.Size = new Size(202, 22);
             hilfeToolStripMenuItem1.Text = "Hilfe";
+            // 
+            // anleitungToolStripMenuItem
+            // 
+            anleitungToolStripMenuItem.Name = "anleitungToolStripMenuItem";
+            anleitungToolStripMenuItem.Size = new Size(202, 22);
+            anleitungToolStripMenuItem.Text = "Anleitung";
             // 
             // infoÜberDenEntwicklerToolStripMenuItem
             // 
@@ -300,22 +300,23 @@
             monthView.Size = new Size(866, 20);
             monthView.TabIndex = 9;
             // 
-            // comboBox1
+            // viewCB
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(347, 39);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(240, 23);
-            comboBox1.TabIndex = 10;
+            viewCB.DropDownStyle = ComboBoxStyle.DropDownList;
+            viewCB.Location = new Point(347, 39);
+            viewCB.Name = "viewCB";
+            viewCB.Size = new Size(240, 23);
+            viewCB.TabIndex = 10;
+            viewCB.SelectedIndexChanged += viewCB_SelectedIndexChanged;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(217, 47);
+            label1.Location = new Point(241, 47);
             label1.Name = "label1";
-            label1.Size = new Size(81, 15);
+            label1.Size = new Size(32, 15);
             label1.TabIndex = 11;
-            label1.Text = "Kalender View";
+            label1.Text = "View";
             // 
             // AP2024
             // 
@@ -323,7 +324,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1225, 515);
             Controls.Add(label1);
-            Controls.Add(comboBox1);
+            Controls.Add(viewCB);
             Controls.Add(monthView);
             Controls.Add(calendarView);
             Controls.Add(button3);
@@ -375,7 +376,7 @@
         private ToolStripMenuItem aP2024EinstellungenToolStripMenuItem;
         private ToolStripMenuItem hilfeToolStripMenuItem1;
         private ToolStripMenuItem infoÜberDenEntwicklerToolStripMenuItem;
-        private ComboBox comboBox1;
+        private ComboBox viewCB;
         private Label label1;
         private ToolStripSeparator toolStripSeparator1;
         private ToolStripSeparator toolStripSeparator2;

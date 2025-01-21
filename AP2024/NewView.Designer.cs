@@ -29,28 +29,28 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NewView));
-            textBox1 = new TextBox();
-            comboBox1 = new ComboBox();
+            viewNameText = new TextBox();
+            superViewCB = new ComboBox();
             button1 = new Button();
             label1 = new Label();
             label2 = new Label();
             button2 = new Button();
             SuspendLayout();
             // 
-            // textBox1
+            // viewNameText
             // 
-            textBox1.Location = new Point(174, 12);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(263, 23);
-            textBox1.TabIndex = 0;
+            viewNameText.Location = new Point(174, 12);
+            viewNameText.Name = "viewNameText";
+            viewNameText.Size = new Size(263, 23);
+            viewNameText.TabIndex = 0;
             // 
-            // comboBox1
+            // superViewCB
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(174, 41);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(263, 23);
-            comboBox1.TabIndex = 1;
+            superViewCB.FormattingEnabled = true;
+            superViewCB.Location = new Point(174, 41);
+            superViewCB.Name = "superViewCB";
+            superViewCB.Size = new Size(263, 23);
+            superViewCB.TabIndex = 1;
             // 
             // button1
             // 
@@ -60,6 +60,7 @@
             button1.TabIndex = 2;
             button1.Text = "Speichern";
             button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // label1
             // 
@@ -98,8 +99,8 @@
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(button1);
-            Controls.Add(comboBox1);
-            Controls.Add(textBox1);
+            Controls.Add(superViewCB);
+            Controls.Add(viewNameText);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "NewView";
             StartPosition = FormStartPosition.CenterScreen;
@@ -110,8 +111,8 @@
 
         #endregion
 
-        private TextBox textBox1;
-        private ComboBox comboBox1;
+        private TextBox viewNameText;
+        private ComboBox superViewCB;
         private Button button1;
         private Label label1;
         private Label label2;

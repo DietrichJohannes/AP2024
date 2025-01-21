@@ -29,17 +29,17 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NewSuperView));
-            textBox1 = new TextBox();
+            superViewNameText = new TextBox();
             label1 = new Label();
             button1 = new Button();
             SuspendLayout();
             // 
-            // textBox1
+            // superViewNameText
             // 
-            textBox1.Location = new Point(174, 12);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(263, 23);
-            textBox1.TabIndex = 0;
+            superViewNameText.Location = new Point(174, 12);
+            superViewNameText.Name = "superViewNameText";
+            superViewNameText.Size = new Size(263, 23);
+            superViewNameText.TabIndex = 0;
             // 
             // label1
             // 
@@ -58,6 +58,7 @@
             button1.TabIndex = 2;
             button1.Text = "Speichern";
             button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // NewSuperView
             // 
@@ -66,7 +67,7 @@
             ClientSize = new Size(449, 150);
             Controls.Add(button1);
             Controls.Add(label1);
-            Controls.Add(textBox1);
+            Controls.Add(superViewNameText);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "NewSuperView";
             StartPosition = FormStartPosition.CenterScreen;
@@ -77,7 +78,7 @@
 
         #endregion
 
-        private TextBox textBox1;
+        private TextBox superViewNameText;
         private Label label1;
         private Button button1;
     }

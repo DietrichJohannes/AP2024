@@ -30,20 +30,20 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NewEmployee));
             button1 = new Button();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
-            textBox3 = new TextBox();
-            comboBox1 = new ComboBox();
-            numericUpDown1 = new NumericUpDown();
-            numericUpDown2 = new NumericUpDown();
+            firstNameText = new TextBox();
+            lastNameText = new TextBox();
+            windowsUserText = new TextBox();
+            viewCB = new ComboBox();
+            leaveEntitlementNUD = new NumericUpDown();
+            remainingLeaveNUD = new NumericUpDown();
             label1 = new Label();
             label2 = new Label();
             label3 = new Label();
             label4 = new Label();
             label5 = new Label();
             label6 = new Label();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)leaveEntitlementNUD).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)remainingLeaveNUD).BeginInit();
             SuspendLayout();
             // 
             // button1
@@ -56,48 +56,50 @@
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
-            // textBox1
+            // firstNameText
             // 
-            textBox1.Location = new Point(220, 12);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(279, 23);
-            textBox1.TabIndex = 1;
+            firstNameText.Location = new Point(220, 12);
+            firstNameText.Name = "firstNameText";
+            firstNameText.Size = new Size(279, 23);
+            firstNameText.TabIndex = 1;
             // 
-            // textBox2
+            // lastNameText
             // 
-            textBox2.Location = new Point(220, 41);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(279, 23);
-            textBox2.TabIndex = 2;
+            lastNameText.Location = new Point(220, 41);
+            lastNameText.Name = "lastNameText";
+            lastNameText.Size = new Size(279, 23);
+            lastNameText.TabIndex = 2;
             // 
-            // textBox3
+            // windowsUserText
             // 
-            textBox3.Location = new Point(220, 70);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(279, 23);
-            textBox3.TabIndex = 3;
+            windowsUserText.Location = new Point(220, 70);
+            windowsUserText.Name = "windowsUserText";
+            windowsUserText.Size = new Size(279, 23);
+            windowsUserText.TabIndex = 3;
             // 
-            // comboBox1
+            // viewCB
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(220, 99);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(279, 23);
-            comboBox1.TabIndex = 4;
+            viewCB.FormattingEnabled = true;
+            viewCB.Location = new Point(220, 99);
+            viewCB.Name = "viewCB";
+            viewCB.Size = new Size(279, 23);
+            viewCB.TabIndex = 4;
             // 
-            // numericUpDown1
+            // leaveEntitlementNUD
             // 
-            numericUpDown1.Location = new Point(220, 128);
-            numericUpDown1.Name = "numericUpDown1";
-            numericUpDown1.Size = new Size(279, 23);
-            numericUpDown1.TabIndex = 5;
+            leaveEntitlementNUD.Location = new Point(220, 157);
+            leaveEntitlementNUD.Name = "leaveEntitlementNUD";
+            leaveEntitlementNUD.Size = new Size(279, 23);
+            leaveEntitlementNUD.TabIndex = 5;
+            leaveEntitlementNUD.Value = new decimal(new int[] { 10, 0, 0, 0 });
             // 
-            // numericUpDown2
+            // remainingLeaveNUD
             // 
-            numericUpDown2.Location = new Point(220, 157);
-            numericUpDown2.Name = "numericUpDown2";
-            numericUpDown2.Size = new Size(279, 23);
-            numericUpDown2.TabIndex = 6;
+            remainingLeaveNUD.Location = new Point(220, 128);
+            remainingLeaveNUD.Name = "remainingLeaveNUD";
+            remainingLeaveNUD.Size = new Size(279, 23);
+            remainingLeaveNUD.TabIndex = 6;
+            remainingLeaveNUD.Value = new decimal(new int[] { 30, 0, 0, 0 });
             // 
             // label1
             // 
@@ -164,19 +166,19 @@
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
-            Controls.Add(numericUpDown2);
-            Controls.Add(numericUpDown1);
-            Controls.Add(comboBox1);
-            Controls.Add(textBox3);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
+            Controls.Add(remainingLeaveNUD);
+            Controls.Add(leaveEntitlementNUD);
+            Controls.Add(viewCB);
+            Controls.Add(windowsUserText);
+            Controls.Add(lastNameText);
+            Controls.Add(firstNameText);
             Controls.Add(button1);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "NewEmployee";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Neuer Mitarbeiter";
-            ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)leaveEntitlementNUD).EndInit();
+            ((System.ComponentModel.ISupportInitialize)remainingLeaveNUD).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -184,12 +186,12 @@
         #endregion
 
         private Button button1;
-        private TextBox textBox1;
-        private TextBox textBox2;
-        private TextBox textBox3;
-        private ComboBox comboBox1;
-        private NumericUpDown numericUpDown1;
-        private NumericUpDown numericUpDown2;
+        private TextBox firstNameText;
+        private TextBox lastNameText;
+        private TextBox windowsUserText;
+        private ComboBox viewCB;
+        private NumericUpDown leaveEntitlementNUD;
+        private NumericUpDown remainingLeaveNUD;
         private Label label1;
         private Label label2;
         private Label label3;

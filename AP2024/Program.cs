@@ -17,7 +17,7 @@ namespace AP2024
             splash.Refresh();
 
             // 8 Sekunden warten
-            Thread.Sleep(8000);
+            Thread.Sleep(2000);
 
             // SplashScreen schlieﬂen und Hauptform starten
             splash.Close();

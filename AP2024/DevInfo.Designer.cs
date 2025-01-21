@@ -37,11 +37,11 @@
             // 
             // label1
             // 
-            label1.Dock = DockStyle.Fill;
+            label1.Dock = DockStyle.Top;
             label1.Font = new Font("Segoe UI", 36F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.Location = new Point(0, 0);
             label1.Name = "label1";
-            label1.Size = new Size(600, 326);
+            label1.Size = new Size(600, 195);
             label1.TabIndex = 0;
             label1.Text = "AP2024";
             label1.TextAlign = ContentAlignment.MiddleCenter;
@@ -50,18 +50,18 @@
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
             pictureBox1.InitialImage = null;
-            pictureBox1.Location = new Point(86, 112);
+            pictureBox1.Location = new Point(12, 125);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(120, 120);
-            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.Size = new Size(576, 120);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 1;
             pictureBox1.TabStop = false;
             // 
             // label2
             // 
-            label2.Location = new Point(212, 191);
+            label2.Location = new Point(12, 264);
             label2.Name = "label2";
-            label2.Size = new Size(170, 41);
+            label2.Size = new Size(576, 41);
             label2.TabIndex = 2;
             label2.Text = "© Johannes Dietrich\r\n2025";
             label2.TextAlign = ContentAlignment.MiddleCenter;

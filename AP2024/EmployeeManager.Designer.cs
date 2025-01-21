@@ -29,7 +29,12 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EmployeeManager));
-            listView1 = new ListView();
+            employeeListView = new ListView();
+            columnHeader1 = new ColumnHeader();
+            columnHeader2 = new ColumnHeader();
+            columnHeader3 = new ColumnHeader();
+            columnHeader4 = new ColumnHeader();
+            columnHeader5 = new ColumnHeader();
             button1 = new Button();
             button2 = new Button();
             button3 = new Button();
@@ -37,19 +42,46 @@
             button5 = new Button();
             SuspendLayout();
             // 
-            // listView1
+            // employeeListView
             // 
-            listView1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            listView1.Location = new Point(12, 12);
-            listView1.Name = "listView1";
-            listView1.Size = new Size(1006, 360);
-            listView1.TabIndex = 0;
-            listView1.UseCompatibleStateImageBehavior = false;
+            employeeListView.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            employeeListView.Columns.AddRange(new ColumnHeader[] { columnHeader1, columnHeader2, columnHeader3, columnHeader4, columnHeader5 });
+            employeeListView.Location = new Point(12, 12);
+            employeeListView.Name = "employeeListView";
+            employeeListView.Size = new Size(1006, 441);
+            employeeListView.TabIndex = 0;
+            employeeListView.UseCompatibleStateImageBehavior = false;
+            employeeListView.View = View.Details;
+            // 
+            // columnHeader1
+            // 
+            columnHeader1.Text = "Name";
+            columnHeader1.Width = 200;
+            // 
+            // columnHeader2
+            // 
+            columnHeader2.Text = "Windows User";
+            columnHeader2.Width = 200;
+            // 
+            // columnHeader3
+            // 
+            columnHeader3.Text = "View";
+            columnHeader3.Width = 200;
+            // 
+            // columnHeader4
+            // 
+            columnHeader4.Text = "Rest Urlaub";
+            columnHeader4.Width = 200;
+            // 
+            // columnHeader5
+            // 
+            columnHeader5.Text = "Tarifurlaub";
+            columnHeader5.Width = 200;
             // 
             // button1
             // 
             button1.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            button1.Location = new Point(943, 378);
+            button1.Location = new Point(943, 459);
             button1.Name = "button1";
             button1.Size = new Size(75, 23);
             button1.TabIndex = 1;
@@ -59,7 +91,7 @@
             // button2
             // 
             button2.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            button2.Location = new Point(862, 378);
+            button2.Location = new Point(862, 459);
             button2.Name = "button2";
             button2.Size = new Size(75, 23);
             button2.TabIndex = 2;
@@ -69,7 +101,7 @@
             // button3
             // 
             button3.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            button3.Location = new Point(862, 407);
+            button3.Location = new Point(862, 488);
             button3.Name = "button3";
             button3.Size = new Size(156, 23);
             button3.TabIndex = 3;
@@ -80,17 +112,18 @@
             // button4
             // 
             button4.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            button4.Location = new Point(12, 378);
+            button4.Location = new Point(12, 459);
             button4.Name = "button4";
             button4.Size = new Size(156, 23);
             button4.TabIndex = 4;
             button4.Text = "Urlaub vergeben";
             button4.UseVisualStyleBackColor = true;
+            button4.Click += button4_Click;
             // 
             // button5
             // 
             button5.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            button5.Location = new Point(12, 407);
+            button5.Location = new Point(12, 488);
             button5.Name = "button5";
             button5.Size = new Size(156, 23);
             button5.TabIndex = 5;
@@ -101,13 +134,13 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1030, 441);
+            ClientSize = new Size(1030, 522);
             Controls.Add(button5);
             Controls.Add(button4);
             Controls.Add(button3);
             Controls.Add(button2);
             Controls.Add(button1);
-            Controls.Add(listView1);
+            Controls.Add(employeeListView);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "EmployeeManager";
             StartPosition = FormStartPosition.CenterScreen;
@@ -117,11 +150,16 @@
 
         #endregion
 
-        private ListView listView1;
+        private ListView employeeListView;
         private Button button1;
         private Button button2;
         private Button button3;
         private Button button4;
         private Button button5;
+        private ColumnHeader columnHeader1;
+        private ColumnHeader columnHeader2;
+        private ColumnHeader columnHeader3;
+        private ColumnHeader columnHeader4;
+        private ColumnHeader columnHeader5;
     }
 }

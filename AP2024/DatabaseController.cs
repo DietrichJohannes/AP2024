@@ -46,7 +46,7 @@ namespace AP2024
                                                        first_name TEXT NOT NULL,
                                                        last_name TEXT NOT NULL,
                                                        windows_username TEXT NOT NULL,
-                                                       User_View INTEGER NOT NULL,
+                                                       view INTEGER NOT NULL,
                                                        leave_entitlement INTEGER NOT NULL,
                                                        remaining_leave INTEGER NOT NULL,
                                                        sick_days INTEGER DEFAULT 0
@@ -70,7 +70,7 @@ namespace AP2024
 
                 ExecuteNonQuery(connection, createAbsencesTableQuery);
 
-                string createViewTableQuery = @"CREATE TABLE IF NOT EXISTS UserViews (
+                string createViewTableQuery = @"CREATE TABLE IF NOT EXISTS Views (
                                                         id INTEGER PRIMARY KEY AUTOINCREMENT,
                                                         view_name TEXT NOT NULL,
                                                         parent_view_id INTEGER

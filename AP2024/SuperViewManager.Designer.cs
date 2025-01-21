@@ -29,19 +29,22 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SuperViewManager));
-            listView1 = new ListView();
+            superviewList = new ListView();
             button1 = new Button();
             button2 = new Button();
             button3 = new Button();
+            columnHeader1 = new ColumnHeader();
             SuspendLayout();
             // 
-            // listView1
+            // superviewList
             // 
-            listView1.Location = new Point(12, 12);
-            listView1.Name = "listView1";
-            listView1.Size = new Size(718, 268);
-            listView1.TabIndex = 0;
-            listView1.UseCompatibleStateImageBehavior = false;
+            superviewList.Columns.AddRange(new ColumnHeader[] { columnHeader1 });
+            superviewList.Location = new Point(12, 12);
+            superviewList.Name = "superviewList";
+            superviewList.Size = new Size(718, 268);
+            superviewList.TabIndex = 0;
+            superviewList.UseCompatibleStateImageBehavior = false;
+            superviewList.View = View.Details;
             // 
             // button1
             // 
@@ -71,6 +74,11 @@
             button3.UseVisualStyleBackColor = true;
             button3.Click += button3_Click;
             // 
+            // columnHeader1
+            // 
+            columnHeader1.Text = "SuperView Name";
+            columnHeader1.Width = 710;
+            // 
             // SuperViewManager
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -79,7 +87,7 @@
             Controls.Add(button3);
             Controls.Add(button2);
             Controls.Add(button1);
-            Controls.Add(listView1);
+            Controls.Add(superviewList);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "SuperViewManager";
             StartPosition = FormStartPosition.CenterScreen;
@@ -89,9 +97,10 @@
 
         #endregion
 
-        private ListView listView1;
+        private ListView superviewList;
         private Button button1;
         private Button button2;
         private Button button3;
+        private ColumnHeader columnHeader1;
     }
 }
