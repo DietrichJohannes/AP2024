@@ -29,6 +29,7 @@ namespace AP2024
 
         private void button1_Click(object sender, EventArgs e)
         {
+            GetSelectedViewID();
             SaveNewView();
         }
 
@@ -59,7 +60,7 @@ namespace AP2024
 
                         if (result > 0)
                         {
-                            MessageBox.Show("View gespeichert!", "AP2024");
+                            NotificationController.Saved();
                             this.Close();
                         }
                         else

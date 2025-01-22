@@ -59,6 +59,7 @@
             monthView = new DataGridView();
             viewCB = new ComboBox();
             label1 = new Label();
+            testToolStripMenuItem1 = new ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)cwView).BeginInit();
             menuStrip1.SuspendLayout();
             contextMenuStrip1.SuspendLayout();
@@ -102,7 +103,7 @@
             // 
             // menuStrip1
             // 
-            menuStrip1.Items.AddRange(new ToolStripItem[] { meinAP2024ToolStripMenuItem, administrationToolStripMenuItem, hilfeToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { meinAP2024ToolStripMenuItem, administrationToolStripMenuItem, hilfeToolStripMenuItem, testToolStripMenuItem1 });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Size = new Size(1225, 24);
@@ -154,6 +155,7 @@
             toolStripMenuItem2.Name = "toolStripMenuItem2";
             toolStripMenuItem2.Size = new Size(191, 22);
             toolStripMenuItem2.Text = "Abwesenheitstypen";
+            toolStripMenuItem2.Click += toolStripMenuItem2_Click;
             // 
             // toolStripSeparator1
             // 
@@ -318,6 +320,13 @@
             label1.TabIndex = 11;
             label1.Text = "View";
             // 
+            // testToolStripMenuItem1
+            // 
+            testToolStripMenuItem1.Name = "testToolStripMenuItem1";
+            testToolStripMenuItem1.Size = new Size(39, 20);
+            testToolStripMenuItem1.Text = "Test";
+            testToolStripMenuItem1.Click += testToolStripMenuItem1_Click;
+            // 
             // AP2024
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -381,5 +390,6 @@
         private ToolStripSeparator toolStripSeparator1;
         private ToolStripSeparator toolStripSeparator2;
         private ToolStripMenuItem anleitungToolStripMenuItem;
+        private ToolStripMenuItem testToolStripMenuItem1;
     }
 }

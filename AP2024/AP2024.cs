@@ -95,7 +95,10 @@ namespace AP2024
             if (viewCB != null)
             {
                 SelectedView = (int)viewCB.SelectedValue;
-                MessageBox.Show(SelectedView.ToString());
+            }
+            else
+            {
+                MessageBox.Show("Keine View ausgewählt");
             }
         }
 
@@ -197,6 +200,18 @@ namespace AP2024
         {
             GetSelectedView();
             LoadEmployees();
+        }
+
+        private void toolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            AbsenceManager absenceManager = new AbsenceManager();
+            absenceManager.Show();
+        }
+
+        private void testToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Saved saved = new Saved();
+            saved.Show();
         }
     }
 }

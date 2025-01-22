@@ -3,20 +3,24 @@
   "WorkspaceRootPath": "G:\\Programme\\C#\\AP2024\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{AABDA589-6458-4542-ADE7-3E1819D4C475}|AP2024\\AP2024.csproj|g:\\programme\\c#\\ap2024\\ap2024\\superviewmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{AABDA589-6458-4542-ADE7-3E1819D4C475}|AP2024\\AP2024.csproj|solutionrelative:ap2024\\superviewmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{AABDA589-6458-4542-ADE7-3E1819D4C475}|AP2024\\AP2024.csproj|g:\\programme\\c#\\ap2024\\ap2024\\saved.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AABDA589-6458-4542-ADE7-3E1819D4C475}|AP2024\\AP2024.csproj|solutionrelative:ap2024\\saved.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AABDA589-6458-4542-ADE7-3E1819D4C475}|AP2024\\AP2024.csproj|g:\\programme\\c#\\ap2024\\ap2024\\superviewmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AABDA589-6458-4542-ADE7-3E1819D4C475}|AP2024\\AP2024.csproj|solutionrelative:ap2024\\superviewmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{AABDA589-6458-4542-ADE7-3E1819D4C475}|AP2024\\AP2024.csproj|g:\\programme\\c#\\ap2024\\ap2024\\saved.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AABDA589-6458-4542-ADE7-3E1819D4C475}|AP2024\\AP2024.csproj|solutionrelative:ap2024\\saved.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AABDA589-6458-4542-ADE7-3E1819D4C475}|AP2024\\AP2024.csproj|g:\\programme\\c#\\ap2024\\ap2024\\databasecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AABDA589-6458-4542-ADE7-3E1819D4C475}|AP2024\\AP2024.csproj|solutionrelative:ap2024\\databasecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{AABDA589-6458-4542-ADE7-3E1819D4C475}|AP2024\\AP2024.csproj|g:\\programme\\c#\\ap2024\\ap2024\\saved.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{AABDA589-6458-4542-ADE7-3E1819D4C475}|AP2024\\AP2024.csproj|solutionrelative:ap2024\\saved.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AABDA589-6458-4542-ADE7-3E1819D4C475}|AP2024\\AP2024.csproj|g:\\programme\\c#\\ap2024\\ap2024\\viewmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AABDA589-6458-4542-ADE7-3E1819D4C475}|AP2024\\AP2024.csproj|solutionrelative:ap2024\\viewmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{AABDA589-6458-4542-ADE7-3E1819D4C475}|AP2024\\AP2024.csproj|g:\\programme\\c#\\ap2024\\ap2024\\newemployee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AABDA589-6458-4542-ADE7-3E1819D4C475}|AP2024\\AP2024.csproj|solutionrelative:ap2024\\newemployee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AABDA589-6458-4542-ADE7-3E1819D4C475}|AP2024\\AP2024.csproj|g:\\programme\\c#\\ap2024\\ap2024\\newemployee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{AABDA589-6458-4542-ADE7-3E1819D4C475}|AP2024\\AP2024.csproj|solutionrelative:ap2024\\newemployee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,7 +30,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 679,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -34,54 +38,66 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "SuperViewManager.cs",
-              "DocumentMoniker": "G:\\Programme\\C#\\AP2024\\AP2024\\SuperViewManager.cs",
-              "RelativeDocumentMoniker": "AP2024\\SuperViewManager.cs",
-              "ToolTip": "G:\\Programme\\C#\\AP2024\\AP2024\\SuperViewManager.cs",
-              "RelativeToolTip": "AP2024\\SuperViewManager.cs",
-              "ViewState": "AgIAABsAAAAAAAAAAAAqwCYAAAA7AAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "Saved.cs",
+              "DocumentMoniker": "G:\\Programme\\C#\\AP2024\\AP2024\\Saved.cs",
+              "RelativeDocumentMoniker": "AP2024\\Saved.cs",
+              "ToolTip": "G:\\Programme\\C#\\AP2024\\AP2024\\Saved.cs",
+              "RelativeToolTip": "AP2024\\Saved.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACAAAAALAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-21T19:54:32.33Z",
+              "WhenOpened": "2025-01-22T19:20:26.615Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "SuperViewManager.cs [Entwurf]",
-              "DocumentMoniker": "G:\\Programme\\C#\\AP2024\\AP2024\\SuperViewManager.cs",
-              "RelativeDocumentMoniker": "AP2024\\SuperViewManager.cs",
-              "ToolTip": "G:\\Programme\\C#\\AP2024\\AP2024\\SuperViewManager.cs [Entwurf]",
-              "RelativeToolTip": "AP2024\\SuperViewManager.cs [Entwurf]",
+              "DocumentIndex": 1,
+              "Title": "Saved.Designer.cs",
+              "DocumentMoniker": "G:\\Programme\\C#\\AP2024\\AP2024\\Saved.Designer.cs",
+              "RelativeDocumentMoniker": "AP2024\\Saved.Designer.cs",
+              "ToolTip": "G:\\Programme\\C#\\AP2024\\AP2024\\Saved.Designer.cs",
+              "RelativeToolTip": "AP2024\\Saved.Designer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-21T19:54:30.862Z",
-              "EditorCaption": " [Entwurf]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "ViewManager.cs",
-              "DocumentMoniker": "G:\\Programme\\C#\\AP2024\\AP2024\\ViewManager.cs",
-              "RelativeDocumentMoniker": "AP2024\\ViewManager.cs",
-              "ToolTip": "G:\\Programme\\C#\\AP2024\\AP2024\\ViewManager.cs",
-              "RelativeToolTip": "AP2024\\ViewManager.cs",
-              "ViewState": "AgIAAB8AAAAAAAAAAAAawEkAAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-21T19:54:27.243Z",
+              "WhenOpened": "2025-01-22T19:20:19.7Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "DatabaseController.cs",
-              "DocumentMoniker": "G:\\Programme\\C#\\AP2024\\AP2024\\DatabaseController.cs",
-              "RelativeDocumentMoniker": "AP2024\\DatabaseController.cs",
-              "ToolTip": "G:\\Programme\\C#\\AP2024\\AP2024\\DatabaseController.cs",
-              "RelativeToolTip": "AP2024\\DatabaseController.cs",
-              "ViewState": "AgIAADIAAAAAAAAAAAAAAFIAAABHAAAAAAAAAA==",
+              "Title": "Saved.cs [Entwurf]",
+              "DocumentMoniker": "G:\\Programme\\C#\\AP2024\\AP2024\\Saved.cs",
+              "RelativeDocumentMoniker": "AP2024\\Saved.cs",
+              "ToolTip": "G:\\Programme\\C#\\AP2024\\AP2024\\Saved.cs [Entwurf]",
+              "RelativeToolTip": "AP2024\\Saved.cs [Entwurf]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-21T19:52:28.936Z",
+              "WhenOpened": "2025-01-22T19:20:13.945Z",
+              "EditorCaption": " [Entwurf]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "NewEmployee.cs",
+              "DocumentMoniker": "G:\\Programme\\C#\\AP2024\\AP2024\\NewEmployee.cs",
+              "RelativeDocumentMoniker": "AP2024\\NewEmployee.cs",
+              "ToolTip": "G:\\Programme\\C#\\AP2024\\AP2024\\NewEmployee.cs",
+              "RelativeToolTip": "AP2024\\NewEmployee.cs",
+              "ViewState": "AgIAACoAAAAAAAAAAAAgwD8AAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-22T19:18:57.605Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "NewEmployee.cs [Entwurf]",
+              "DocumentMoniker": "G:\\Programme\\C#\\AP2024\\AP2024\\NewEmployee.cs",
+              "RelativeDocumentMoniker": "AP2024\\NewEmployee.cs",
+              "ToolTip": "G:\\Programme\\C#\\AP2024\\AP2024\\NewEmployee.cs [Entwurf]",
+              "RelativeToolTip": "AP2024\\NewEmployee.cs [Entwurf]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-22T19:18:56.263Z",
+              "EditorCaption": " [Entwurf]"
             }
           ]
         }

@@ -51,7 +51,7 @@
             button1.Location = new Point(424, 205);
             button1.Name = "button1";
             button1.Size = new Size(75, 23);
-            button1.TabIndex = 0;
+            button1.TabIndex = 6;
             button1.Text = "Speichern";
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
@@ -61,21 +61,21 @@
             firstNameText.Location = new Point(220, 12);
             firstNameText.Name = "firstNameText";
             firstNameText.Size = new Size(279, 23);
-            firstNameText.TabIndex = 1;
+            firstNameText.TabIndex = 0;
             // 
             // lastNameText
             // 
             lastNameText.Location = new Point(220, 41);
             lastNameText.Name = "lastNameText";
             lastNameText.Size = new Size(279, 23);
-            lastNameText.TabIndex = 2;
+            lastNameText.TabIndex = 1;
             // 
             // windowsUserText
             // 
             windowsUserText.Location = new Point(220, 70);
             windowsUserText.Name = "windowsUserText";
             windowsUserText.Size = new Size(279, 23);
-            windowsUserText.TabIndex = 3;
+            windowsUserText.TabIndex = 2;
             // 
             // viewCB
             // 
@@ -83,7 +83,7 @@
             viewCB.Location = new Point(220, 99);
             viewCB.Name = "viewCB";
             viewCB.Size = new Size(279, 23);
-            viewCB.TabIndex = 4;
+            viewCB.TabIndex = 3;
             // 
             // leaveEntitlementNUD
             // 
@@ -98,7 +98,7 @@
             remainingLeaveNUD.Location = new Point(220, 128);
             remainingLeaveNUD.Name = "remainingLeaveNUD";
             remainingLeaveNUD.Size = new Size(279, 23);
-            remainingLeaveNUD.TabIndex = 6;
+            remainingLeaveNUD.TabIndex = 4;
             remainingLeaveNUD.Value = new decimal(new int[] { 30, 0, 0, 0 });
             // 
             // label1

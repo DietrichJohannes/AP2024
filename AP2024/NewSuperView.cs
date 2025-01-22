@@ -49,7 +49,7 @@ namespace AP2024
 
                         if (result > 0)
                         {
-                            MessageBox.Show("SuperView gespeichert!", "AP2024");
+                            NotificationController.Saved();
                             this.Close();
                         }
                         else
