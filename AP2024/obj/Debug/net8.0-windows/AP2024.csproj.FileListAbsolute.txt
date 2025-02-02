@@ -44,3 +44,4 @@ G:\Programme\C#\AP2024\AP2024\obj\Debug\net8.0-windows\AP2024..resources
 G:\Programme\C#\AP2024\AP2024\obj\Debug\net8.0-windows\AP2024.AbsenceManager.resources
 G:\Programme\C#\AP2024\AP2024\obj\Debug\net8.0-windows\AP2024.NewAbsence.resources
 G:\Programme\C#\AP2024\AP2024\obj\Debug\net8.0-windows\AP2024.Saved.resources
+G:\Programme\C#\AP2024\AP2024\obj\Debug\net8.0-windows\AP2024.RoleManagement.resources

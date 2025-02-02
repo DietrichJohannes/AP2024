@@ -42,13 +42,15 @@
             label4 = new Label();
             label5 = new Label();
             label6 = new Label();
+            moreEmployees = new CheckBox();
+            label7 = new Label();
             ((System.ComponentModel.ISupportInitialize)leaveEntitlementNUD).BeginInit();
             ((System.ComponentModel.ISupportInitialize)remainingLeaveNUD).BeginInit();
             SuspendLayout();
             // 
             // button1
             // 
-            button1.Location = new Point(424, 205);
+            button1.Location = new Point(424, 255);
             button1.Name = "button1";
             button1.Size = new Size(75, 23);
             button1.TabIndex = 6;
@@ -79,6 +81,7 @@
             // 
             // viewCB
             // 
+            viewCB.DropDownStyle = ComboBoxStyle.DropDownList;
             viewCB.FormattingEnabled = true;
             viewCB.Location = new Point(220, 99);
             viewCB.Name = "viewCB";
@@ -155,11 +158,31 @@
             label6.TabIndex = 12;
             label6.Text = "Resturlaub";
             // 
+            // moreEmployees
+            // 
+            moreEmployees.AutoSize = true;
+            moreEmployees.Location = new Point(220, 256);
+            moreEmployees.Name = "moreEmployees";
+            moreEmployees.Size = new Size(15, 14);
+            moreEmployees.TabIndex = 14;
+            moreEmployees.UseVisualStyleBackColor = true;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(12, 255);
+            label7.Name = "label7";
+            label7.Size = new Size(178, 15);
+            label7.TabIndex = 15;
+            label7.Text = "Weiteren Mitarbeiter hinzufügen";
+            // 
             // NewEmployee
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(513, 240);
+            ClientSize = new Size(513, 290);
+            Controls.Add(label7);
+            Controls.Add(moreEmployees);
             Controls.Add(label6);
             Controls.Add(label5);
             Controls.Add(label4);
@@ -198,5 +221,7 @@
         private Label label4;
         private Label label5;
         private Label label6;
+        private CheckBox moreEmployees;
+        private Label label7;
     }
 }

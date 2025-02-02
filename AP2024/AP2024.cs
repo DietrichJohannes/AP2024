@@ -14,9 +14,9 @@ namespace AP2024
             InitializeComponent();
             InitCalendar();                                                                 // Initialisiere den Kalender
             DatabaseController.InitializeDatabase();                                        // Initialisiere (Erstelle) die Datenbank
-            LoadViews();
-            GetSelectedView();
-            LoadEmployees();
+            LoadViews();                                                                    // Lade die Verfügbaren Views in die ComboBox
+            GetSelectedView();                                                              // Hole die ID des ausgewählten Views
+            LoadEmployees();                                                                // Lade die Mitarbeiter dem View entsprechend dem View
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -172,7 +172,6 @@ namespace AP2024
             }
         }
 
-
         private void infoÜberDenEntwicklerToolStripMenuItem_Click(object sender, EventArgs e)
         {
             DevInfo devInfo = new DevInfo();
@@ -206,12 +205,6 @@ namespace AP2024
         {
             AbsenceManager absenceManager = new AbsenceManager();
             absenceManager.Show();
-        }
-
-        private void testToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            Saved saved = new Saved();
-            saved.Show();
         }
     }
 }

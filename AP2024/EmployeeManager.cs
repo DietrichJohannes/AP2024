@@ -22,6 +22,7 @@ namespace AP2024
         private void button3_Click(object sender, EventArgs e)
         {
             NewEmployee newEmployee = new NewEmployee();
+            newEmployee.OnDataSaved += LoadEmployees;
             newEmployee.Show();
         }
 
@@ -82,6 +83,12 @@ namespace AP2024
         private void button4_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            RoleManagement roleManagement = new RoleManagement();
+            roleManagement.ShowDialog();
         }
     }
 }

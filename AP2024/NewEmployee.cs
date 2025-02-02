@@ -14,6 +14,7 @@ namespace AP2024
     public partial class NewEmployee : Form
     {
         int SelectedViewID = 0;
+        public event Action OnDataSaved;
 
         public NewEmployee()
         {
@@ -25,6 +26,7 @@ namespace AP2024
         {
             GetSelectedViewID();
             SaveEmployee();
+            OnDataSaved?.Invoke();
         }
 
         private void SaveEmployee()
@@ -63,7 +65,14 @@ namespace AP2024
                         if (result > 0)
                         {
                             NotificationController.Saved();
-                            this.Close();
+                            if (moreEmployees.Checked)
+                            {
+                                ClearInputFields();
+                            }
+                            else
+                            {
+                                this.Close();
+                            }
                         }
                         else
                         {
@@ -127,6 +136,15 @@ namespace AP2024
             {
                 SelectedViewID = (int)viewCB.SelectedValue;
             }
+        }
+
+        private void ClearInputFields()
+        {
+            firstNameText.Text = "";
+            lastNameText.Text = "";
+            windowsUserText.Text = "";
+            leaveEntitlementNUD.Value = 30;
+            remainingLeaveNUD.Value = 10;
         }
     }
 }

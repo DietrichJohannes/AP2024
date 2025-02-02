@@ -59,7 +59,6 @@
             monthView = new DataGridView();
             viewCB = new ComboBox();
             label1 = new Label();
-            testToolStripMenuItem1 = new ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)cwView).BeginInit();
             menuStrip1.SuspendLayout();
             contextMenuStrip1.SuspendLayout();
@@ -103,7 +102,7 @@
             // 
             // menuStrip1
             // 
-            menuStrip1.Items.AddRange(new ToolStripItem[] { meinAP2024ToolStripMenuItem, administrationToolStripMenuItem, hilfeToolStripMenuItem, testToolStripMenuItem1 });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { meinAP2024ToolStripMenuItem, administrationToolStripMenuItem, hilfeToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Size = new Size(1225, 24);
@@ -120,13 +119,13 @@
             // meineDatenToolStripMenuItem
             // 
             meineDatenToolStripMenuItem.Name = "meineDatenToolStripMenuItem";
-            meineDatenToolStripMenuItem.Size = new Size(145, 22);
+            meineDatenToolStripMenuItem.Size = new Size(180, 22);
             meineDatenToolStripMenuItem.Text = "Meine Daten";
             // 
             // einstellungenToolStripMenuItem
             // 
             einstellungenToolStripMenuItem.Name = "einstellungenToolStripMenuItem";
-            einstellungenToolStripMenuItem.Size = new Size(145, 22);
+            einstellungenToolStripMenuItem.Size = new Size(180, 22);
             einstellungenToolStripMenuItem.Text = "Einstellungen";
             // 
             // administrationToolStripMenuItem
@@ -320,13 +319,6 @@
             label1.TabIndex = 11;
             label1.Text = "View";
             // 
-            // testToolStripMenuItem1
-            // 
-            testToolStripMenuItem1.Name = "testToolStripMenuItem1";
-            testToolStripMenuItem1.Size = new Size(39, 20);
-            testToolStripMenuItem1.Text = "Test";
-            testToolStripMenuItem1.Click += testToolStripMenuItem1_Click;
-            // 
             // AP2024
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -390,6 +382,5 @@
         private ToolStripSeparator toolStripSeparator1;
         private ToolStripSeparator toolStripSeparator2;
         private ToolStripMenuItem anleitungToolStripMenuItem;
-        private ToolStripMenuItem testToolStripMenuItem1;
     }
 }
