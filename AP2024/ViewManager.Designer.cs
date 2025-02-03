@@ -110,6 +110,7 @@
             Name = "ViewManager";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "View Manager";
+            FormClosing += ViewManager_FormClosing;
             ResumeLayout(false);
         }
 

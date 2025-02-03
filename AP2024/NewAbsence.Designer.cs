@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NewAbsence));
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
-            button1 = new Button();
-            checkBox1 = new CheckBox();
+            nameTextBox = new TextBox();
+            abbreviationTextBox = new TextBox();
+            btnChooseColor = new Button();
+            requestCommentCheckBox = new CheckBox();
             button2 = new Button();
             label1 = new Label();
             label2 = new Label();
@@ -40,37 +40,38 @@
             label4 = new Label();
             SuspendLayout();
             // 
-            // textBox1
+            // nameTextBox
             // 
-            textBox1.Location = new Point(218, 12);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(146, 23);
-            textBox1.TabIndex = 0;
+            nameTextBox.Location = new Point(218, 12);
+            nameTextBox.Name = "nameTextBox";
+            nameTextBox.Size = new Size(146, 23);
+            nameTextBox.TabIndex = 0;
             // 
-            // textBox2
+            // abbreviationTextBox
             // 
-            textBox2.Location = new Point(218, 38);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(146, 23);
-            textBox2.TabIndex = 1;
+            abbreviationTextBox.Location = new Point(218, 38);
+            abbreviationTextBox.Name = "abbreviationTextBox";
+            abbreviationTextBox.Size = new Size(146, 23);
+            abbreviationTextBox.TabIndex = 1;
             // 
-            // button1
+            // btnChooseColor
             // 
-            button1.Location = new Point(218, 67);
-            button1.Name = "button1";
-            button1.Size = new Size(146, 23);
-            button1.TabIndex = 2;
-            button1.Text = "Farbe wählen";
-            button1.UseVisualStyleBackColor = true;
+            btnChooseColor.Location = new Point(218, 67);
+            btnChooseColor.Name = "btnChooseColor";
+            btnChooseColor.Size = new Size(146, 23);
+            btnChooseColor.TabIndex = 2;
+            btnChooseColor.Text = "Farbe wählen";
+            btnChooseColor.UseVisualStyleBackColor = true;
+            btnChooseColor.Click += btnChooseColor_Click;
             // 
-            // checkBox1
+            // requestCommentCheckBox
             // 
-            checkBox1.AutoSize = true;
-            checkBox1.Location = new Point(218, 96);
-            checkBox1.Name = "checkBox1";
-            checkBox1.Size = new Size(15, 14);
-            checkBox1.TabIndex = 3;
-            checkBox1.UseVisualStyleBackColor = true;
+            requestCommentCheckBox.AutoSize = true;
+            requestCommentCheckBox.Location = new Point(218, 96);
+            requestCommentCheckBox.Name = "requestCommentCheckBox";
+            requestCommentCheckBox.Size = new Size(15, 14);
+            requestCommentCheckBox.TabIndex = 3;
+            requestCommentCheckBox.UseVisualStyleBackColor = true;
             // 
             // button2
             // 
@@ -128,10 +129,11 @@
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(button2);
-            Controls.Add(checkBox1);
-            Controls.Add(button1);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
+            Controls.Add(requestCommentCheckBox);
+            Controls.Add(btnChooseColor);
+            Controls.Add(abbreviationTextBox);
+            Controls.Add(nameTextBox);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "NewAbsence";
             StartPosition = FormStartPosition.CenterScreen;
@@ -142,10 +144,10 @@
 
         #endregion
 
-        private TextBox textBox1;
-        private TextBox textBox2;
-        private Button button1;
-        private CheckBox checkBox1;
+        private TextBox nameTextBox;
+        private TextBox abbreviationTextBox;
+        private Button btnChooseColor;
+        private CheckBox requestCommentCheckBox;
         private Button button2;
         private Label label1;
         private Label label2;

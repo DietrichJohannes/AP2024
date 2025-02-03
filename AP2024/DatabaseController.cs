@@ -34,8 +34,7 @@ namespace AP2024
                                                         type_name TEXT NOT NULL,
                                                         abbreviation TEXT NOT NULL,
                                                         color TEXT NOT NULL,
-                                                        requires_comment INTEGER NOT NULL DEFAULT 0,
-                                                        affects_quota INTEGER NOT NULL DEFAULT 0
+                                                        requires_comment INTEGER NOT NULL DEFAULT 0
                                                         );";
 
                 ExecuteNonQuery(connection, createAbsenceTypesTableQuery);

@@ -146,6 +146,7 @@
             Name = "EmployeeManager";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Mitarbeiterverwaltung";
+            FormClosing += EmployeeManager_FormClosing;
             ResumeLayout(false);
         }
 

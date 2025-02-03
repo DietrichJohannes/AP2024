@@ -14,7 +14,7 @@ namespace AP2024
     public partial class NewEmployee : Form
     {
         int SelectedViewID = 0;
-        public event Action OnDataSaved;
+        public event Action OnEmployeeSaved;
 
         public NewEmployee()
         {
@@ -26,7 +26,7 @@ namespace AP2024
         {
             GetSelectedViewID();
             SaveEmployee();
-            OnDataSaved?.Invoke();
+            OnEmployeeSaved?.Invoke();
         }
 
         private void SaveEmployee()

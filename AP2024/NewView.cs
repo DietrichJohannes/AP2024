@@ -14,6 +14,7 @@ namespace AP2024
     public partial class NewView : Form
     {
         int SelectedSuperViewID = 0;
+        public static event Action OnViewSaved;
 
         public NewView()
         {
@@ -61,6 +62,7 @@ namespace AP2024
                         if (result > 0)
                         {
                             NotificationController.Saved();
+                            OnViewSaved?.Invoke();
                             this.Close();
                         }
                         else

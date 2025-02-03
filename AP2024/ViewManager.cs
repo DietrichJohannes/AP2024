@@ -13,6 +13,7 @@ namespace AP2024
 {
     public partial class ViewManager : Form
     {
+        public event Action OnViewManagerExit;
         public ViewManager()
         {
             InitializeComponent();
@@ -28,6 +29,7 @@ namespace AP2024
         private void button3_Click(object sender, EventArgs e)
         {
             NewView newView = new NewView();
+            NewView.OnViewSaved += LoadViews;
             newView.ShowDialog();
         }
 
@@ -55,7 +57,7 @@ namespace AP2024
                                 // Sicherstellen, dass tarifurlaub, resturlaub, windows_benutzername und view nicht null sind
                                 string viewName = reader["view_name"]?.ToString() ?? "0";
                                 string superView = reader["parent_view_id"]?.ToString() ?? "0";
-                                
+
 
                                 // SubItems hinzufügen und null-geschützte Werte einfügen
                                 var item = new ListViewItem(viewName);
@@ -72,6 +74,11 @@ namespace AP2024
             {
                 MessageBox.Show($"Fehler: {ex.Message}", "AP2024", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void ViewManager_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            OnViewManagerExit?.Invoke();
         }
     }
 }

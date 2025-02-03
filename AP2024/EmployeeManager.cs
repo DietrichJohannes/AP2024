@@ -13,6 +13,9 @@ namespace AP2024
 {
     public partial class EmployeeManager : Form
     {
+
+        public event Action OnEmployeeManagerExit;
+
         public EmployeeManager()
         {
             InitializeComponent();
@@ -22,7 +25,7 @@ namespace AP2024
         private void button3_Click(object sender, EventArgs e)
         {
             NewEmployee newEmployee = new NewEmployee();
-            newEmployee.OnDataSaved += LoadEmployees;
+            newEmployee.OnEmployeeSaved += LoadEmployees;
             newEmployee.Show();
         }
 
@@ -89,6 +92,11 @@ namespace AP2024
         {
             RoleManagement roleManagement = new RoleManagement();
             roleManagement.ShowDialog();
+        }
+
+        private void EmployeeManager_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            OnEmployeeManagerExit?.Invoke();
         }
     }
 }

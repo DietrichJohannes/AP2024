@@ -1,5 +1,6 @@
 using System.Data.SQLite;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace AP2024
 {
@@ -17,6 +18,7 @@ namespace AP2024
             LoadViews();                                                                    // Lade die Verfügbaren Views in die ComboBox
             GetSelectedView();                                                              // Hole die ID des ausgewählten Views
             LoadEmployees();                                                                // Lade die Mitarbeiter dem View entsprechend dem View
+            LoadAbsenceTypes();                                                             // Lade die Abwesenheitsarten in den ContextMenuStrip
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -49,6 +51,9 @@ namespace AP2024
 
         private void LoadViews()
         {
+            viewCB.DataSource = null;
+            viewCB.Items.Clear();
+
             string connectionString = ApplicationContext.GetConnectionString();
 
             using (SQLiteConnection connection = new SQLiteConnection(connectionString))
@@ -63,23 +68,22 @@ namespace AP2024
                     {
                         using (SQLiteDataReader reader = command.ExecuteReader())
                         {
-                            viewCB.Items.Clear();
-
                             Dictionary<int, string> Views = new Dictionary<int, string>();
 
                             while (reader.Read())
                             {
                                 int id = Convert.ToInt32(reader["id"]);
                                 string name = reader["view_name"].ToString();
-
-                                // Füge den Namen zur ComboBox hinzu und speichere die ID
                                 Views.Add(id, name);
                             }
 
-                            // Setze DisplayMember und ValueMember
-                            viewCB.DataSource = new BindingSource(Views, null);
-                            viewCB.DisplayMember = "Value"; // Zeige den Namen an
-                            viewCB.ValueMember = "Key";     // Speichere die ID
+                            if (Views.Count > 0)
+                            {
+                                viewCB.DataSource = new BindingSource(Views, null);
+                                viewCB.DisplayMember = "Value";
+                                viewCB.ValueMember = "Key";
+                                viewCB.SelectedIndex = 0;  // Wähle das erste Element aus
+                            }
                         }
                     }
                 }
@@ -90,17 +94,19 @@ namespace AP2024
             }
         }
 
+
         private void GetSelectedView()
         {
-            if (viewCB != null)
+            if (viewCB != null && viewCB.SelectedValue != null)
             {
                 SelectedView = (int)viewCB.SelectedValue;
             }
             else
             {
-                MessageBox.Show("Keine View ausgewählt");
+                
             }
         }
+
 
 
         private void LoadEmployees()
@@ -158,6 +164,74 @@ namespace AP2024
             }
         }
 
+        private void LoadAbsenceTypes()
+        {
+            // Zuerst das bestehende Menü leeren
+            contextMenuStrip1.Items.Clear();
+
+            // Verknüpfe das Kontextmenü mit der CalendarView
+            calendarView.ContextMenuStrip = contextMenuStrip1;
+
+            try
+            {
+                using (var connection = new SQLiteConnection(ApplicationContext.GetConnectionString()))
+                {
+                    connection.Open();
+
+                    string query = "SELECT type_name, color FROM AbsenceTypes";
+
+                    using (var command = connection.CreateCommand())
+                    {
+                        command.CommandText = query;
+
+                        using (var reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                string typeName = reader["type_name"].ToString();
+                                string colorHex = reader["color"].ToString();
+
+                                // Standardfarbe Schwarz, falls ungültige Farbe
+                                Color itemColor = Color.Black;
+                                try
+                                {
+                                    itemColor = ColorTranslator.FromHtml(colorHex);
+                                }
+                                catch { } // Falls die Farbe ungültig ist, bleibt es schwarz
+
+                                // Farbiges Icon als 16x16 Bitmap erstellen
+                                Bitmap colorIcon = new Bitmap(16, 16);
+                                using (Graphics g = Graphics.FromImage(colorIcon))
+                                {
+                                    g.Clear(itemColor); // Färbt das gesamte Icon
+                                }
+
+                                // Menüpunkt mit farbigem Icon erstellen
+                                ToolStripMenuItem menuItem = new ToolStripMenuItem(typeName)
+                                {
+                                    Image = colorIcon // Setzt das Icon für das Menüitem
+                                };
+
+                                // Event-Handler für Klick auf das Menüelement
+                                menuItem.Click += (s, e) =>
+                                {
+                                    MessageBox.Show($"Ausgewählter Typ: {typeName}");
+                                };
+
+                                // Menüpunkt zum ContextMenuStrip hinzufügen
+                                contextMenuStrip1.Items.Add(menuItem);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Fehler beim Laden der Abwesenheitstypen: {ex.Message}", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+
 
         private void ClearDataGridView()
         {
@@ -181,13 +255,22 @@ namespace AP2024
         private void mitarbeiterverwaltungToolStripMenuItem_Click(object sender, EventArgs e)
         {
             EmployeeManager employeeManager = new EmployeeManager();
+            employeeManager.OnEmployeeManagerExit += LoadEmployees;
             employeeManager.Show();
         }
 
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
         {
             ViewManager viewManager = new ViewManager();
+            viewManager.OnViewManagerExit += LoadViews;
             viewManager.Show();
+        }
+        
+        private void toolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            AbsenceManager absenceManager = new AbsenceManager();
+            absenceManager.OnAbsenceManagerExit += LoadAbsenceTypes;
+            absenceManager.Show();
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -201,10 +284,6 @@ namespace AP2024
             LoadEmployees();
         }
 
-        private void toolStripMenuItem2_Click(object sender, EventArgs e)
-        {
-            AbsenceManager absenceManager = new AbsenceManager();
-            absenceManager.Show();
-        }
+
     }
 }

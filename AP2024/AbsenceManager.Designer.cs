@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AbsenceManager));
-            listView1 = new ListView();
+            absenceTypeListView = new ListView();
             columnHeader1 = new ColumnHeader();
             columnHeader2 = new ColumnHeader();
             columnHeader3 = new ColumnHeader();
@@ -39,15 +39,15 @@
             button3 = new Button();
             SuspendLayout();
             // 
-            // listView1
+            // absenceTypeListView
             // 
-            listView1.Columns.AddRange(new ColumnHeader[] { columnHeader1, columnHeader2, columnHeader3, columnHeader4 });
-            listView1.Location = new Point(12, 12);
-            listView1.Name = "listView1";
-            listView1.Size = new Size(597, 282);
-            listView1.TabIndex = 0;
-            listView1.UseCompatibleStateImageBehavior = false;
-            listView1.View = View.Details;
+            absenceTypeListView.Columns.AddRange(new ColumnHeader[] { columnHeader1, columnHeader2, columnHeader3, columnHeader4 });
+            absenceTypeListView.Location = new Point(12, 12);
+            absenceTypeListView.Name = "absenceTypeListView";
+            absenceTypeListView.Size = new Size(597, 282);
+            absenceTypeListView.TabIndex = 0;
+            absenceTypeListView.UseCompatibleStateImageBehavior = false;
+            absenceTypeListView.View = View.Details;
             // 
             // columnHeader1
             // 
@@ -105,17 +105,19 @@
             Controls.Add(button3);
             Controls.Add(button2);
             Controls.Add(button1);
-            Controls.Add(listView1);
+            Controls.Add(absenceTypeListView);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "AbsenceManager";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Abwesenheitstypen verwalten";
+            FormClosing += AbsenceManager_FormClosing;
             ResumeLayout(false);
         }
 
         #endregion
 
-        private ListView listView1;
+        private ListView absenceTypeListView;
         private ColumnHeader columnHeader1;
         private ColumnHeader columnHeader2;
         private ColumnHeader columnHeader3;

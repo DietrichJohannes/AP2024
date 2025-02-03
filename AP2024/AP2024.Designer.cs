@@ -49,9 +49,6 @@
             hilfeToolStripMenuItem1 = new ToolStripMenuItem();
             anleitungToolStripMenuItem = new ToolStripMenuItem();
             infoÜberDenEntwicklerToolStripMenuItem = new ToolStripMenuItem();
-            contextMenuStrip1 = new ContextMenuStrip(components);
-            testToolStripMenuItem = new ToolStripMenuItem();
-            test5ToolStripMenuItem = new ToolStripMenuItem();
             button1 = new Button();
             button2 = new Button();
             button3 = new Button();
@@ -59,9 +56,9 @@
             monthView = new DataGridView();
             viewCB = new ComboBox();
             label1 = new Label();
+            contextMenuStrip1 = new ContextMenuStrip(components);
             ((System.ComponentModel.ISupportInitialize)cwView).BeginInit();
             menuStrip1.SuspendLayout();
-            contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)calendarView).BeginInit();
             ((System.ComponentModel.ISupportInitialize)monthView).BeginInit();
             SuspendLayout();
@@ -119,13 +116,13 @@
             // meineDatenToolStripMenuItem
             // 
             meineDatenToolStripMenuItem.Name = "meineDatenToolStripMenuItem";
-            meineDatenToolStripMenuItem.Size = new Size(180, 22);
+            meineDatenToolStripMenuItem.Size = new Size(145, 22);
             meineDatenToolStripMenuItem.Text = "Meine Daten";
             // 
             // einstellungenToolStripMenuItem
             // 
             einstellungenToolStripMenuItem.Name = "einstellungenToolStripMenuItem";
-            einstellungenToolStripMenuItem.Size = new Size(180, 22);
+            einstellungenToolStripMenuItem.Size = new Size(145, 22);
             einstellungenToolStripMenuItem.Text = "Einstellungen";
             // 
             // administrationToolStripMenuItem
@@ -209,24 +206,6 @@
             infoÜberDenEntwicklerToolStripMenuItem.Size = new Size(202, 22);
             infoÜberDenEntwicklerToolStripMenuItem.Text = "Info über den Entwickler";
             infoÜberDenEntwicklerToolStripMenuItem.Click += infoÜberDenEntwicklerToolStripMenuItem_Click;
-            // 
-            // contextMenuStrip1
-            // 
-            contextMenuStrip1.Items.AddRange(new ToolStripItem[] { testToolStripMenuItem, test5ToolStripMenuItem });
-            contextMenuStrip1.Name = "contextMenuStrip1";
-            contextMenuStrip1.Size = new Size(100, 48);
-            // 
-            // testToolStripMenuItem
-            // 
-            testToolStripMenuItem.Name = "testToolStripMenuItem";
-            testToolStripMenuItem.Size = new Size(99, 22);
-            testToolStripMenuItem.Text = "Test";
-            // 
-            // test5ToolStripMenuItem
-            // 
-            test5ToolStripMenuItem.Name = "test5ToolStripMenuItem";
-            test5ToolStripMenuItem.Size = new Size(99, 22);
-            test5ToolStripMenuItem.Text = "test5";
             // 
             // button1
             // 
@@ -319,6 +298,11 @@
             label1.TabIndex = 11;
             label1.Text = "View";
             // 
+            // contextMenuStrip1
+            // 
+            contextMenuStrip1.Name = "contextMenuStrip1";
+            contextMenuStrip1.Size = new Size(181, 26);
+            // 
             // AP2024
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -342,7 +326,6 @@
             ((System.ComponentModel.ISupportInitialize)cwView).EndInit();
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
-            contextMenuStrip1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)calendarView).EndInit();
             ((System.ComponentModel.ISupportInitialize)monthView).EndInit();
             ResumeLayout(false);
@@ -356,9 +339,6 @@
         private DataGridView calendarView;
         private StatusStrip statusStrip1;
         private MenuStrip menuStrip1;
-        private ContextMenuStrip contextMenuStrip1;
-        private ToolStripMenuItem testToolStripMenuItem;
-        private ToolStripMenuItem test5ToolStripMenuItem;
         private Button button1;
         private Button button2;
         private Button button3;
@@ -382,5 +362,6 @@
         private ToolStripSeparator toolStripSeparator1;
         private ToolStripSeparator toolStripSeparator2;
         private ToolStripMenuItem anleitungToolStripMenuItem;
+        private ContextMenuStrip contextMenuStrip1;
     }
 }
