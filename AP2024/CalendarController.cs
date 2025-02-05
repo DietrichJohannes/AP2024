@@ -156,4 +156,15 @@ public class CalendarController
         dgv.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;           // Automatische Zeilenhöhe anpassen
         dgv.ClearSelection();                                                   // Auswahl aufheben
     }
+
+    public void HighlightWeekends(DataGridView dgv)                              // Methode: Wochenenden hervorheben
+    {
+
+        
+    }
+
+    public void HighlightToday(DataGridView dgv)                                 // Methode: Heutigen Tag hervorheben
+    {
+
+    }
 }

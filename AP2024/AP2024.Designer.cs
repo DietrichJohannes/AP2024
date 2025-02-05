@@ -131,6 +131,7 @@
             administrationToolStripMenuItem.Name = "administrationToolStripMenuItem";
             administrationToolStripMenuItem.Size = new Size(98, 20);
             administrationToolStripMenuItem.Text = "Administration";
+            administrationToolStripMenuItem.Visible = false;
             // 
             // mitarbeiterverwaltungToolStripMenuItem
             // 
@@ -301,7 +302,7 @@
             // contextMenuStrip1
             // 
             contextMenuStrip1.Name = "contextMenuStrip1";
-            contextMenuStrip1.Size = new Size(181, 26);
+            contextMenuStrip1.Size = new Size(61, 4);
             // 
             // AP2024
             // 

@@ -94,7 +94,7 @@
             leaveEntitlementNUD.Name = "leaveEntitlementNUD";
             leaveEntitlementNUD.Size = new Size(279, 23);
             leaveEntitlementNUD.TabIndex = 5;
-            leaveEntitlementNUD.Value = new decimal(new int[] { 10, 0, 0, 0 });
+            leaveEntitlementNUD.Value = new decimal(new int[] { 30, 0, 0, 0 });
             // 
             // remainingLeaveNUD
             // 
@@ -102,7 +102,7 @@
             remainingLeaveNUD.Name = "remainingLeaveNUD";
             remainingLeaveNUD.Size = new Size(279, 23);
             remainingLeaveNUD.TabIndex = 4;
-            remainingLeaveNUD.Value = new decimal(new int[] { 30, 0, 0, 0 });
+            remainingLeaveNUD.Value = new decimal(new int[] { 10, 0, 0, 0 });
             // 
             // label1
             // 

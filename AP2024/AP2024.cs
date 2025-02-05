@@ -19,58 +19,65 @@ namespace AP2024
             GetSelectedView();                                                              // Hole die ID des ausgewählten Views
             LoadEmployees();                                                                // Lade die Mitarbeiter dem View entsprechend dem View
             LoadAbsenceTypes();                                                             // Lade die Abwesenheitsarten in den ContextMenuStrip
+            AbsenceController.LoadAbsence();                                                // Lade die Abwesenheiten in den Kalender
+            RollController.EnableAdminControls(administrationToolStripMenuItem);            // Aktiviere Adminrechte falls vergeben
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            LoadEmployees();
+            LoadEmployees();                                                                // Lade die Mitarbeeiter neu
+            AbsenceController.LoadAbsence();                                                // Lade die Abwesenheiten neu
         }
 
         private void InitCalendar()
         {
+            calendarController = new CalendarController();                                  // Initialisiere den CalendarController
 
-            calendarController = new CalendarController();
-            calendarController.CreateCalendarMonth(monthView);
+            calendarController.CreateCalendarMonth(monthView);                              // Erstelle den Monatskalender
 
-            // Kalenderwochenansicht erstellen
-            calendarController.CreateCalendarWeek(cwView);
+            calendarController.CreateCalendarWeek(cwView);                                  // Erstelle den Wochenkalender
 
-            // Tagesansicht erstellen
-            calendarController.CreateCalendarDay(calendarView);
+            calendarController.CreateCalendarDay(calendarView);                             // Erstelle den Tageskalender
+
+            calendarController.HighlightWeekends(calendarView);                             // Markiere die Wochenenden in der Tagesansicht grau
+
+            // calendarController.HighlightHoliday(calendarView);                              // Markiere die Feiertage in der Tagesansicht grau
+
+            calendarController.HighlightToday(calendarView);                                // Markiere den heutigen Tag in der Tagesansicht gelb
         }
 
         private void calendarView_Scroll(object sender, ScrollEventArgs e)
         {
-            SynchronizeScroll();
+            SynchronizeScroll();                                                            // Rufe Methode auf um das Scrollen zu synchronisieren
         }
 
         private void SynchronizeScroll()
         {
-
+                        
         }
 
         private void LoadViews()
         {
-            viewCB.DataSource = null;
-            viewCB.Items.Clear();
+            viewCB.DataSource = null;                                                               // Setze die DataSource auf null
+            viewCB.Items.Clear();                                                                   // Lösche alle Items aus der ComboBox
 
-            string connectionString = ApplicationContext.GetConnectionString();
+            string connectionString = ApplicationContext.GetConnectionString();                     // Hole den ConnectionString
 
-            using (SQLiteConnection connection = new SQLiteConnection(connectionString))
+            using (SQLiteConnection connection = new SQLiteConnection(connectionString))             
             {
                 try
                 {
-                    connection.Open();
+                    connection.Open();                                                              // Öffne die Verbindung zur Datenbank
 
-                    string query = "SELECT id, view_name FROM Views";
+                    string query = "SELECT id, view_name FROM Views";                               // SQL-Abfrage um alle Views zu holen
 
                     using (SQLiteCommand command = new SQLiteCommand(query, connection))
                     {
                         using (SQLiteDataReader reader = command.ExecuteReader())
                         {
-                            Dictionary<int, string> Views = new Dictionary<int, string>();
+                            Dictionary<int, string> Views = new Dictionary<int, string>();          // Erstelle ein Dictionary um die Views zu speichern
 
-                            while (reader.Read())
+                            while (reader.Read())                                                   // Lese alle Views aus der Datenbank
                             {
                                 int id = Convert.ToInt32(reader["id"]);
                                 string name = reader["view_name"].ToString();
@@ -82,7 +89,7 @@ namespace AP2024
                                 viewCB.DataSource = new BindingSource(Views, null);
                                 viewCB.DisplayMember = "Value";
                                 viewCB.ValueMember = "Key";
-                                viewCB.SelectedIndex = 0;  // Wähle das erste Element aus
+                                viewCB.SelectedIndex = 0;                                           // Wähle das erste Element aus
                             }
                         }
                     }
@@ -95,7 +102,7 @@ namespace AP2024
         }
 
 
-        private void GetSelectedView()
+        private void GetSelectedView()                                                            // Lese die ID des ausgewählen Views aus
         {
             if (viewCB != null && viewCB.SelectedValue != null)
             {
@@ -109,50 +116,50 @@ namespace AP2024
 
 
 
-        private void LoadEmployees()
+        private void LoadEmployees()                                                             // Methode: Lade die Mitarbeiter in das DataGridView
         {
 
-            ClearDataGridView();
+            ClearDataGridView();                                                                 // Lösche alle Zeilen aus dem DataGridView
 
             try
             {
                 using (var connection = new SQLiteConnection(ApplicationContext.GetConnectionString()))
                 {
-                    connection.Open();
+                    connection.Open();                                                          // Öffne die Verbindung zur Datenbank
 
-                    string query = "SELECT first_name, last_name, remaining_leave FROM Employees  WHERE view = @view";
+                    string query = "SELECT first_name, last_name, remaining_leave FROM Employees  WHERE view = @view";      // SQL-Abfrage um alle Mitarbeiter zu holen
 
                     using (var command = connection.CreateCommand())
                     {
                         command.CommandText = query;
 
-                        command.Parameters.AddWithValue("@view", SelectedView);
+                        command.Parameters.AddWithValue("@view", SelectedView);                                             // View als Parameter hinzufügen
 
                         using (var reader = command.ExecuteReader())
                         {
-                            int rowIndex = 1; // Start ab Zeile 1 im DataGridView
+                            int rowIndex = 1;                                                                               // Start ab Zeile 1 im DataGridView
 
                             while (reader.Read())
                             {
-                                // Prüfen, ob Vorname und Nachname null sind
-                                string vorname = reader["first_name"]?.ToString() ?? "Unbekannt";
-                                string nachname = reader["last_name"]?.ToString() ?? "Unbekannt";
-                                string fullName = $"{vorname} {nachname}";
+                                        
+                                string vorname = reader["first_name"]?.ToString() ?? "Unbekannt";                           // Hole den Vornamen aus der Datenbank
+                                string nachname = reader["last_name"]?.ToString() ?? "Unbekannt";                           // Hole den Nachnamen aus der Datenbank
+                                string fullName = $"{vorname} {nachname}";                                                  // Setze den Namen zusammen
 
-                                // Sicherstellen, dass keine Werte null sind
-                                string resturlaub = reader["remaining_leave"]?.ToString() ?? "0";
+                                                                                                                            // Sicherstellen, dass keine Werte null sind
+                                string resturlaub = reader["remaining_leave"]?.ToString() ?? "0";                           // Hole den Resturlaub aus der Datenbank
 
-                                // Dynamisch Zeilen hinzufügen, falls nicht genügend vorhanden
+                                                                                                                            // Dynamisch Zeilen hinzufügen, falls nicht genügend vorhanden
                                 while (calendarView.Rows.Count <= rowIndex)
                                 {
-                                    calendarView.Rows.Add();
+                                    calendarView.Rows.Add();                                                                // Füge eine neue Zeile hinzu
                                 }
 
-                                // Werte in die Zellen schreiben
-                                calendarView.Rows[rowIndex].Cells[0].Value = fullName; // Spalte 0: Mitarbeitername
-                                calendarView.Rows[rowIndex].Cells[1].Value = resturlaub; // Spalte 1: Resturlaub
+                                                                                                                            // Werte in die Zellen schreiben
+                                calendarView.Rows[rowIndex].Cells[0].Value = fullName;                                      // Spalte 0: Mitarbeitername
+                                calendarView.Rows[rowIndex].Cells[1].Value = resturlaub;                                    // Spalte 1: Resturlaub
 
-                                rowIndex++; // Zur nächsten Zeile gehen
+                                rowIndex++;                                                                                 // Zur nächsten Zeile gehen
                             }
                         }
                     }
@@ -166,10 +173,10 @@ namespace AP2024
 
         private void LoadAbsenceTypes()
         {
-            // Zuerst das bestehende Menü leeren
+                                                                               
             contextMenuStrip1.Items.Clear();
 
-            // Verknüpfe das Kontextmenü mit der CalendarView
+            // Kontextmenü mit dem CalendarView verbinden
             calendarView.ContextMenuStrip = contextMenuStrip1;
 
             try
@@ -178,49 +185,48 @@ namespace AP2024
                 {
                     connection.Open();
 
-                    string query = "SELECT type_name, color FROM AbsenceTypes";
+                    string query = "SELECT id, type_name, color FROM AbsenceTypes";
 
-                    using (var command = connection.CreateCommand())
+                    using (var command = new SQLiteCommand(query, connection))
+                    using (var reader = command.ExecuteReader())
                     {
-                        command.CommandText = query;
-
-                        using (var reader = command.ExecuteReader())
+                        while (reader.Read())
                         {
-                            while (reader.Read())
+                            int typeId = reader.GetInt32(0);
+                            string typeName = reader.GetString(1);
+                            string colorHex = reader.GetString(2);
+
+                            // Standardfarbe Schwarz, falls ungültige Farbe
+                            Color itemColor = Color.Black;
+                            try
                             {
-                                string typeName = reader["type_name"].ToString();
-                                string colorHex = reader["color"].ToString();
-
-                                // Standardfarbe Schwarz, falls ungültige Farbe
-                                Color itemColor = Color.Black;
-                                try
-                                {
-                                    itemColor = ColorTranslator.FromHtml(colorHex);
-                                }
-                                catch { } // Falls die Farbe ungültig ist, bleibt es schwarz
-
-                                // Farbiges Icon als 16x16 Bitmap erstellen
-                                Bitmap colorIcon = new Bitmap(16, 16);
-                                using (Graphics g = Graphics.FromImage(colorIcon))
-                                {
-                                    g.Clear(itemColor); // Färbt das gesamte Icon
-                                }
-
-                                // Menüpunkt mit farbigem Icon erstellen
-                                ToolStripMenuItem menuItem = new ToolStripMenuItem(typeName)
-                                {
-                                    Image = colorIcon // Setzt das Icon für das Menüitem
-                                };
-
-                                // Event-Handler für Klick auf das Menüelement
-                                menuItem.Click += (s, e) =>
-                                {
-                                    MessageBox.Show($"Ausgewählter Typ: {typeName}");
-                                };
-
-                                // Menüpunkt zum ContextMenuStrip hinzufügen
-                                contextMenuStrip1.Items.Add(menuItem);
+                                itemColor = ColorTranslator.FromHtml(colorHex);
                             }
+                            catch { } // Falls die Farbe ungültig ist, bleibt es schwarz
+
+                            // Farbiges Icon als 16x16 Bitmap erstellen
+                            Bitmap colorIcon = new Bitmap(16, 16);
+                            using (Graphics g = Graphics.FromImage(colorIcon))
+                            {
+                                g.Clear(itemColor); // Färbt das gesamte Icon
+                            }
+
+                            // Menüpunkt mit ID als Tag und farbigem Icon erstellen
+                            ToolStripMenuItem menuItem = new ToolStripMenuItem(typeName)
+                            {
+                                Tag = typeId, // Speichert die ID für späteren Zugriff
+                                Image = colorIcon // Setzt das Icon für das Menüitem
+                            };
+
+                            // Event-Handler für Klick auf das Menüelement
+                            menuItem.Click += (s, e) =>
+                            {
+                                int selectedTypeId = (int)((ToolStripMenuItem)s).Tag;
+                                AbsenceController.ColorAbsence(calendarView, selectedTypeId);
+                            };
+
+                            // Menüpunkt zum ContextMenuStrip hinzufügen
+                            contextMenuStrip1.Items.Add(menuItem);
                         }
                     }
                 }
@@ -230,6 +236,7 @@ namespace AP2024
                 MessageBox.Show($"Fehler beim Laden der Abwesenheitstypen: {ex.Message}", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
 
 
 
