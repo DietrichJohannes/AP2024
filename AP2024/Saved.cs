@@ -19,7 +19,7 @@ namespace AP2024
 
             // Timer erstellen
             System.Windows.Forms.Timer closeTimer = new System.Windows.Forms.Timer();                   // Timer initialisieren
-            closeTimer.Interval = 800;                                                                  // 800ms warten
+            closeTimer.Interval = 500;                                                                  // 800ms warten
             closeTimer.Tick += CloseTimer_Tick;                                                         // Eventhandler für das Tick-Ereignis
             closeTimer.Start();                                                                         // Timer starten
         }

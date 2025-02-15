@@ -97,7 +97,8 @@ namespace AP2024
                 // Tabelle für Admins
                 string createAdministratorTableQuery = @"CREATE TABLE IF NOT EXISTS Administrators (
                                                         id INTEGER PRIMARY KEY AUTOINCREMENT,
-                                                        windows_username TEXT NOT NULL
+                                                        windows_username TEXT NOT NULL,
+                                                        admin_roll INTEGER NOT NULL DEFAULT 0
                                                         );";
 
                 ExecuteNonQuery(connection, createAdministratorTableQuery);

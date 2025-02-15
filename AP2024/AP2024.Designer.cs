@@ -116,13 +116,13 @@
             // meineDatenToolStripMenuItem
             // 
             meineDatenToolStripMenuItem.Name = "meineDatenToolStripMenuItem";
-            meineDatenToolStripMenuItem.Size = new Size(145, 22);
+            meineDatenToolStripMenuItem.Size = new Size(180, 22);
             meineDatenToolStripMenuItem.Text = "Meine Daten";
             // 
             // einstellungenToolStripMenuItem
             // 
             einstellungenToolStripMenuItem.Name = "einstellungenToolStripMenuItem";
-            einstellungenToolStripMenuItem.Size = new Size(145, 22);
+            einstellungenToolStripMenuItem.Size = new Size(180, 22);
             einstellungenToolStripMenuItem.Text = "Einstellungen";
             // 
             // administrationToolStripMenuItem
@@ -175,6 +175,7 @@
             adminKonsoleToolStripMenuItem.Name = "adminKonsoleToolStripMenuItem";
             adminKonsoleToolStripMenuItem.Size = new Size(191, 22);
             adminKonsoleToolStripMenuItem.Text = "Admin Konsole";
+            adminKonsoleToolStripMenuItem.Click += adminKonsoleToolStripMenuItem_Click;
             // 
             // aP2024EinstellungenToolStripMenuItem
             // 

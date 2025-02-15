@@ -40,6 +40,7 @@ namespace AP2024
         {   
             SaveAbsenceTypes();
             NotificationController.Saved();
+            this.Close();
         }
 
         private void SaveAbsenceTypes() 
@@ -76,9 +77,7 @@ namespace AP2024
 
                         if (result > 0)
                         {
-                            NotificationController.Saved();
                             OnAbsenceTypeSaved?.Invoke();
-                            this.Close();
                         }
                         else
                         {

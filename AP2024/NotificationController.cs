@@ -11,7 +11,7 @@ namespace AP2024
         public static void Saved()
         {
             Saved saved = new Saved();
-            saved.Show();
+            saved.ShowDialog();
         }
     }
 }

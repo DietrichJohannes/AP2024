@@ -1,0 +1,3 @@
+G:/Programme/C#/AP2024/Installer/cmake-build-debug/CMakeFiles/Installer.dir
+G:/Programme/C#/AP2024/Installer/cmake-build-debug/CMakeFiles/edit_cache.dir
+G:/Programme/C#/AP2024/Installer/cmake-build-debug/CMakeFiles/rebuild_cache.dir

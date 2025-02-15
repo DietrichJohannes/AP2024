@@ -53,7 +53,7 @@ namespace AP2024
 
         private void SynchronizeScroll()
         {
-                        
+
         }
 
         private void LoadViews()
@@ -63,7 +63,7 @@ namespace AP2024
 
             string connectionString = ApplicationContext.GetConnectionString();                     // Hole den ConnectionString
 
-            using (SQLiteConnection connection = new SQLiteConnection(connectionString))             
+            using (SQLiteConnection connection = new SQLiteConnection(connectionString))
             {
                 try
                 {
@@ -110,7 +110,7 @@ namespace AP2024
             }
             else
             {
-                
+
             }
         }
 
@@ -141,21 +141,21 @@ namespace AP2024
 
                             while (reader.Read())
                             {
-                                        
+
                                 string vorname = reader["first_name"]?.ToString() ?? "Unbekannt";                           // Hole den Vornamen aus der Datenbank
                                 string nachname = reader["last_name"]?.ToString() ?? "Unbekannt";                           // Hole den Nachnamen aus der Datenbank
                                 string fullName = $"{vorname} {nachname}";                                                  // Setze den Namen zusammen
 
-                                                                                                                            // Sicherstellen, dass keine Werte null sind
+                                // Sicherstellen, dass keine Werte null sind
                                 string resturlaub = reader["remaining_leave"]?.ToString() ?? "0";                           // Hole den Resturlaub aus der Datenbank
 
-                                                                                                                            // Dynamisch Zeilen hinzufügen, falls nicht genügend vorhanden
+                                // Dynamisch Zeilen hinzufügen, falls nicht genügend vorhanden
                                 while (calendarView.Rows.Count <= rowIndex)
                                 {
                                     calendarView.Rows.Add();                                                                // Füge eine neue Zeile hinzu
                                 }
 
-                                                                                                                            // Werte in die Zellen schreiben
+                                // Werte in die Zellen schreiben
                                 calendarView.Rows[rowIndex].Cells[0].Value = fullName;                                      // Spalte 0: Mitarbeitername
                                 calendarView.Rows[rowIndex].Cells[1].Value = resturlaub;                                    // Spalte 1: Resturlaub
 
@@ -173,7 +173,7 @@ namespace AP2024
 
         private void LoadAbsenceTypes()
         {
-                                                                               
+
             contextMenuStrip1.Items.Clear();
 
             // Kontextmenü mit dem CalendarView verbinden
@@ -272,7 +272,7 @@ namespace AP2024
             viewManager.OnViewManagerExit += LoadViews;
             viewManager.Show();
         }
-        
+
         private void toolStripMenuItem2_Click(object sender, EventArgs e)
         {
             AbsenceManager absenceManager = new AbsenceManager();
@@ -291,6 +291,10 @@ namespace AP2024
             LoadEmployees();
         }
 
-
+        private void adminKonsoleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AdminManager adminManager = new AdminManager();
+            adminManager.Show();
+        }
     }
 }
