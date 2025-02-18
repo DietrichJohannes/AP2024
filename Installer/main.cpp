@@ -3,15 +3,14 @@
 #include <shlobj.h>
 #include <urlmon.h>
 #include <string>
-#include <iostream>
 
 #pragma comment(lib, "urlmon.lib")
 
 const std::string DOWNLOAD_URL = "https://github.com/DietrichJohannes/AP2024/releases/download/AP2024/AP2024.exe";
 const std::string INSTALL_FILE = "AP2024.exe";
 
-// Globale Variablen für das Fenster und das Eingabefeld
-HWND hInstallPathEdit, hStatusLabel;
+// Globale Variablen
+HWND hInstallPathEdit, hStatusLabel, hInstallButton, hCheckbox;
 
 // Funktion zum Öffnen eines Dialogs zur Auswahl des Installationsverzeichnisses
 std::string openFolderDialog(HWND hwnd) {
@@ -29,7 +28,7 @@ std::string openFolderDialog(HWND hwnd) {
     return "";
 }
 
-// Funktion zum Herunterladen der Datei von GitHub
+// Funktion zum Herunterladen der Datei
 bool downloadFile(const std::string& url, const std::string& destination) {
     HRESULT hr = URLDownloadToFileA(NULL, url.c_str(), destination.c_str(), 0, NULL);
     return hr == S_OK;
@@ -64,7 +63,7 @@ void createShortcut(const std::string& targetPath) {
     }
 }
 
-// Hauptfenster Callback-Funktion
+// Callback-Funktion für das Hauptfenster
 LRESULT CALLBACK WindowProcedure(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam) {
     switch (message) {
         case WM_COMMAND:
@@ -93,6 +92,9 @@ LRESULT CALLBACK WindowProcedure(HWND hwnd, UINT message, WPARAM wParam, LPARAM 
                 } else {
                     MessageBox(hwnd, "Fehler beim Herunterladen der Datei!", "Fehler", MB_OK | MB_ICONERROR);
                 }
+            } else if (LOWORD(wParam) == 3) {  // Checkbox geändert
+                LRESULT checked = SendMessage(hCheckbox, BM_GETCHECK, 0, 0);
+                EnableWindow(hInstallButton, checked == BST_CHECKED);
             }
             break;
         case WM_CLOSE:
@@ -117,7 +119,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
     HWND hwnd = CreateWindow("InstallerWindow", "AP2024 Installer",
                              WS_OVERLAPPEDWINDOW | WS_VISIBLE,
-                             CW_USEDEFAULT, CW_USEDEFAULT, 500, 200,
+                             CW_USEDEFAULT, CW_USEDEFAULT, 500, 250,
                              NULL, NULL, hInstance, NULL);
 
     CreateWindow("STATIC", "Installationspfad:", WS_VISIBLE | WS_CHILD, 20, 20, 120, 20, hwnd, NULL, hInstance, NULL);
@@ -125,10 +127,16 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
                                     150, 20, 250, 20, hwnd, NULL, hInstance, NULL);
     CreateWindow("BUTTON", "Wählen...", WS_VISIBLE | WS_CHILD, 410, 20, 70, 20, hwnd, (HMENU)1, hInstance, NULL);
 
-    CreateWindow("BUTTON", "Installieren", WS_VISIBLE | WS_CHILD | BS_DEFPUSHBUTTON,
-                 150, 60, 120, 30, hwnd, (HMENU)2, hInstance, NULL);
+    // Datenschutz-Checkbox
+    hCheckbox = CreateWindow("BUTTON", "Ich akzeptiere die Datenschutzbestimmungen",
+                             WS_VISIBLE | WS_CHILD | BS_CHECKBOX,
+                             20, 60, 300, 20, hwnd, (HMENU)3, hInstance, NULL);
 
-    hStatusLabel = CreateWindow("STATIC", "", WS_VISIBLE | WS_CHILD, 150, 100, 250, 20, hwnd, NULL, hInstance, NULL);
+    hInstallButton = CreateWindow("BUTTON", "Installieren", WS_VISIBLE | WS_CHILD | BS_DEFPUSHBUTTON,
+                                  150, 100, 120, 30, hwnd, (HMENU)2, hInstance, NULL);
+    EnableWindow(hInstallButton, FALSE);  // Installations-Button standardmäßig deaktiviert
+
+    hStatusLabel = CreateWindow("STATIC", "", WS_VISIBLE | WS_CHILD, 150, 140, 250, 20, hwnd, NULL, hInstance, NULL);
 
     MSG msg = {};
     while (GetMessage(&msg, NULL, 0, 0)) {

@@ -14,11 +14,20 @@ namespace AP2024
             string folderPath = "data";
             string databasePath = Path.Combine(folderPath, "AP2024.db");
 
+            bool firstStart = false;
+
             // Überprüfen, ob der Ordner 'data' existiert, falls nicht, wird er erstellt.
             if (!Directory.Exists(folderPath))
             {
                 Directory.CreateDirectory(folderPath);
+                firstStart = true;
             }
+
+            if(!File.Exists(databasePath))
+            {
+                firstStart = true;
+            }
+
 
             // Den Ordner als versteckt markieren
             File.SetAttributes(folderPath, FileAttributes.Hidden);
@@ -116,6 +125,11 @@ namespace AP2024
             }
 
             Console.WriteLine("Datenbank-Initialisierung abgeschlossen.");
+
+            if (firstStart)
+            {
+                ApplicationContext.InitFirstStart();
+            }
         }
 
         // Hilfsmethode zum Ausführen von Nicht-Abfrage-SQL-Befehlen
@@ -126,6 +140,8 @@ namespace AP2024
                 command.ExecuteNonQuery();
             }
         }
+
+
     }
 
 }
