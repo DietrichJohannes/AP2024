@@ -37,6 +37,9 @@
     <Compile Update="Saved.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="SetupCompleteName.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="SplashScreen.cs">
       <SubType>Form</SubType>
     </Compile>

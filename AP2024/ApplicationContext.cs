@@ -41,32 +41,9 @@ namespace AP2024
 
             if (SuperAdminBox)
             {
-                AtFirstStartAddSuperAdmin();
-                StartFirstStartSetup();
+                SetupController.AtFirstStartAddSuperAdmin();
+                SetupController.StartSetup();
             }
-        }
-
-
-
-        public static void AtFirstStartAddSuperAdmin()
-        {
-            using (var connection = new SQLiteConnection(ApplicationContext.GetConnectionString()))
-            {
-                connection.Open();
-                string query = "INSERT INTO Administrators (windows_username, admin_roll) VALUES (@windows_username, @admin_roll)";
-                using (var command = connection.CreateCommand())
-                {
-                    command.CommandText = query;
-                    command.Parameters.AddWithValue("@windows_username", ApplicationContext.GetCurrentWindowsUser());
-                    command.Parameters.AddWithValue("@admin_roll", 3);
-                    command.ExecuteNonQuery();
-                }
-            }
-        }
-
-        public static void StartFirstStartSetup()
-        {
-            
         }
     }
 }

@@ -15,16 +15,27 @@ namespace AP2024
     {
         int SelectedSuperViewID = 0;
         public static event Action OnViewSaved;
+        int _NewView_WindowMode { get; set; }
 
-        public NewView()
+        public NewView(int windowMode)
         {
             InitializeComponent();
+            _NewView_WindowMode = windowMode;
             LoadSuperViews();
+            GetWindowMode();
+        }
+
+        private void GetWindowMode()
+        {
+            if (_NewView_WindowMode == 2)
+            {
+                MessageBox.Show("Hier können Sie Views hinzufügen.\nBeispiele sind z.B. Elektroniker 1. Lj., Instandhaltungs Mechaniker...\noder\nFrühschicht, Nachtschicht", "AP2024 Setup");
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            NewSuperView newSuperView = new NewSuperView();
+            NewSuperView newSuperView = new NewSuperView(0);
             newSuperView.ShowDialog();
         }
 

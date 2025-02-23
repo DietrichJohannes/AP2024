@@ -13,9 +13,21 @@ namespace AP2024
 {
     public partial class NewSuperView : Form
     {
-        public NewSuperView()
+        int _NewSuperView_WindowMode { get; set; }
+
+        public NewSuperView(int windowMode)
         {
             InitializeComponent();
+            _NewSuperView_WindowMode = windowMode;
+            GetWindowMode();
+        }
+
+        private void GetWindowMode()
+        {
+            if (_NewSuperView_WindowMode == 2)
+            {
+                MessageBox.Show("Hier können Sie SuperViews hinzufügen.\nBeispiele sind z.B. Abteilungen, Gruppen, Teams...", "AP2024 Setup");
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)

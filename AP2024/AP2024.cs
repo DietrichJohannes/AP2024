@@ -296,5 +296,10 @@ namespace AP2024
             AdminManager adminManager = new AdminManager();
             adminManager.Show();
         }
+
+        private void testToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SetupController.StartSetup();
+        }
     }
 }

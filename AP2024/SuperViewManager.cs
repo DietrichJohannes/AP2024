@@ -21,7 +21,7 @@ namespace AP2024
 
         private void button3_Click(object sender, EventArgs e)
         {
-            NewSuperView newSuperView = new NewSuperView();
+            NewSuperView newSuperView = new NewSuperView(0);
             newSuperView.ShowDialog();
         }
 

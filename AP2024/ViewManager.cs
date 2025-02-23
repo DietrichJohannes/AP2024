@@ -13,6 +13,7 @@ namespace AP2024
 {
     public partial class ViewManager : Form
     {
+
         public event Action OnViewManagerExit;
         public ViewManager()
         {
@@ -28,10 +29,11 @@ namespace AP2024
 
         private void button3_Click(object sender, EventArgs e)
         {
-            NewView newView = new NewView();
+            NewView newView = new NewView(0);
             NewView.OnViewSaved += LoadViews;
             newView.ShowDialog();
         }
+
 
         private void LoadViews()
         {
