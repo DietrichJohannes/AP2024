@@ -159,8 +159,12 @@ public class CalendarController
 
     public void HighlightWeekends(DataGridView dgv)                              // Methode: Wochenenden hervorheben
     {
+                
+    }
 
-        
+    public void HighlightHolidays(DataGridView dgv)                              // Methode: Feiertage hervorheben
+    {
+
     }
 
     public void HighlightToday(DataGridView dgv)                                 // Methode: Heutigen Tag hervorheben

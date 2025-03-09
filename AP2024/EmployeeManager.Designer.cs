@@ -40,6 +40,9 @@
             button3 = new Button();
             button4 = new Button();
             button5 = new Button();
+            button6 = new Button();
+            button7 = new Button();
+            button8 = new Button();
             SuspendLayout();
             // 
             // employeeListView
@@ -114,16 +117,16 @@
             button4.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             button4.Location = new Point(12, 459);
             button4.Name = "button4";
-            button4.Size = new Size(156, 23);
+            button4.Size = new Size(235, 23);
             button4.TabIndex = 4;
-            button4.Text = "Urlaub vergeben";
+            button4.Text = "Urlaub bearbeiten";
             button4.UseVisualStyleBackColor = true;
             button4.Click += button4_Click;
             // 
             // button5
             // 
             button5.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            button5.Location = new Point(12, 488);
+            button5.Location = new Point(494, 488);
             button5.Name = "button5";
             button5.Size = new Size(156, 23);
             button5.TabIndex = 5;
@@ -131,17 +134,48 @@
             button5.UseVisualStyleBackColor = true;
             button5.Click += button5_Click;
             // 
+            // button6
+            // 
+            button6.Location = new Point(253, 459);
+            button6.Name = "button6";
+            button6.Size = new Size(235, 23);
+            button6.TabIndex = 6;
+            button6.Text = "Krankheitstage Bearbeiten";
+            button6.UseVisualStyleBackColor = true;
+            // 
+            // button7
+            // 
+            button7.Location = new Point(253, 488);
+            button7.Name = "button7";
+            button7.Size = new Size(235, 23);
+            button7.TabIndex = 7;
+            button7.Text = "Krankheitstage für ALLE Zurücksetzen";
+            button7.UseVisualStyleBackColor = true;
+            // 
+            // button8
+            // 
+            button8.Location = new Point(12, 488);
+            button8.Name = "button8";
+            button8.Size = new Size(235, 23);
+            button8.TabIndex = 8;
+            button8.Text = "Urlaub für ALLE vergeben\r\n";
+            button8.UseVisualStyleBackColor = true;
+            // 
             // EmployeeManager
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1030, 522);
+            Controls.Add(button8);
+            Controls.Add(button7);
+            Controls.Add(button6);
             Controls.Add(button5);
             Controls.Add(button4);
             Controls.Add(button3);
             Controls.Add(button2);
             Controls.Add(button1);
             Controls.Add(employeeListView);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "EmployeeManager";
             StartPosition = FormStartPosition.CenterScreen;
@@ -163,5 +197,8 @@
         private ColumnHeader columnHeader3;
         private ColumnHeader columnHeader4;
         private ColumnHeader columnHeader5;
+        private Button button6;
+        private Button button7;
+        private Button button8;
     }
 }

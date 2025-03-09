@@ -7,11 +7,13 @@ Dieses Programm bietet eine intuitive Möglichkeit, Abwesenheiten (z. B. Urlaub,
 ## Features
 
 
-Einfache Navigation: Schnelles Markieren von Zellen per Mausklick.
+Einfache Navigation Schnelles Markieren von Zellen per Mausklick.
 
-Kontextmenü für Einträge: Einträge wie Urlaub, Krankheit oder andere Abwesenheiten können über einen Rechtsklick hinzugefügt werden.
+Kontextmenü für Einträge Einträge wie Urlaub, Krankheit oder andere Abwesenheiten können über einen Rechtsklick hinzugefügt werden.
 
-Visualisierung von Einträgen: Abwesenheiten werden direkt im Kalender farblich hervorgehoben.
+Visualisierung von Einträgen Abwesenheiten werden direkt im Kalender farblich hervorgehoben.
+
+Es könne Rollen an Benutzer vergeben werden wie z.B. Zeitadmin, Admin, Bearbeiter und Mitarbeiter.
 
 
 ## Handbuch

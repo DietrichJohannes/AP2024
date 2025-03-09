@@ -21,12 +21,14 @@ namespace AP2024
             LoadAbsenceTypes();                                                             // Lade die Abwesenheitsarten in den ContextMenuStrip
             AbsenceController.LoadAbsence();                                                // Lade die Abwesenheiten in den Kalender
             RollController.EnableAdminControls(administrationToolStripMenuItem);            // Aktiviere Adminrechte falls vergeben
+            StatusStripController.SetStatusStrip(statusStrip1);                             // Setze den StatusStrip
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             LoadEmployees();                                                                // Lade die Mitarbeeiter neu
             AbsenceController.LoadAbsence();                                                // Lade die Abwesenheiten neu
+            StatusStripController.SetLastUpdated();                                         // Setze den letzten Aktualisierungszeitpunkt
         }
 
         private void InitCalendar()
@@ -41,9 +43,15 @@ namespace AP2024
 
             calendarController.HighlightWeekends(calendarView);                             // Markiere die Wochenenden in der Tagesansicht grau
 
-            // calendarController.HighlightHoliday(calendarView);                              // Markiere die Feiertage in der Tagesansicht grau
+            calendarController.HighlightHolidays(calendarView);                              // Markiere die Feiertage in der Tagesansicht grau
 
             calendarController.HighlightToday(calendarView);                                // Markiere den heutigen Tag in der Tagesansicht gelb
+
+            cwView.ClearSelection();
+            monthView.ClearSelection();
+
+            cwView.CurrentCell = null;
+            monthView.CurrentCell = null;
         }
 
         private void calendarView_Scroll(object sender, ScrollEventArgs e)
@@ -173,10 +181,7 @@ namespace AP2024
 
         private void LoadAbsenceTypes()
         {
-
-            contextMenuStrip1.Items.Clear();
-
-            // Kontextmenü mit dem CalendarView verbinden
+            contextMenuStrip1.Items.Clear(); // Menüpunkte löschen
             calendarView.ContextMenuStrip = contextMenuStrip1;
 
             try
@@ -184,8 +189,7 @@ namespace AP2024
                 using (var connection = new SQLiteConnection(ApplicationContext.GetConnectionString()))
                 {
                     connection.Open();
-
-                    string query = "SELECT id, type_name, color FROM AbsenceTypes";
+                    string query = "SELECT id, type_name, abbreviation, color FROM AbsenceTypes";
 
                     using (var command = new SQLiteCommand(query, connection))
                     using (var reader = command.ExecuteReader())
@@ -194,38 +198,38 @@ namespace AP2024
                         {
                             int typeId = reader.GetInt32(0);
                             string typeName = reader.GetString(1);
-                            string colorHex = reader.GetString(2);
+                            string abbreviation = reader.GetString(2);
+                            string colorHex = reader.GetString(3);
 
-                            // Standardfarbe Schwarz, falls ungültige Farbe
+                            // Farbe umwandeln, Standardfarbe falls ungültig
                             Color itemColor = Color.Black;
-                            try
-                            {
-                                itemColor = ColorTranslator.FromHtml(colorHex);
-                            }
-                            catch { } // Falls die Farbe ungültig ist, bleibt es schwarz
+                            try { itemColor = ColorTranslator.FromHtml(colorHex); }
+                            catch { }
 
-                            // Farbiges Icon als 16x16 Bitmap erstellen
+                            // **Daten in den Cache speichern** 
+                            AbsenceController.absenceCache[typeId] = (itemColor, abbreviation);
+
+                            // Farbiges Icon für Menüpunkt erstellen
                             Bitmap colorIcon = new Bitmap(16, 16);
                             using (Graphics g = Graphics.FromImage(colorIcon))
                             {
-                                g.Clear(itemColor); // Färbt das gesamte Icon
+                                g.Clear(itemColor);
                             }
 
-                            // Menüpunkt mit ID als Tag und farbigem Icon erstellen
+                            // Menüpunkt für den Kontextmenü-Eintrag
                             ToolStripMenuItem menuItem = new ToolStripMenuItem(typeName)
                             {
-                                Tag = typeId, // Speichert die ID für späteren Zugriff
-                                Image = colorIcon // Setzt das Icon für das Menüitem
+                                Tag = typeId,
+                                Image = colorIcon
                             };
 
-                            // Event-Handler für Klick auf das Menüelement
+                            // Event-Handler für Auswahl
                             menuItem.Click += (s, e) =>
                             {
                                 int selectedTypeId = (int)((ToolStripMenuItem)s).Tag;
                                 AbsenceController.ColorAbsence(calendarView, selectedTypeId);
                             };
 
-                            // Menüpunkt zum ContextMenuStrip hinzufügen
                             contextMenuStrip1.Items.Add(menuItem);
                         }
                     }
@@ -235,7 +239,48 @@ namespace AP2024
             {
                 MessageBox.Show($"Fehler beim Laden der Abwesenheitstypen: {ex.Message}", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
+            // Standard-Einträge hinzufügen
+            AddStandardEntries();
         }
+
+        private void AddStandardEntries()
+        {
+            // Trennlinie hinzufügen, falls das Menü bereits Einträge hat
+            if (contextMenuStrip1.Items.Count > 0)
+            {
+                contextMenuStrip1.Items.Add(new ToolStripSeparator());
+            }
+
+            // Menüpunkt "Abwesenheit bearbeiten" hinzufügen
+            ToolStripMenuItem editAbsenceItem = new ToolStripMenuItem("Abwesenheit bearbeiten")
+            {
+                Tag = "edit"
+            };
+
+            editAbsenceItem.Click += (s, e) =>
+            {
+                AbsenceController.EditAbsence();
+            };
+
+
+            // Menüpunkt "Abwesenheit löschen" hinzufügen
+            ToolStripMenuItem deleteAbsenceItem = new ToolStripMenuItem("Abwesenheit löschen")
+            {
+                Tag = "delete"
+            };
+
+            deleteAbsenceItem.Click += (s, e) =>
+            {
+                AbsenceController.ClearAbsence(calendarView);
+            };
+
+            contextMenuStrip1.Items.Add(editAbsenceItem);
+            contextMenuStrip1.Items.Add(deleteAbsenceItem);
+            
+        }
+
+
 
 
 
@@ -301,5 +346,6 @@ namespace AP2024
         {
             SetupController.StartSetup();
         }
+
     }
 }

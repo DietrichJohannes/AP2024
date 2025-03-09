@@ -97,8 +97,7 @@ namespace AP2024
                 string createHolidayTableQuery = @"CREATE TABLE IF NOT EXISTS PublicHolidays (
                                                         id INTEGER PRIMARY KEY AUTOINCREMENT,
                                                         holiday_name TEXT NOT NULL,
-                                                        holiday_date TEXT NOT NULL,
-                                                        is_recurring INTEGER NOT NULL DEFAULT 0
+                                                        holiday_date TEXT NOT NULL
                                                         );";
 
                 ExecuteNonQuery(connection, createHolidayTableQuery);

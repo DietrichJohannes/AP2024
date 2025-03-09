@@ -65,6 +65,7 @@ build CMakeFiles/Installer.dir/main.cpp.obj: CXX_COMPILER__Installer_unscanned_D
 
 build Installer.exe: CXX_EXECUTABLE_LINKER__Installer_Debug CMakeFiles/Installer.dir/main.cpp.obj
   FLAGS = -g
+  LINK_FLAGS = -static
   LINK_LIBRARIES = -lurlmon  -lole32  -loleaut32  -luuid  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\Installer.dir
   POST_BUILD = cd .

@@ -29,9 +29,15 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AP2024));
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             cwView = new DataGridView();
             statusStrip1 = new StatusStrip();
+            time_Admin = new ToolStripStatusLabel();
+            user = new ToolStripStatusLabel();
+            sick_days = new ToolStripStatusLabel();
+            last_updated = new ToolStripStatusLabel();
             menuStrip1 = new MenuStrip();
             meinAP2024ToolStripMenuItem = new ToolStripMenuItem();
             meineDatenToolStripMenuItem = new ToolStripMenuItem();
@@ -49,6 +55,7 @@
             hilfeToolStripMenuItem1 = new ToolStripMenuItem();
             anleitungToolStripMenuItem = new ToolStripMenuItem();
             infoÜberDenEntwicklerToolStripMenuItem = new ToolStripMenuItem();
+            testToolStripMenuItem = new ToolStripMenuItem();
             button1 = new Button();
             button2 = new Button();
             button3 = new Button();
@@ -57,11 +64,15 @@
             viewCB = new ComboBox();
             label1 = new Label();
             contextMenuStrip1 = new ContextMenuStrip(components);
-            testToolStripMenuItem = new ToolStripMenuItem();
+            toolStripSeparator3 = new ToolStripSeparator();
+            toolStripMenuItem4 = new ToolStripMenuItem();
+            toolStripMenuItem3 = new ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)cwView).BeginInit();
+            statusStrip1.SuspendLayout();
             menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)calendarView).BeginInit();
             ((System.ComponentModel.ISupportInitialize)monthView).BeginInit();
+            contextMenuStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // cwView
@@ -74,29 +85,65 @@
             cwView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             cwView.BorderStyle = BorderStyle.None;
             cwView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            cwView.EditMode = DataGridViewEditMode.EditProgrammatically;
-            cwView.Enabled = false;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = SystemColors.Window;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle1.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
+            cwView.DefaultCellStyle = dataGridViewCellStyle1;
             cwView.GridColor = Color.LightGray;
-            cwView.Location = new Point(347, 120);
+            cwView.Location = new Point(347, 157);
             cwView.MultiSelect = false;
             cwView.Name = "cwView";
             cwView.ReadOnly = true;
             cwView.RowHeadersVisible = false;
             cwView.ScrollBars = ScrollBars.None;
-            cwView.ShowCellErrors = false;
             cwView.ShowCellToolTips = false;
-            cwView.ShowEditingIcon = false;
             cwView.ShowRowErrors = false;
             cwView.Size = new Size(866, 20);
             cwView.TabIndex = 1;
             // 
             // statusStrip1
             // 
-            statusStrip1.Location = new Point(0, 493);
+            statusStrip1.Items.AddRange(new ToolStripItem[] { time_Admin, user, sick_days, last_updated });
+            statusStrip1.Location = new Point(0, 587);
             statusStrip1.Name = "statusStrip1";
             statusStrip1.Size = new Size(1225, 22);
             statusStrip1.TabIndex = 3;
-            statusStrip1.Text = "statusStrip1";
+            // 
+            // time_Admin
+            // 
+            time_Admin.Name = "time_Admin";
+            time_Admin.Size = new Size(302, 17);
+            time_Admin.Spring = true;
+            time_Admin.Text = "ZeitAdmin";
+            time_Admin.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // user
+            // 
+            user.Name = "user";
+            user.Size = new Size(302, 17);
+            user.Spring = true;
+            user.Text = "Benutzer";
+            user.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // sick_days
+            // 
+            sick_days.Name = "sick_days";
+            sick_days.Size = new Size(302, 17);
+            sick_days.Spring = true;
+            sick_days.Text = "Krankheitstage";
+            sick_days.TextAlign = ContentAlignment.MiddleRight;
+            // 
+            // last_updated
+            // 
+            last_updated.Name = "last_updated";
+            last_updated.Size = new Size(302, 17);
+            last_updated.Spring = true;
+            last_updated.Text = "Zuletzt Aktuallisiert:";
+            last_updated.TextAlign = ContentAlignment.MiddleRight;
             // 
             // menuStrip1
             // 
@@ -117,13 +164,13 @@
             // meineDatenToolStripMenuItem
             // 
             meineDatenToolStripMenuItem.Name = "meineDatenToolStripMenuItem";
-            meineDatenToolStripMenuItem.Size = new Size(145, 22);
+            meineDatenToolStripMenuItem.Size = new Size(180, 22);
             meineDatenToolStripMenuItem.Text = "Meine Daten";
             // 
             // einstellungenToolStripMenuItem
             // 
             einstellungenToolStripMenuItem.Name = "einstellungenToolStripMenuItem";
-            einstellungenToolStripMenuItem.Size = new Size(145, 22);
+            einstellungenToolStripMenuItem.Size = new Size(180, 22);
             einstellungenToolStripMenuItem.Text = "Einstellungen";
             // 
             // administrationToolStripMenuItem
@@ -210,6 +257,13 @@
             infoÜberDenEntwicklerToolStripMenuItem.Text = "Info über den Entwickler";
             infoÜberDenEntwicklerToolStripMenuItem.Click += infoÜberDenEntwicklerToolStripMenuItem_Click;
             // 
+            // testToolStripMenuItem
+            // 
+            testToolStripMenuItem.Name = "testToolStripMenuItem";
+            testToolStripMenuItem.Size = new Size(39, 20);
+            testToolStripMenuItem.Text = "Test";
+            testToolStripMenuItem.Click += testToolStripMenuItem_Click;
+            // 
             // button1
             // 
             button1.Image = (Image)resources.GetObject("button1.Image");
@@ -248,11 +302,19 @@
             calendarView.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             calendarView.BackgroundColor = SystemColors.Control;
             calendarView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            calendarView.Location = new Point(12, 140);
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = Color.LightBlue;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            calendarView.DefaultCellStyle = dataGridViewCellStyle2;
+            calendarView.Location = new Point(12, 177);
             calendarView.Name = "calendarView";
             calendarView.ReadOnly = true;
             calendarView.RowHeadersVisible = false;
-            calendarView.Size = new Size(1201, 313);
+            calendarView.Size = new Size(1201, 407);
             calendarView.TabIndex = 8;
             calendarView.Scroll += calendarView_Scroll;
             // 
@@ -268,9 +330,8 @@
             monthView.CausesValidation = false;
             monthView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             monthView.EditMode = DataGridViewEditMode.EditProgrammatically;
-            monthView.Enabled = false;
             monthView.GridColor = Color.LightGray;
-            monthView.Location = new Point(347, 100);
+            monthView.Location = new Point(347, 137);
             monthView.MultiSelect = false;
             monthView.Name = "monthView";
             monthView.ReadOnly = true;
@@ -303,21 +364,33 @@
             // 
             // contextMenuStrip1
             // 
+            contextMenuStrip1.Items.AddRange(new ToolStripItem[] { toolStripSeparator3, toolStripMenuItem4, toolStripMenuItem3 });
             contextMenuStrip1.Name = "contextMenuStrip1";
-            contextMenuStrip1.Size = new Size(61, 4);
+            contextMenuStrip1.Size = new Size(202, 54);
+            contextMenuStrip1.Text = "Abwesenheiten";
             // 
-            // testToolStripMenuItem
+            // toolStripSeparator3
             // 
-            testToolStripMenuItem.Name = "testToolStripMenuItem";
-            testToolStripMenuItem.Size = new Size(39, 20);
-            testToolStripMenuItem.Text = "Test";
-            testToolStripMenuItem.Click += testToolStripMenuItem_Click;
+            toolStripSeparator3.Name = "toolStripSeparator3";
+            toolStripSeparator3.Size = new Size(198, 6);
+            // 
+            // toolStripMenuItem4
+            // 
+            toolStripMenuItem4.Name = "toolStripMenuItem4";
+            toolStripMenuItem4.Size = new Size(201, 22);
+            toolStripMenuItem4.Text = "Abwesenheit bearbeiten";
+            // 
+            // toolStripMenuItem3
+            // 
+            toolStripMenuItem3.Name = "toolStripMenuItem3";
+            toolStripMenuItem3.Size = new Size(201, 22);
+            toolStripMenuItem3.Text = "Abwesenheit löschen";
             // 
             // AP2024
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1225, 515);
+            ClientSize = new Size(1225, 609);
             Controls.Add(label1);
             Controls.Add(viewCB);
             Controls.Add(monthView);
@@ -334,10 +407,13 @@
             Text = "AP2024";
             WindowState = FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)cwView).EndInit();
+            statusStrip1.ResumeLayout(false);
+            statusStrip1.PerformLayout();
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)calendarView).EndInit();
             ((System.ComponentModel.ISupportInitialize)monthView).EndInit();
+            contextMenuStrip1.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -374,5 +450,12 @@
         private ToolStripMenuItem anleitungToolStripMenuItem;
         private ContextMenuStrip contextMenuStrip1;
         private ToolStripMenuItem testToolStripMenuItem;
+        private ToolStripSeparator toolStripSeparator3;
+        private ToolStripMenuItem toolStripMenuItem4;
+        private ToolStripMenuItem toolStripMenuItem3;
+        private ToolStripStatusLabel time_Admin;
+        private ToolStripStatusLabel user;
+        private ToolStripStatusLabel sick_days;
+        private ToolStripStatusLabel last_updated;
     }
 }

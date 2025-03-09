@@ -17,7 +17,13 @@ namespace AP2024
         public static string GetCurrentDate()
         {
             DateTime dateTime = DateTime.Now;
-            return dateTime.ToString();
+            return dateTime.ToString("dd.mm.yyyy");
+        }
+
+        public static string GetCurrentTime()
+        {
+            DateTime dateTime = DateTime.Now;
+            return dateTime.ToString("HH:mm:ss");
         }
 
         public static string GetCurrentWindowsUser()

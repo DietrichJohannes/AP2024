@@ -1,7 +1,7 @@
-﻿// Purpose: Controller for handling absence data in the application. This includes loading and saving absence data, as well as coloring the calendar view based on the absence type.
+﻿// Purpose: Controller for handling absence data in the application. This includes loading, saving, deleting absence data, as well as coloring the calendar view based on the absence type.
 // Creator: Johannes Dietrich
 // Created: 05.02.2025
-// Last modified: 05.02.2025
+// Last modified: 09.03.2025
 
 
 using System;
@@ -16,50 +16,30 @@ namespace AP2024
 {
     public class AbsenceController
     {
+
+        public static Dictionary<int, (Color, string)> absenceCache = new();
+
         public static void ColorAbsence(DataGridView calendarView, int absenceTypeId)
         {
-            Color cellColor = Color.White; // Standardfarbe, falls nichts gefunden wird
-            string abbreviation = "";
-
-            try
+            if (!absenceCache.TryGetValue(absenceTypeId, out var absenceData))
             {
-                using (var connection = new SQLiteConnection(ApplicationContext.GetConnectionString()))
-                {
-                    connection.Open();
-                    string query = "SELECT color, abbreviation FROM AbsenceTypes WHERE id = @id";
-
-                    using (var command = new SQLiteCommand(query, connection))
-                    {
-                        command.Parameters.AddWithValue("@id", absenceTypeId);
-
-                        using (var reader = command.ExecuteReader())
-                        {
-                            if (reader.Read()) // Prüfen, ob Daten vorhanden sind
-                            {
-                                try
-                                {
-                                    cellColor = ColorTranslator.FromHtml(reader["color"].ToString());
-                                    abbreviation = reader["abbreviation"].ToString();
-                                }
-                                catch { /* Falls ungültige Farbe, bleibt es Weiß */ }
-                            }
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Fehler beim Laden der Farbe: {ex.Message}", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Abwesenheitstyp {absenceTypeId} nicht gefunden!", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
             }
 
-            // Markierte Zellen mit der ermittelten Farbe und Abkürzung einfärben
+            Color cellColor = absenceData.Item1;
+            string abbreviation = absenceData.Item2;
+
+            // Performance verbessern mit SuspendLayout
+            calendarView.SuspendLayout();
             foreach (DataGridViewCell cell in calendarView.SelectedCells)
             {
                 cell.Style.BackColor = cellColor;
                 cell.Value = abbreviation;
                 cell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                calendarView.ClearSelection();
             }
+            calendarView.ClearSelection();
+            calendarView.ResumeLayout();
         }
 
 
@@ -72,5 +52,29 @@ namespace AP2024
         {
 
         }
+
+        public static void EditAbsence()
+        {
+
+        }
+
+        public static void ClearAbsence(DataGridView calendarView)
+        {
+            if (calendarView.SelectedCells.Count == 0)
+            {
+                MessageBox.Show("Bitte wählen Sie eine Zelle aus, um die Abwesenheit zu löschen.", "Hinweis", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            foreach (DataGridViewCell cell in calendarView.SelectedCells)
+            {
+                if (cell.Style.BackColor != Color.White) // Falls die Zelle eingefärbt ist
+                {
+                    cell.Style.BackColor = Color.White; // Farbe zurücksetzen
+                    cell.Value = string.Empty; // Inhalt löschen (falls notwendig)
+                }
+            }
+        }
+
     }
 }
