@@ -13,7 +13,7 @@ namespace AP2024
     public class StatusStripController
     {
 
-        private static ToolStripStatusLabel userStrip, sickDaysStrip, timeAdminStrip, lastUpdated;
+        private static ToolStripStatusLabel userStrip, sickDaysStrip, timeAdminStrip, lastUpdated, department;
 
 
         public static void SetStatusStrip(StatusStrip statusStrip)
@@ -22,6 +22,7 @@ namespace AP2024
             sickDaysStrip = statusStrip.Items["sick_days"] as ToolStripStatusLabel;
             timeAdminStrip = statusStrip.Items["time_admin"] as ToolStripStatusLabel;
             lastUpdated = statusStrip.Items["last_updated"] as ToolStripStatusLabel;
+            department = statusStrip.Items["department"] as ToolStripStatusLabel;
 
             SetUser();
             SetTimeAdmin();
@@ -85,7 +86,7 @@ namespace AP2024
                     connection.Open(); // Öffne die Verbindung zur Datenbank
 
                     // SQL-Abfrage: Suche den Benutzer mit passendem Windows-Nutzer
-                    string query = "SELECT windows_username FROM Administrators WHERE admin_roll = 3";
+                    string query = "SELECT time_admin, department FROM Settings";
 
                     using (SQLiteCommand command = new SQLiteCommand(query, connection))
                     {
@@ -93,10 +94,12 @@ namespace AP2024
                         {
                             if (reader.Read()) // Prüfen, ob ein Datensatz gefunden wurde
                             {
-                                string userName = reader["windows_username"].ToString();
+                                string userName = reader["time_admin"].ToString();
+                                string departmentName = reader["department"].ToString();
 
 
                                 timeAdminStrip.Text = "Zeit Admin:".PadRight(16) + $"{userName}";
+                                department.Text = "Abteilung:".PadRight(15) + $"{departmentName}";
                             }
                             else
                             {

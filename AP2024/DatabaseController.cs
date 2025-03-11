@@ -57,7 +57,8 @@ namespace AP2024
                                                        view INTEGER NOT NULL,
                                                        leave_entitlement INTEGER NOT NULL,
                                                        remaining_leave INTEGER NOT NULL,
-                                                       sick_days INTEGER DEFAULT 0
+                                                       sick_days INTEGER DEFAULT 0,
+                                                       light_theme INTEGER NOT NULL DEFAULT 0          
                                                        );";
 
 

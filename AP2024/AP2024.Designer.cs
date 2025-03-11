@@ -36,6 +36,7 @@
             statusStrip1 = new StatusStrip();
             time_Admin = new ToolStripStatusLabel();
             user = new ToolStripStatusLabel();
+            department = new ToolStripStatusLabel();
             sick_days = new ToolStripStatusLabel();
             last_updated = new ToolStripStatusLabel();
             menuStrip1 = new MenuStrip();
@@ -55,7 +56,6 @@
             hilfeToolStripMenuItem1 = new ToolStripMenuItem();
             anleitungToolStripMenuItem = new ToolStripMenuItem();
             infoÜberDenEntwicklerToolStripMenuItem = new ToolStripMenuItem();
-            testToolStripMenuItem = new ToolStripMenuItem();
             button1 = new Button();
             button2 = new Button();
             button3 = new Button();
@@ -107,7 +107,7 @@
             // 
             // statusStrip1
             // 
-            statusStrip1.Items.AddRange(new ToolStripItem[] { time_Admin, user, sick_days, last_updated });
+            statusStrip1.Items.AddRange(new ToolStripItem[] { time_Admin, user, department, sick_days, last_updated });
             statusStrip1.Location = new Point(0, 587);
             statusStrip1.Name = "statusStrip1";
             statusStrip1.Size = new Size(1225, 22);
@@ -116,7 +116,7 @@
             // time_Admin
             // 
             time_Admin.Name = "time_Admin";
-            time_Admin.Size = new Size(302, 17);
+            time_Admin.Size = new Size(242, 17);
             time_Admin.Spring = true;
             time_Admin.Text = "ZeitAdmin";
             time_Admin.TextAlign = ContentAlignment.MiddleLeft;
@@ -124,30 +124,38 @@
             // user
             // 
             user.Name = "user";
-            user.Size = new Size(302, 17);
+            user.Size = new Size(242, 17);
             user.Spring = true;
             user.Text = "Benutzer";
             user.TextAlign = ContentAlignment.MiddleLeft;
             // 
+            // department
+            // 
+            department.Name = "department";
+            department.Size = new Size(242, 17);
+            department.Spring = true;
+            department.Text = "Abteilung";
+            department.TextAlign = ContentAlignment.MiddleLeft;
+            // 
             // sick_days
             // 
             sick_days.Name = "sick_days";
-            sick_days.Size = new Size(302, 17);
+            sick_days.Size = new Size(242, 17);
             sick_days.Spring = true;
             sick_days.Text = "Krankheitstage";
-            sick_days.TextAlign = ContentAlignment.MiddleRight;
+            sick_days.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // last_updated
             // 
             last_updated.Name = "last_updated";
-            last_updated.Size = new Size(302, 17);
+            last_updated.Size = new Size(242, 17);
             last_updated.Spring = true;
             last_updated.Text = "Zuletzt Aktuallisiert:";
             last_updated.TextAlign = ContentAlignment.MiddleRight;
             // 
             // menuStrip1
             // 
-            menuStrip1.Items.AddRange(new ToolStripItem[] { meinAP2024ToolStripMenuItem, administrationToolStripMenuItem, hilfeToolStripMenuItem, testToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { meinAP2024ToolStripMenuItem, administrationToolStripMenuItem, hilfeToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Size = new Size(1225, 24);
@@ -166,12 +174,14 @@
             meineDatenToolStripMenuItem.Name = "meineDatenToolStripMenuItem";
             meineDatenToolStripMenuItem.Size = new Size(180, 22);
             meineDatenToolStripMenuItem.Text = "Meine Daten";
+            meineDatenToolStripMenuItem.Click += meineDatenToolStripMenuItem_Click;
             // 
             // einstellungenToolStripMenuItem
             // 
             einstellungenToolStripMenuItem.Name = "einstellungenToolStripMenuItem";
             einstellungenToolStripMenuItem.Size = new Size(180, 22);
             einstellungenToolStripMenuItem.Text = "Einstellungen";
+            einstellungenToolStripMenuItem.Click += einstellungenToolStripMenuItem_Click;
             // 
             // administrationToolStripMenuItem
             // 
@@ -242,13 +252,15 @@
             // 
             hilfeToolStripMenuItem1.Name = "hilfeToolStripMenuItem1";
             hilfeToolStripMenuItem1.Size = new Size(202, 22);
-            hilfeToolStripMenuItem1.Text = "Hilfe";
+            hilfeToolStripMenuItem1.Text = "Homepage von AP2024";
+            hilfeToolStripMenuItem1.Click += hilfeToolStripMenuItem1_Click;
             // 
             // anleitungToolStripMenuItem
             // 
             anleitungToolStripMenuItem.Name = "anleitungToolStripMenuItem";
             anleitungToolStripMenuItem.Size = new Size(202, 22);
             anleitungToolStripMenuItem.Text = "Anleitung";
+            anleitungToolStripMenuItem.Click += anleitungToolStripMenuItem_Click;
             // 
             // infoÜberDenEntwicklerToolStripMenuItem
             // 
@@ -256,13 +268,6 @@
             infoÜberDenEntwicklerToolStripMenuItem.Size = new Size(202, 22);
             infoÜberDenEntwicklerToolStripMenuItem.Text = "Info über den Entwickler";
             infoÜberDenEntwicklerToolStripMenuItem.Click += infoÜberDenEntwicklerToolStripMenuItem_Click;
-            // 
-            // testToolStripMenuItem
-            // 
-            testToolStripMenuItem.Name = "testToolStripMenuItem";
-            testToolStripMenuItem.Size = new Size(39, 20);
-            testToolStripMenuItem.Text = "Test";
-            testToolStripMenuItem.Click += testToolStripMenuItem_Click;
             // 
             // button1
             // 
@@ -449,7 +454,6 @@
         private ToolStripSeparator toolStripSeparator2;
         private ToolStripMenuItem anleitungToolStripMenuItem;
         private ContextMenuStrip contextMenuStrip1;
-        private ToolStripMenuItem testToolStripMenuItem;
         private ToolStripSeparator toolStripSeparator3;
         private ToolStripMenuItem toolStripMenuItem4;
         private ToolStripMenuItem toolStripMenuItem3;
@@ -457,5 +461,6 @@
         private ToolStripStatusLabel user;
         private ToolStripStatusLabel sick_days;
         private ToolStripStatusLabel last_updated;
+        private ToolStripStatusLabel department;
     }
 }

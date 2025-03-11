@@ -1,4 +1,5 @@
 using System.Data.SQLite;
+using System.Diagnostics;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
@@ -277,7 +278,7 @@ namespace AP2024
 
             contextMenuStrip1.Items.Add(editAbsenceItem);
             contextMenuStrip1.Items.Add(deleteAbsenceItem);
-            
+
         }
 
 
@@ -347,5 +348,28 @@ namespace AP2024
             SetupController.StartSetup();
         }
 
+        private void hilfeToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            // Öffnet die HTML-Datei im Standardbrowser
+            Process.Start(new ProcessStartInfo("https://www.ap2024.de") { UseShellExecute = true });
+        }
+
+        private void anleitungToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // Öffnet die HTML-Datei im Standardbrowser
+            Process.Start(new ProcessStartInfo("https://www.ap2024.de/directions") { UseShellExecute = true });
+        }
+
+        private void meineDatenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowMyData showMyData = new ShowMyData();
+            showMyData.ShowDialog();
+        }
+
+        private void einstellungenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UserSettings userSettings = new UserSettings();
+            userSettings.Show();
+        }
     }
 }
