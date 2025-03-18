@@ -51,3 +51,4 @@ G:\Programme\C#\AP2024\AP2024\obj\Debug\net8.0-windows\AP2024.ShowMyData.resourc
 G:\Programme\C#\AP2024\AP2024\obj\Debug\net8.0-windows\AP2024.UserSettings.resources
 G:\Programme\C#\AP2024\AP2024\obj\Debug\net8.0-windows\AP2024.ImportHolidays.resources
 G:\Programme\C#\AP2024\AP2024\obj\Debug\net8.0-windows\AP2024.PublicHolidayManager.resources
+G:\Programme\C#\AP2024\AP2024\obj\Debug\net8.0-windows\AP2024.AddComment.resources

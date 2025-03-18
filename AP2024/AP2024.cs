@@ -46,13 +46,9 @@ namespace AP2024
 
             calendarController.HighlightHolidays(calendarView);                              // Markiere die Feiertage in der Tagesansicht grau
 
+            calendarController.CreateSilentCalendar(calendarView);                          // Erstelle den Silent-Kalender
+
             calendarController.HighlightToday(calendarView);                                // Markiere den heutigen Tag in der Tagesansicht gelb
-
-            cwView.ClearSelection();
-            monthView.ClearSelection();
-
-            cwView.CurrentCell = null;
-            monthView.CurrentCell = null;
         }
 
         private void calendarView_Scroll(object sender, ScrollEventArgs e)

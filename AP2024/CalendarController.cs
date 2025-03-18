@@ -18,6 +18,8 @@ public class CalendarController
 
     public const int monthsToShow = 14;                                         // Anzuzeigende Monate
     public const int monthBackwards = 2;                                        // Monate in die Vergangenheit
+    public int weeksToShow => (int)Math.Ceiling(monthsToShow * 4.33);           // Abgeleitete Anzahl der Wochen
+
     public DateTime startDate = DateTime.Now.AddMonths(-monthBackwards);        // Startdatum des Kalenders
 
     public void CreateCalendarMonth(DataGridView dgv)                           // Methode: Monatsansicht erstellen
@@ -58,15 +60,6 @@ public class CalendarController
 
         dgv.ColumnHeadersVisible = false;                                       // Spaltenüberschriften ausblenden
 
-        
-        int totalDays = 0;                                                      // Anzahl der Wochen berechnen 
-        for (int i = 0; i < monthsToShow; i++)
-        {
-            DateTime month = startDate.AddMonths(i);
-            totalDays += DateTime.DaysInMonth(month.Year, month.Month);         // Tage des Monats hinzufügen
-        }
-        int weeksToShow = (int)Math.Ceiling(totalDays / 7.0);                   // In Wochen umwandeln (aufgerundet)
-
         for (int i = 0; i < weeksToShow; i++)                                   // Spalten für die Kalenderwochen hinzufügen
         {
             dgv.Columns.Add($"Column{i}", "");                                  // Leere Spaltenüberschrift
@@ -77,18 +70,17 @@ public class CalendarController
 
         for (int i = 0; i < weeksToShow; i++)                                   // Kalenderwochen in die Spalten einfügen
         {
-            DateTime weekStart = startDate.AddDays(i * 7);                      // Startdatum für die Woche berechnen
-            CultureInfo culture = CultureInfo.CurrentCulture;                   // Kulturinfo (z. B. für Deutschland)
-            int kalenderwoche = culture.Calendar.GetWeekOfYear(                 // Kalenderwoche berechnen
-                weekStart,
-                CalendarWeekRule.FirstFourDayWeek,                              // Regel für die erste Kalenderwoche
-                DayOfWeek.Monday                                                // Montag als erster Wochentag
-            );
+            DateTime weekStart = startDate.AddDays(i * 7);                      // Startdatum um Wochen erhöhen
+            int calendarWeek = System.Globalization.CultureInfo
+                .CurrentCulture.Calendar.GetWeekOfYear(weekStart,
+                    System.Globalization.CalendarWeekRule.FirstFourDayWeek,
+                    DayOfWeek.Monday);                                          // Kalenderwoche berechnen
 
-            string weekLabel = $"KW {kalenderwoche}";                           // Kalenderwoche als Text
-            dgv.Rows[0].Cells[i].Value = weekLabel;                             // Kalenderwoche in die Zelle schreiben
+            dgv.Rows[0].Cells[i].Value = $"KW{calendarWeek}";                   // KW in die Zelle schreiben
         }
+
         dgv.ClearSelection();                                                   // Auswahl aufheben
+
     }
 
     public void CreateCalendarDay(DataGridView dgv)                             // Methode: Tagesansicht erstellen
@@ -99,7 +91,6 @@ public class CalendarController
 
 
         dgv.ColumnHeadersVisible = false;                                       // Spaltenüberschriften ausblenden
-        dgv.ColumnHeadersVisible = false;                                       // Zeilenüberschriften ausblendn
 
 
 
@@ -157,9 +148,33 @@ public class CalendarController
         dgv.ClearSelection();                                                   // Auswahl aufheben
     }
 
+    public void CreateSilentCalendar(DataGridView dgv)                          // Methode: Stiller Kalender
+    {
+
+        int daysToShow = 0;                                                     // Anzahl der anzuzeigenden Tage berechnen
+        for (int i = 0; i < monthsToShow; i++)
+        {
+            DateTime month = startDate.AddMonths(i);
+            daysToShow += DateTime.DaysInMonth(month.Year, month.Month);
+        }
+
+        DateTime currentDay = startDate;
+        for (int i = 0; i < daysToShow; i++)
+        {
+            string dayText = currentDay.ToString("dd.MM.yyyy");                 // Mehrzeiliger Text
+
+            // Text in die Zellen der ersten Zeile einfügen
+            dgv.Columns[i + 2].HeaderText = dayText;
+
+            // Nächster Tag
+            currentDay = currentDay.AddDays(1);
+        }
+
+    }
+
     public void HighlightWeekends(DataGridView dgv)                              // Methode: Wochenenden hervorheben
     {
-                
+            
     }
 
     public void HighlightHolidays(DataGridView dgv)                              // Methode: Feiertage hervorheben
@@ -169,6 +184,32 @@ public class CalendarController
 
     public void HighlightToday(DataGridView dgv)                                 // Methode: Heutigen Tag hervorheben
     {
+        DateTime today = DateTime.Today;
+        int todayColumnIndex = -1; // Speichert die Spalte des heutigen Datums
 
+        // Über alle Spalten iterieren
+        foreach (DataGridViewColumn column in dgv.Columns)
+        {
+            if (DateTime.TryParse(column.HeaderText, out DateTime columnDate)) // Prüfen, ob Header ein Datum ist
+            {
+                if (columnDate == today) // Prüfen, ob es dem heutigen Datum entspricht
+                {
+                    todayColumnIndex = column.Index;
+
+                    // Alle Zeilen in dieser Spalte gelb markieren
+                    foreach (DataGridViewRow row in dgv.Rows)
+                    {
+                        row.Cells[todayColumnIndex].Style.BackColor = Color.Yellow;
+                    }
+                    break; // Sobald die passende Spalte gefunden wurde, kann die Schleife beendet werden
+                }
+            }
+        }
+
+        // Falls eine Spalte mit heutigem Datum gefunden wurde, darauf scrollen
+        if (todayColumnIndex != -1)
+        {
+            dgv.FirstDisplayedScrollingColumnIndex = todayColumnIndex - 20;
+        }
     }
 }
