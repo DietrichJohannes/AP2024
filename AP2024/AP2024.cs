@@ -23,6 +23,7 @@ namespace AP2024
             AbsenceController.LoadAbsence();                                                // Lade die Abwesenheiten in den Kalender
             RollController.EnableAdminControls(administrationToolStripMenuItem);            // Aktiviere Adminrechte falls vergeben
             StatusStripController.SetStatusStrip(statusStrip1);                             // Setze den StatusStrip
+            calendarController.HighlightWeekends(calendarView);                             // Markiere die Wochenenden in der Tagesansicht grau;                                   // Markiere die Wochenenden in der Wochenansicht
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -42,13 +43,16 @@ namespace AP2024
 
             calendarController.CreateCalendarDay(calendarView);                             // Erstelle den Tageskalender
 
-            calendarController.HighlightWeekends(calendarView);                             // Markiere die Wochenenden in der Tagesansicht grau
-
-            calendarController.HighlightHolidays(calendarView);                              // Markiere die Feiertage in der Tagesansicht grau
+            calendarController.HighlightHolidays(calendarView);                             // Markiere die Feiertage in der Tagesansicht grau
 
             calendarController.CreateSilentCalendar(calendarView);                          // Erstelle den Silent-Kalender
 
-            calendarController.HighlightToday(calendarView);                                // Markiere den heutigen Tag in der Tagesansicht gelb
+            ScrollToToday();                                                                // Scrolle zum heutigen Tag
+        }
+
+        private void ScrollToToday()
+        {
+           calendarController.HighlightToday(calendarView);                                 // Markiere den heutigen Tag in der Tagesansicht gelb
         }
 
         private void calendarView_Scroll(object sender, ScrollEventArgs e)
@@ -324,7 +328,7 @@ namespace AP2024
 
         private void button3_Click(object sender, EventArgs e)
         {
-
+            ScrollToToday();
         }
 
         private void viewCB_SelectedIndexChanged(object sender, EventArgs e)

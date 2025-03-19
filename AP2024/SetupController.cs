@@ -31,6 +31,7 @@ namespace AP2024
         public static void StartSetup()
         {
             SetupUserName();
+            SetupDepartment();
             AddSuperView();
             AddView();
             AddEmployees();
@@ -62,6 +63,12 @@ namespace AP2024
         public static void AddEmployees()
         {
 
+        }
+
+        public static void SetupDepartment()
+        {
+            SetupDepartment setupDepartment = new SetupDepartment();
+            setupDepartment.ShowDialog();
         }
 
     }

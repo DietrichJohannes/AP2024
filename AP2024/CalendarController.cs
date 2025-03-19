@@ -172,44 +172,52 @@ public class CalendarController
 
     }
 
-    public void HighlightWeekends(DataGridView dgv)                              // Methode: Wochenenden hervorheben
+    public void HighlightWeekends(DataGridView dgv)
     {
-            
+        if (dgv.Columns.Count > 0 && dgv.Rows.Count > 0) // Prüfen, ob Spalten und Zeilen vorhanden sind
+        {
+            for (int i = 0; i < dgv.Columns.Count; i++) // Durch alle Spalten iterieren
+            {
+                if (DateTime.TryParseExact(dgv.Columns[i].HeaderText, "dd.MM.yyyy",
+                                           System.Globalization.CultureInfo.InvariantCulture,
+                                           System.Globalization.DateTimeStyles.None, out DateTime columnDate))
+                {
+                    if (columnDate.DayOfWeek == DayOfWeek.Saturday || columnDate.DayOfWeek == DayOfWeek.Sunday)
+                    {
+                        // Alle Zellen unter der ersten Zeile einfärben
+                        for (int j = 0; j < dgv.Rows.Count; j++)
+                        {
+                            dgv.Rows[j].Cells[i].Style.BackColor = Color.Gray;
+                        }
+                    }
+                }
+            }
+        }
     }
+
 
     public void HighlightHolidays(DataGridView dgv)                              // Methode: Feiertage hervorheben
     {
 
     }
 
-    public void HighlightToday(DataGridView dgv)                                 // Methode: Heutigen Tag hervorheben
+    public void HighlightToday(DataGridView dgv)                                  // Methode: Zum heutigen Tag scrollen
     {
-        DateTime today = DateTime.Today;
-        int todayColumnIndex = -1; // Speichert die Spalte des heutigen Datums
+        string Today = DateTime.Now.ToString("dd.MM.yyyy");               // Heutiges Datum als Text
+        int i = 0;
 
-        // Über alle Spalten iterieren
-        foreach (DataGridViewColumn column in dgv.Columns)
+        if (dgv.Columns.Count > 0) // Prüfen, ob Spalten vorhanden sind
         {
-            if (DateTime.TryParse(column.HeaderText, out DateTime columnDate)) // Prüfen, ob Header ein Datum ist
+            do
             {
-                if (columnDate == today) // Prüfen, ob es dem heutigen Datum entspricht
+                if (dgv.Columns[i].HeaderText == Today)
                 {
-                    todayColumnIndex = column.Index;
-
-                    // Alle Zeilen in dieser Spalte gelb markieren
-                    foreach (DataGridViewRow row in dgv.Rows)
-                    {
-                        row.Cells[todayColumnIndex].Style.BackColor = Color.Yellow;
-                    }
-                    break; // Sobald die passende Spalte gefunden wurde, kann die Schleife beendet werden
+                    dgv.Rows[0].Cells[i].Style.BackColor = Color.Yellow;
+                    dgv.FirstDisplayedScrollingColumnIndex = i - 18;
                 }
+                i++;
             }
-        }
-
-        // Falls eine Spalte mit heutigem Datum gefunden wurde, darauf scrollen
-        if (todayColumnIndex != -1)
-        {
-            dgv.FirstDisplayedScrollingColumnIndex = todayColumnIndex - 20;
+            while (i < dgv.Columns.Count);
         }
     }
 }
