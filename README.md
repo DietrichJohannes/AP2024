@@ -11,9 +11,9 @@ Dieses Programm bietet eine intuitive Möglichkeit, Abwesenheiten (z. B. Urlaub,
 + Admins können Benutzerdefinierte Abwesenheitsarten erstellen 
 * Feiertage können über einen API importiert werden oder selbst erstellt werden
 
-- [] 
-- [] 
-- [] 
+- [ ] 
+- [ ] 
+- [ ] 
 
 
 ## Handbuch
