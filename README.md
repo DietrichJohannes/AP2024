@@ -2,7 +2,7 @@
 
 ## Beschreibung:
 
-Dieses Programm bietet eine intuitive Möglichkeit, Abwesenheiten (z. B. Urlaub, Krankheit, etc.) von Mitarbeitern zu planen und organisieren. 
+AP2024 bietet eine intuitive Möglichkeit, Abwesenheiten (z. B. Urlaub, Krankheit, etc.) von Mitarbeitern zu planen und organisieren. 
 
 ## Features
 

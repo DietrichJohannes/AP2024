@@ -11,7 +11,9 @@
 using System;
 using System.Drawing;
 using System.Globalization;
-using System.Windows.Forms;
+using System.Text.Json;
+using System.Text.Json.Serialization;
+
 
 public class CalendarController
 {
@@ -185,7 +187,7 @@ public class CalendarController
                     if (columnDate.DayOfWeek == DayOfWeek.Saturday || columnDate.DayOfWeek == DayOfWeek.Sunday)
                     {
                         // Alle Zellen unter der ersten Zeile einfärben
-                        for (int j = 0; j < dgv.Rows.Count; j++)
+                        for (int j = 1; j < dgv.Rows.Count; j++)
                         {
                             dgv.Rows[j].Cells[i].Style.BackColor = Color.Gray;
                         }
@@ -196,12 +198,12 @@ public class CalendarController
     }
 
 
-    public void HighlightHolidays(DataGridView dgv)                              // Methode: Feiertage hervorheben
+    public async Task HighlightHolidays(DataGridView dgv)
     {
-
+        LoadHolidayAPI.HighlightHolidaysAsync(dgv);
     }
 
-    public void HighlightToday(DataGridView dgv)                                  // Methode: Zum heutigen Tag scrollen
+public void HighlightToday(DataGridView dgv)                                  // Methode: Zum heutigen Tag scrollen
     {
         string Today = DateTime.Now.ToString("dd.MM.yyyy");               // Heutiges Datum als Text
         int i = 0;

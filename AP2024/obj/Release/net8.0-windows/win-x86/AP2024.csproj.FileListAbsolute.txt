@@ -496,3 +496,12 @@ G:\Programme\C#\AP2024\AP2024\obj\Release\net8.0-windows\win-x86\AP2024.SplashSc
 G:\Programme\C#\AP2024\AP2024\obj\Release\net8.0-windows\win-x86\AP2024.SuperViewManager.resources
 G:\Programme\C#\AP2024\AP2024\obj\Release\net8.0-windows\win-x86\AP2024.ViewManager.resources
 G:\Programme\C#\AP2024\AP2024\obj\Release\net8.0-windows\win-x86\AP2024.sourcelink.json
+G:\Programme\C#\AP2024\AP2024\obj\Release\net8.0-windows\win-x86\AP2024.AddComment.resources
+G:\Programme\C#\AP2024\AP2024\obj\Release\net8.0-windows\win-x86\AP2024.AdminManager.resources
+G:\Programme\C#\AP2024\AP2024\obj\Release\net8.0-windows\win-x86\AP2024.ImportHolidays.resources
+G:\Programme\C#\AP2024\AP2024\obj\Release\net8.0-windows\win-x86\AP2024.PublicHolidayManager.resources
+G:\Programme\C#\AP2024\AP2024\obj\Release\net8.0-windows\win-x86\AP2024.RoleManagement.resources
+G:\Programme\C#\AP2024\AP2024\obj\Release\net8.0-windows\win-x86\AP2024.SetupCompleteName.resources
+G:\Programme\C#\AP2024\AP2024\obj\Release\net8.0-windows\win-x86\AP2024.SetupDepartment.resources
+G:\Programme\C#\AP2024\AP2024\obj\Release\net8.0-windows\win-x86\AP2024.ShowMyData.resources
+G:\Programme\C#\AP2024\AP2024\obj\Release\net8.0-windows\win-x86\AP2024.UserSettings.resources
