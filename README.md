@@ -7,14 +7,9 @@ AP2024 bietet eine intuitive Möglichkeit, Abwesenheiten (z. B. Urlaub, Krankhei
 ## Features
 
 
-- Einfache Navigation im Kalender
++ Einfache Navigation im Kalender
 + Admins können Benutzerdefinierte Abwesenheitsarten erstellen 
-* Feiertage können über einen API importiert werden oder selbst erstellt werden
-
-- [] 
-- [] 
-- [] 
-
++ Feiertage können über einen API importiert werden oder selbst erstellt werden
 
 ## Handbuch
 
