@@ -1,6 +1,6 @@
 # AP2024
 
-## Beschreibung:
+## Beschreibung
 
 AP2024 bietet eine intuitive Möglichkeit, Abwesenheiten (z. B. Urlaub, Krankheit, etc.) von Mitarbeitern zu planen und organisieren. 
 
