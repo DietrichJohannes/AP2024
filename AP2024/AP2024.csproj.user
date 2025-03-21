@@ -28,6 +28,9 @@
     <Compile Update="NewAbsence.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="NewAbsenceType.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="NewSuperView.cs">
       <SubType>Form</SubType>
     </Compile>

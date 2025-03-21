@@ -31,7 +31,7 @@ public static class LoadHolidayAPI
                     {
                         for (int j = 1; j < dgv.Rows.Count; j++)
                         {
-                            dgv.Rows[j].Cells[i].Style.BackColor = Color.Red;
+                            dgv.Rows[j].Cells[i].Style.BackColor = Color.Gray;
                         }
                     }
                 }

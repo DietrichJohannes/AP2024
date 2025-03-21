@@ -9,6 +9,9 @@ namespace AP2024
 {
     public static class ApplicationContext
     {
+
+        public static int USER_ID;
+
         public static string GetConnectionString()
         {
             return "Data Source=data/AP2024.db";
@@ -30,6 +33,36 @@ namespace AP2024
         {
             string user = Environment.UserName.ToLower();
             return user;
+        }
+
+        public static void InitStart()
+        {
+            GetUserIDByWindowsUser();
+        }
+
+        public static void GetUserIDByWindowsUser()
+        {
+            string user = GetCurrentWindowsUser();
+            using (SQLiteConnection connection = new SQLiteConnection(GetConnectionString()))
+            {
+                connection.Open();
+                using (SQLiteCommand command = new SQLiteCommand(connection))
+                {
+                    command.CommandText = "SELECT ID FROM Employees WHERE windows_username = @WindowsUser";
+                    command.Parameters.AddWithValue("@WindowsUser", user);
+                    using (SQLiteDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            USER_ID = reader.GetInt32(0);
+                        }
+                        else
+                        {
+                            throw new Exception($"Benutzer '{user}' wurde nicht gefunden.");
+                        }
+                    }
+                }
+            }
         }
 
         public static void InitFirstStart()

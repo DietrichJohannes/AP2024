@@ -24,7 +24,7 @@ namespace AP2024
 
         private void button3_Click(object sender, EventArgs e)
         {
-            NewAbsence newAbsence = new NewAbsence();
+            NewAbsenceType newAbsence = new NewAbsenceType();
             newAbsence.OnAbsenceTypeSaved += LoadAbsenceTypes;
             newAbsence.ShowDialog();
         }

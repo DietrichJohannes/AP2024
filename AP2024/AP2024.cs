@@ -8,12 +8,12 @@ namespace AP2024
     public partial class AP2024 : Form
     {
         private CalendarController calendarController;
-
         int SelectedView = 0;
 
         public AP2024()
         {
             InitializeComponent();
+            ApplicationContext.InitStart();                                                 // Initialisiere die Anwendung
             InitCalendar();                                                                 // Initialisiere den Kalender
             DatabaseController.InitializeDatabase();                                        // Initialisiere (Erstelle) die Datenbank
             LoadViews();                                                                    // Lade die Verfügbaren Views in die ComboBox
@@ -30,6 +30,8 @@ namespace AP2024
         {
             LoadEmployees();                                                                // Lade die Mitarbeeiter neu
             AbsenceController.LoadAbsence();                                                // Lade die Abwesenheiten neu
+            calendarController.HighlightHolidays(calendarView);                             // Markiere die Feiertage in der Tagesansicht grau
+            calendarController.HighlightWeekends(calendarView);                             // Markiere die Wochenenden in der Tagesansicht grau
             StatusStripController.SetLastUpdated();                                         // Setze den letzten Aktualisierungszeitpunkt
         }
 
@@ -52,7 +54,7 @@ namespace AP2024
 
         private void ScrollToToday()
         {
-           calendarController.HighlightToday(calendarView);                                 // Markiere den heutigen Tag in der Tagesansicht gelb
+            calendarController.HighlightToday(calendarView);                                 // Markiere den heutigen Tag in der Tagesansicht gelb
         }
 
         private void calendarView_Scroll(object sender, ScrollEventArgs e)
@@ -136,7 +138,7 @@ namespace AP2024
                 {
                     connection.Open();                                                          // Öffne die Verbindung zur Datenbank
 
-                    string query = "SELECT first_name, last_name, remaining_leave FROM Employees  WHERE view = @view";      // SQL-Abfrage um alle Mitarbeiter zu holen
+                    string query = "SELECT first_name, last_name, remaining_leave FROM Employees  WHERE view = @view ORDER BY last_name ASC";      // SQL-Abfrage um alle Mitarbeiter zu holen
 
                     using (var command = connection.CreateCommand())
                     {
@@ -370,6 +372,12 @@ namespace AP2024
         {
             UserSettings userSettings = new UserSettings();
             userSettings.Show();
+        }
+
+        private void toolStripMenuItem5_Click(object sender, EventArgs e)
+        {
+            NewAbsence newAbsence = new NewAbsence();
+            newAbsence.ShowDialog();
         }
     }
 }
