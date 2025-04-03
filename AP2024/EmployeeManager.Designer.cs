@@ -136,6 +136,7 @@
             // 
             // button6
             // 
+            button6.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             button6.Location = new Point(253, 459);
             button6.Name = "button6";
             button6.Size = new Size(235, 23);
@@ -145,6 +146,7 @@
             // 
             // button7
             // 
+            button7.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             button7.Location = new Point(253, 488);
             button7.Name = "button7";
             button7.Size = new Size(235, 23);
@@ -154,6 +156,7 @@
             // 
             // button8
             // 
+            button8.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             button8.Location = new Point(12, 488);
             button8.Name = "button8";
             button8.Size = new Size(235, 23);

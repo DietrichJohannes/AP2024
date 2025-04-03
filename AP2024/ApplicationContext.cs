@@ -58,7 +58,7 @@ namespace AP2024
                         }
                         else
                         {
-                            throw new Exception($"Benutzer '{user}' wurde nicht gefunden.");
+                            MessageBox.Show("Der Benutzer konnte nicht gefunden werden.", "AP2024", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
                 }

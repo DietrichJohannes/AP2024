@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AP2024));
-            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             cwView = new DataGridView();
             statusStrip1 = new StatusStrip();
             time_Admin = new ToolStripStatusLabel();
@@ -42,6 +42,7 @@
             menuStrip1 = new MenuStrip();
             meinAP2024ToolStripMenuItem = new ToolStripMenuItem();
             meineDatenToolStripMenuItem = new ToolStripMenuItem();
+            toolStripMenuItem5 = new ToolStripMenuItem();
             einstellungenToolStripMenuItem = new ToolStripMenuItem();
             administrationToolStripMenuItem = new ToolStripMenuItem();
             mitarbeiterverwaltungToolStripMenuItem = new ToolStripMenuItem();
@@ -67,7 +68,6 @@
             toolStripSeparator3 = new ToolStripSeparator();
             toolStripMenuItem4 = new ToolStripMenuItem();
             toolStripMenuItem3 = new ToolStripMenuItem();
-            toolStripMenuItem5 = new ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)cwView).BeginInit();
             statusStrip1.SuspendLayout();
             menuStrip1.SuspendLayout();
@@ -86,14 +86,14 @@
             cwView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             cwView.BorderStyle = BorderStyle.None;
             cwView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = SystemColors.Window;
-            dataGridViewCellStyle5.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle5.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.False;
-            cwView.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = SystemColors.Window;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle1.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
+            cwView.DefaultCellStyle = dataGridViewCellStyle1;
             cwView.GridColor = Color.LightGray;
             cwView.Location = new Point(347, 157);
             cwView.MultiSelect = false;
@@ -156,9 +156,11 @@
             // 
             // menuStrip1
             // 
+            menuStrip1.AutoSize = false;
             menuStrip1.Items.AddRange(new ToolStripItem[] { meinAP2024ToolStripMenuItem, administrationToolStripMenuItem, hilfeToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
+            menuStrip1.RightToLeft = RightToLeft.No;
             menuStrip1.Size = new Size(1225, 24);
             menuStrip1.TabIndex = 4;
             menuStrip1.Text = "menuStrip1";
@@ -173,14 +175,21 @@
             // meineDatenToolStripMenuItem
             // 
             meineDatenToolStripMenuItem.Name = "meineDatenToolStripMenuItem";
-            meineDatenToolStripMenuItem.Size = new Size(145, 22);
+            meineDatenToolStripMenuItem.Size = new Size(205, 22);
             meineDatenToolStripMenuItem.Text = "Meine Daten";
             meineDatenToolStripMenuItem.Click += meineDatenToolStripMenuItem_Click;
+            // 
+            // toolStripMenuItem5
+            // 
+            toolStripMenuItem5.Name = "toolStripMenuItem5";
+            toolStripMenuItem5.Size = new Size(205, 22);
+            toolStripMenuItem5.Text = "Abwesenheit hinzufügen";
+            toolStripMenuItem5.Click += toolStripMenuItem5_Click;
             // 
             // einstellungenToolStripMenuItem
             // 
             einstellungenToolStripMenuItem.Name = "einstellungenToolStripMenuItem";
-            einstellungenToolStripMenuItem.Size = new Size(145, 22);
+            einstellungenToolStripMenuItem.Size = new Size(205, 22);
             einstellungenToolStripMenuItem.Text = "Einstellungen";
             einstellungenToolStripMenuItem.Click += einstellungenToolStripMenuItem_Click;
             // 
@@ -308,14 +317,14 @@
             calendarView.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             calendarView.BackgroundColor = SystemColors.Control;
             calendarView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = SystemColors.Window;
-            dataGridViewCellStyle6.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle6.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle6.SelectionBackColor = Color.LightBlue;
-            dataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.False;
-            calendarView.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = Color.LightBlue;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            calendarView.DefaultCellStyle = dataGridViewCellStyle2;
             calendarView.Location = new Point(12, 177);
             calendarView.Name = "calendarView";
             calendarView.ReadOnly = true;
@@ -391,13 +400,6 @@
             toolStripMenuItem3.Name = "toolStripMenuItem3";
             toolStripMenuItem3.Size = new Size(201, 22);
             toolStripMenuItem3.Text = "Abwesenheit löschen";
-            // 
-            // toolStripMenuItem5
-            // 
-            toolStripMenuItem5.Name = "toolStripMenuItem5";
-            toolStripMenuItem5.Size = new Size(205, 22);
-            toolStripMenuItem5.Text = "Abwesenheit hinzufügen";
-            toolStripMenuItem5.Click += toolStripMenuItem5_Click;
             // 
             // AP2024
             // 

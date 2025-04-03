@@ -39,6 +39,7 @@
             // 
             // viewNameText
             // 
+            viewNameText.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             viewNameText.Location = new Point(174, 12);
             viewNameText.Name = "viewNameText";
             viewNameText.Size = new Size(263, 23);
@@ -46,6 +47,7 @@
             // 
             // superViewCB
             // 
+            superViewCB.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             superViewCB.FormattingEnabled = true;
             superViewCB.Location = new Point(174, 41);
             superViewCB.Name = "superViewCB";
@@ -54,6 +56,7 @@
             // 
             // button1
             // 
+            button1.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             button1.Location = new Point(362, 115);
             button1.Name = "button1";
             button1.Size = new Size(75, 23);
@@ -64,6 +67,7 @@
             // 
             // label1
             // 
+            label1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             label1.AutoSize = true;
             label1.Location = new Point(12, 20);
             label1.Name = "label1";
@@ -73,6 +77,7 @@
             // 
             // label2
             // 
+            label2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             label2.AutoSize = true;
             label2.Location = new Point(12, 49);
             label2.Name = "label2";
@@ -82,6 +87,7 @@
             // 
             // button2
             // 
+            button2.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             button2.Location = new Point(174, 115);
             button2.Name = "button2";
             button2.Size = new Size(120, 23);

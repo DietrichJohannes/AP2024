@@ -40,6 +40,7 @@
             // 
             // viewList
             // 
+            viewList.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             viewList.Columns.AddRange(new ColumnHeader[] { columnHeader1, columnHeader2 });
             viewList.Location = new Point(12, 12);
             viewList.Name = "viewList";
@@ -60,6 +61,7 @@
             // 
             // button1
             // 
+            button1.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             button1.Location = new Point(966, 461);
             button1.Name = "button1";
             button1.Size = new Size(75, 23);
@@ -69,6 +71,7 @@
             // 
             // button2
             // 
+            button2.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             button2.Location = new Point(885, 461);
             button2.Name = "button2";
             button2.Size = new Size(75, 23);
@@ -78,6 +81,7 @@
             // 
             // button3
             // 
+            button3.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             button3.Location = new Point(885, 490);
             button3.Name = "button3";
             button3.Size = new Size(156, 23);
@@ -88,6 +92,7 @@
             // 
             // button4
             // 
+            button4.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             button4.Location = new Point(12, 461);
             button4.Name = "button4";
             button4.Size = new Size(156, 23);

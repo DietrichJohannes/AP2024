@@ -13,9 +13,10 @@ namespace AP2024
         public AP2024()
         {
             InitializeComponent();
-            ApplicationContext.InitStart();                                                 // Initialisiere die Anwendung
+            InitDataGridView();
             InitCalendar();                                                                 // Initialisiere den Kalender
             DatabaseController.InitializeDatabase();                                        // Initialisiere (Erstelle) die Datenbank
+            ApplicationContext.InitStart();                                                 // Initialisiere die Anwendung
             LoadViews();                                                                    // Lade die Verfügbaren Views in die ComboBox
             GetSelectedView();                                                              // Hole die ID des ausgewählten Views
             LoadEmployees();                                                                // Lade die Mitarbeiter dem View entsprechend dem View
@@ -24,6 +25,13 @@ namespace AP2024
             RollController.EnableAdminControls(administrationToolStripMenuItem);            // Aktiviere Adminrechte falls vergeben
             StatusStripController.SetStatusStrip(statusStrip1);                             // Setze den StatusStrip
             calendarController.HighlightWeekends(calendarView);                             // Markiere die Wochenenden in der Tagesansicht grau;                                   // Markiere die Wochenenden in der Wochenansicht
+        }
+
+        private void InitDataGridView()
+        {
+            typeof(DataGridView).InvokeMember("DoubleBuffered",
+            System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.SetProperty,
+            null, calendarView, new object[] { true });
         }
 
         private void button1_Click(object sender, EventArgs e)

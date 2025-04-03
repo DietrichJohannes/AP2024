@@ -41,6 +41,7 @@
             // 
             // absenceTypeListView
             // 
+            absenceTypeListView.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             absenceTypeListView.Columns.AddRange(new ColumnHeader[] { columnHeader1, columnHeader2, columnHeader3, columnHeader4 });
             absenceTypeListView.Location = new Point(12, 12);
             absenceTypeListView.Name = "absenceTypeListView";
@@ -71,6 +72,7 @@
             // 
             // button1
             // 
+            button1.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             button1.Location = new Point(511, 300);
             button1.Name = "button1";
             button1.Size = new Size(97, 23);
@@ -80,6 +82,7 @@
             // 
             // button2
             // 
+            button2.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             button2.Location = new Point(408, 300);
             button2.Name = "button2";
             button2.Size = new Size(97, 23);
@@ -89,6 +92,7 @@
             // 
             // button3
             // 
+            button3.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             button3.Location = new Point(408, 329);
             button3.Name = "button3";
             button3.Size = new Size(200, 23);
