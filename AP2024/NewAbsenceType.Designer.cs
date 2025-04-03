@@ -119,7 +119,7 @@
             label4.TabIndex = 9;
             label4.Text = "Kommentar verlangen";
             // 
-            // NewAbsence
+            // NewAbsenceType
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -135,7 +135,7 @@
             Controls.Add(nameTextBox);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (Icon)resources.GetObject("$this.Icon");
-            Name = "NewAbsence";
+            Name = "NewAbsenceType";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Abwesenheitstyp hinzufügen";
             ResumeLayout(false);

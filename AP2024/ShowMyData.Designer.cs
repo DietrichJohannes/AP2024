@@ -42,7 +42,12 @@
             sick_days = new TextBox();
             label6 = new Label();
             button1 = new Button();
-            button2 = new Button();
+            edit_button = new Button();
+            disclaimer1 = new Label();
+            disclaimer5 = new Label();
+            disclaimer4 = new Label();
+            disclaimer3 = new Label();
+            disclaimer2 = new Label();
             SuspendLayout();
             // 
             // label1
@@ -157,22 +162,88 @@
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
-            // button2
+            // edit_button
             // 
-            button2.Enabled = false;
-            button2.Location = new Point(95, 211);
-            button2.Name = "button2";
-            button2.Size = new Size(156, 23);
-            button2.TabIndex = 13;
-            button2.Text = "Bearbeiten";
-            button2.UseVisualStyleBackColor = true;
+            edit_button.Enabled = false;
+            edit_button.Location = new Point(95, 211);
+            edit_button.Name = "edit_button";
+            edit_button.Size = new Size(156, 23);
+            edit_button.TabIndex = 13;
+            edit_button.Text = "Bearbeiten";
+            edit_button.UseVisualStyleBackColor = true;
+            edit_button.Click += edit_button_Click;
+            // 
+            // disclaimer1
+            // 
+            disclaimer1.AutoSize = true;
+            disclaimer1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            disclaimer1.ForeColor = Color.Red;
+            disclaimer1.Location = new Point(95, 193);
+            disclaimer1.Name = "disclaimer1";
+            disclaimer1.Size = new Size(292, 15);
+            disclaimer1.TabIndex = 14;
+            disclaimer1.Text = "*  Nur der ZeitAdmin kann diese Werte Bearbeiten!";
+            disclaimer1.Visible = false;
+            // 
+            // disclaimer5
+            // 
+            disclaimer5.AutoSize = true;
+            disclaimer5.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            disclaimer5.ForeColor = Color.Red;
+            disclaimer5.Location = new Point(132, 73);
+            disclaimer5.Name = "disclaimer5";
+            disclaimer5.Size = new Size(17, 21);
+            disclaimer5.TabIndex = 15;
+            disclaimer5.Text = "*";
+            disclaimer5.Visible = false;
+            // 
+            // disclaimer4
+            // 
+            disclaimer4.AutoSize = true;
+            disclaimer4.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            disclaimer4.ForeColor = Color.Red;
+            disclaimer4.Location = new Point(132, 102);
+            disclaimer4.Name = "disclaimer4";
+            disclaimer4.Size = new Size(17, 21);
+            disclaimer4.TabIndex = 16;
+            disclaimer4.Text = "*";
+            disclaimer4.Visible = false;
+            // 
+            // disclaimer3
+            // 
+            disclaimer3.AutoSize = true;
+            disclaimer3.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            disclaimer3.ForeColor = Color.Red;
+            disclaimer3.Location = new Point(132, 130);
+            disclaimer3.Name = "disclaimer3";
+            disclaimer3.Size = new Size(17, 21);
+            disclaimer3.TabIndex = 17;
+            disclaimer3.Text = "*";
+            disclaimer3.Visible = false;
+            // 
+            // disclaimer2
+            // 
+            disclaimer2.AutoSize = true;
+            disclaimer2.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            disclaimer2.ForeColor = Color.Red;
+            disclaimer2.Location = new Point(132, 157);
+            disclaimer2.Name = "disclaimer2";
+            disclaimer2.Size = new Size(17, 21);
+            disclaimer2.TabIndex = 18;
+            disclaimer2.Text = "*";
+            disclaimer2.Visible = false;
             // 
             // ShowMyData
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(425, 246);
-            Controls.Add(button2);
+            Controls.Add(disclaimer2);
+            Controls.Add(disclaimer3);
+            Controls.Add(disclaimer4);
+            Controls.Add(disclaimer5);
+            Controls.Add(disclaimer1);
+            Controls.Add(edit_button);
             Controls.Add(button1);
             Controls.Add(label6);
             Controls.Add(sick_days);
@@ -211,6 +282,11 @@
         private TextBox sick_days;
         private Label label6;
         private Button button1;
-        private Button button2;
+        private Button edit_button;
+        private Label disclaimer1;
+        private Label disclaimer5;
+        private Label disclaimer4;
+        private Label disclaimer3;
+        private Label disclaimer2;
     }
 }

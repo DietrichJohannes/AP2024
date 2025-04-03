@@ -40,7 +40,7 @@ namespace AP2024
                 {
                     connection.Open();
 
-                    string query = "SELECT first_name, last_name, leave_entitlement, remaining_leave, windows_username, view FROM Employees";
+                    string query = "SELECT first_name, last_name, leave_entitlement, remaining_leave, windows_username, view FROM Employees ORDER BY last_name ASC";
 
                     using (var command = connection.CreateCommand())
                     {
