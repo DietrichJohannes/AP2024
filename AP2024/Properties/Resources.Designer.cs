@@ -83,6 +83,26 @@ namespace AP2024.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap clock_edit_custom {
+            get {
+                object obj = ResourceManager.GetObject("clock-edit-custom", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap clock_edit_custom1 {
+            get {
+                object obj = ResourceManager.GetObject("clock-edit-custom1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap island {
             get {
                 object obj = ResourceManager.GetObject("island", resourceCulture);

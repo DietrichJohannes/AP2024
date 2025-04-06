@@ -54,4 +54,6 @@ G:\Programme\C#\AP2024\AP2024\obj\Debug\net8.0-windows\AP2024.PublicHolidayManag
 G:\Programme\C#\AP2024\AP2024\obj\Debug\net8.0-windows\AP2024.AddComment.resources
 G:\Programme\C#\AP2024\AP2024\obj\Debug\net8.0-windows\AP2024.SetupDepartment.resources
 G:\Programme\C#\AP2024\AP2024\obj\Debug\net8.0-windows\AP2024.NewAbsenceType.resources
-G:\Programme\C#\AP2024\AP2024\obj\Debug\net8.0-windows\AP2024.ChroniX.resources
+G:\Programme\C#\AP2024\AP2024\obj\Debug\net8.0-windows\AP2024.UserAddThemselves.resources
+G:\Programme\C#\AP2024\AP2024\obj\Debug\net8.0-windows\AP2024.NoAccess.resources
+G:\Programme\C#\AP2024\AP2024\obj\Debug\net8.0-windows\AP2024.AddFlextime.resources

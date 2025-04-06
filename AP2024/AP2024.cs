@@ -387,5 +387,12 @@ namespace AP2024
             NewAbsence newAbsence = new NewAbsence();
             newAbsence.ShowDialog();
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            AddFlextime addFlextime = new AddFlextime();
+            addFlextime.OnFlextimeSaved += StatusStripController.SetUser;
+            addFlextime.ShowDialog();
+        }
     }
 }

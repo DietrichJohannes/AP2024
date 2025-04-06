@@ -10,10 +10,10 @@
     <Compile Update="AddComment.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="AdminManager.cs">
+    <Compile Update="AddFlextime.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="ChroniX.cs">
+    <Compile Update="AdminManager.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="DevInfo.cs">
@@ -43,6 +43,9 @@
     <Compile Update="NewView.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="NoAccess.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="PublicHolidayManager.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -65,6 +68,9 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="SuperViewManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="UserAddThemselves.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="UserSettings.cs">

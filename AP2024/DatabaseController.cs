@@ -55,10 +55,11 @@ namespace AP2024
                                                        last_name TEXT NOT NULL,
                                                        windows_username TEXT NOT NULL,
                                                        view INTEGER NOT NULL,
+                                                       flextime REAL DEFAULT 0.00,
                                                        leave_entitlement INTEGER NOT NULL,
                                                        remaining_leave INTEGER NOT NULL,
                                                        sick_days INTEGER DEFAULT 0,
-                                                       light_theme INTEGER NOT NULL DEFAULT 0          
+                                                       light_theme INTEGER NOT NULL DEFAULT 1          
                                                        );";
 
 
@@ -117,6 +118,8 @@ namespace AP2024
                                                         id INTEGER PRIMARY KEY AUTOINCREMENT,
                                                         can_add_themselves INTEGER NOT NULL DEFAULT 0,
                                                         can_edit_themselves INTEGER NOT NULL DEFAULT 0,
+                                                        can_add_themselves_remaining_leave INTEGER NOT NULL DEFAULT 0,
+                                                        can_add_themselves_leave_entitlement INTEGER NOT NULL DEFAULT 0,
                                                         department TEXT NOT NULL DEFAULT '[Abteilung]',
                                                         time_admin TEXT NOT NULL DEFAULT '[ZeitAdmin]'
                                                         );";

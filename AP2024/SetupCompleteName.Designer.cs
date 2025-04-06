@@ -28,14 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SetupCompleteName));
             firstNameTextBox = new TextBox();
             lastNameTextBox = new TextBox();
             button1 = new Button();
             label1 = new Label();
             label2 = new Label();
-            helpProvider1 = new HelpProvider();
             pictureBox1 = new PictureBox();
+            toolTip1 = new ToolTip(components);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -45,6 +46,7 @@
             firstNameTextBox.Name = "firstNameTextBox";
             firstNameTextBox.Size = new Size(200, 23);
             firstNameTextBox.TabIndex = 0;
+            toolTip1.SetToolTip(firstNameTextBox, "Geben Sie Ihren Vornamen ein");
             // 
             // lastNameTextBox
             // 
@@ -52,6 +54,7 @@
             lastNameTextBox.Name = "lastNameTextBox";
             lastNameTextBox.Size = new Size(200, 23);
             lastNameTextBox.TabIndex = 1;
+            toolTip1.SetToolTip(lastNameTextBox, "Geben Sie Ihren Nachnamen ein");
             // 
             // button1
             // 
@@ -92,6 +95,12 @@
             pictureBox1.TabStop = false;
             pictureBox1.Click += pictureBox1_Click;
             // 
+            // toolTip1
+            // 
+            toolTip1.IsBalloon = true;
+            toolTip1.ToolTipIcon = ToolTipIcon.Info;
+            toolTip1.ToolTipTitle = "Ihr Name";
+            // 
             // SetupCompleteName
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -122,7 +131,7 @@
         private Button button1;
         private Label label1;
         private Label label2;
-        private HelpProvider helpProvider1;
         private PictureBox pictureBox1;
+        private ToolTip toolTip1;
     }
 }

@@ -29,14 +29,15 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AP2024));
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             cwView = new DataGridView();
             statusStrip1 = new StatusStrip();
             time_Admin = new ToolStripStatusLabel();
             user = new ToolStripStatusLabel();
             department = new ToolStripStatusLabel();
+            flextime = new ToolStripStatusLabel();
             sick_days = new ToolStripStatusLabel();
             last_updated = new ToolStripStatusLabel();
             menuStrip1 = new MenuStrip();
@@ -44,6 +45,7 @@
             meineDatenToolStripMenuItem = new ToolStripMenuItem();
             toolStripMenuItem5 = new ToolStripMenuItem();
             einstellungenToolStripMenuItem = new ToolStripMenuItem();
+            tESTToolStripMenuItem = new ToolStripMenuItem();
             administrationToolStripMenuItem = new ToolStripMenuItem();
             mitarbeiterverwaltungToolStripMenuItem = new ToolStripMenuItem();
             toolStripMenuItem1 = new ToolStripMenuItem();
@@ -68,6 +70,8 @@
             toolStripSeparator3 = new ToolStripSeparator();
             toolStripMenuItem4 = new ToolStripMenuItem();
             toolStripMenuItem3 = new ToolStripMenuItem();
+            button4 = new Button();
+            toolTip1 = new ToolTip(components);
             ((System.ComponentModel.ISupportInitialize)cwView).BeginInit();
             statusStrip1.SuspendLayout();
             menuStrip1.SuspendLayout();
@@ -86,14 +90,14 @@
             cwView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             cwView.BorderStyle = BorderStyle.None;
             cwView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = SystemColors.Window;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle1.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
-            cwView.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = SystemColors.Window;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle3.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
+            cwView.DefaultCellStyle = dataGridViewCellStyle3;
             cwView.GridColor = Color.LightGray;
             cwView.Location = new Point(347, 157);
             cwView.MultiSelect = false;
@@ -108,7 +112,7 @@
             // 
             // statusStrip1
             // 
-            statusStrip1.Items.AddRange(new ToolStripItem[] { time_Admin, user, department, sick_days, last_updated });
+            statusStrip1.Items.AddRange(new ToolStripItem[] { time_Admin, user, department, flextime, sick_days, last_updated });
             statusStrip1.Location = new Point(0, 587);
             statusStrip1.Name = "statusStrip1";
             statusStrip1.Size = new Size(1225, 22);
@@ -117,7 +121,7 @@
             // time_Admin
             // 
             time_Admin.Name = "time_Admin";
-            time_Admin.Size = new Size(242, 17);
+            time_Admin.Size = new Size(201, 17);
             time_Admin.Spring = true;
             time_Admin.Text = "ZeitAdmin";
             time_Admin.TextAlign = ContentAlignment.MiddleLeft;
@@ -125,7 +129,7 @@
             // user
             // 
             user.Name = "user";
-            user.Size = new Size(242, 17);
+            user.Size = new Size(201, 17);
             user.Spring = true;
             user.Text = "Benutzer";
             user.TextAlign = ContentAlignment.MiddleLeft;
@@ -133,15 +137,23 @@
             // department
             // 
             department.Name = "department";
-            department.Size = new Size(242, 17);
+            department.Size = new Size(201, 17);
             department.Spring = true;
             department.Text = "Abteilung";
             department.TextAlign = ContentAlignment.MiddleLeft;
             // 
+            // flextime
+            // 
+            flextime.Name = "flextime";
+            flextime.Size = new Size(201, 17);
+            flextime.Spring = true;
+            flextime.Text = "Gleitzeit";
+            flextime.TextAlign = ContentAlignment.MiddleLeft;
+            // 
             // sick_days
             // 
             sick_days.Name = "sick_days";
-            sick_days.Size = new Size(242, 17);
+            sick_days.Size = new Size(201, 17);
             sick_days.Spring = true;
             sick_days.Text = "Krankheitstage";
             sick_days.TextAlign = ContentAlignment.MiddleLeft;
@@ -149,7 +161,7 @@
             // last_updated
             // 
             last_updated.Name = "last_updated";
-            last_updated.Size = new Size(242, 17);
+            last_updated.Size = new Size(201, 17);
             last_updated.Spring = true;
             last_updated.Text = "Zuletzt Aktuallisiert:";
             last_updated.TextAlign = ContentAlignment.MiddleRight;
@@ -157,7 +169,7 @@
             // menuStrip1
             // 
             menuStrip1.AutoSize = false;
-            menuStrip1.Items.AddRange(new ToolStripItem[] { meinAP2024ToolStripMenuItem, administrationToolStripMenuItem, hilfeToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { meinAP2024ToolStripMenuItem, tESTToolStripMenuItem, administrationToolStripMenuItem, hilfeToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.RightToLeft = RightToLeft.No;
@@ -192,6 +204,11 @@
             einstellungenToolStripMenuItem.Size = new Size(205, 22);
             einstellungenToolStripMenuItem.Text = "Einstellungen";
             einstellungenToolStripMenuItem.Click += einstellungenToolStripMenuItem_Click;
+            // 
+            // tESTToolStripMenuItem
+            // 
+            tESTToolStripMenuItem.Name = "tESTToolStripMenuItem";
+            tESTToolStripMenuItem.Size = new Size(12, 20);
             // 
             // administrationToolStripMenuItem
             // 
@@ -286,6 +303,7 @@
             button1.Name = "button1";
             button1.Size = new Size(35, 35);
             button1.TabIndex = 5;
+            toolTip1.SetToolTip(button1, "Neuladen");
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
@@ -296,6 +314,7 @@
             button2.Name = "button2";
             button2.Size = new Size(35, 35);
             button2.TabIndex = 6;
+            toolTip1.SetToolTip(button2, "Speichern");
             button2.UseVisualStyleBackColor = true;
             // 
             // button3
@@ -305,6 +324,7 @@
             button3.Name = "button3";
             button3.Size = new Size(35, 35);
             button3.TabIndex = 7;
+            toolTip1.SetToolTip(button3, "Gehe zu Heute");
             button3.UseVisualStyleBackColor = true;
             button3.Click += button3_Click;
             // 
@@ -317,14 +337,14 @@
             calendarView.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             calendarView.BackgroundColor = SystemColors.Control;
             calendarView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = SystemColors.Window;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = Color.LightBlue;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            calendarView.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = SystemColors.Window;
+            dataGridViewCellStyle4.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle4.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = Color.LightBlue;
+            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.False;
+            calendarView.DefaultCellStyle = dataGridViewCellStyle4;
             calendarView.Location = new Point(12, 177);
             calendarView.Name = "calendarView";
             calendarView.ReadOnly = true;
@@ -401,11 +421,23 @@
             toolStripMenuItem3.Size = new Size(201, 22);
             toolStripMenuItem3.Text = "Abwesenheit löschen";
             // 
+            // button4
+            // 
+            button4.Image = (Image)resources.GetObject("button4.Image");
+            button4.Location = new Point(135, 27);
+            button4.Name = "button4";
+            button4.Size = new Size(35, 35);
+            button4.TabIndex = 12;
+            toolTip1.SetToolTip(button4, "Gleitzeit eintragen");
+            button4.UseVisualStyleBackColor = true;
+            button4.Click += button4_Click;
+            // 
             // AP2024
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1225, 609);
+            Controls.Add(button4);
             Controls.Add(label1);
             Controls.Add(viewCB);
             Controls.Add(monthView);
@@ -473,5 +505,9 @@
         private ToolStripStatusLabel last_updated;
         private ToolStripStatusLabel department;
         private ToolStripMenuItem toolStripMenuItem5;
+        private ToolStripMenuItem tESTToolStripMenuItem;
+        private ToolStripStatusLabel flextime;
+        private Button button4;
+        private ToolTip toolTip1;
     }
 }

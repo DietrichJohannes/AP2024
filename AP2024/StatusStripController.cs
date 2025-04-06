@@ -10,10 +10,10 @@ using System.Windows.Forms;
 
 namespace AP2024
 {
-    public class StatusStripController
+    public static class StatusStripController
     {
 
-        private static ToolStripStatusLabel userStrip, sickDaysStrip, timeAdminStrip, lastUpdated, department;
+        private static ToolStripStatusLabel userStrip, sickDaysStrip, timeAdminStrip, lastUpdated, department, flextimeStrip;
 
 
         public static void SetStatusStrip(StatusStrip statusStrip)
@@ -23,6 +23,7 @@ namespace AP2024
             timeAdminStrip = statusStrip.Items["time_admin"] as ToolStripStatusLabel;
             lastUpdated = statusStrip.Items["last_updated"] as ToolStripStatusLabel;
             department = statusStrip.Items["department"] as ToolStripStatusLabel;
+            flextimeStrip = statusStrip.Items["flextime"] as ToolStripStatusLabel;
 
             SetUser();
             SetTimeAdmin();
@@ -41,7 +42,7 @@ namespace AP2024
                         connection.Open(); // Öffne die Verbindung zur Datenbank
 
                         // SQL-Abfrage: Suche den Benutzer mit passendem Windows-Nutzer
-                        string query = "SELECT first_name, last_name, sick_days FROM Employees WHERE windows_username = @windowsUser";
+                        string query = "SELECT first_name, last_name, sick_days, flextime FROM Employees WHERE windows_username = @windowsUser";
 
                         using (SQLiteCommand command = new SQLiteCommand(query, connection))
                         {
@@ -54,14 +55,17 @@ namespace AP2024
                                     string firstName = reader["first_name"].ToString();
                                     string lastName = reader["last_name"].ToString();
                                     string sickDays = Convert.ToString(reader["sick_days"]);
+                                    string flextime = Convert.ToString(reader["flextime"]);
 
                                     userStrip.Text = "Benutzer:".PadRight(15) + $"{firstName} {lastName}";
                                     sickDaysStrip.Text = "Krankheitstage:".PadRight(20) + $"{sickDays}";
+                                    flextimeStrip.Text = "Gleitzeit:".PadRight(15) + $"{flextime} Std.";
                             }
                             else
                                 {
                                     userStrip.Text = "Benutzer: Nicht gefunden!";
                                     sickDaysStrip.Text = "Krankheitstage: Nicht gefunden!";
+                                    flextimeStrip.Text = "Gleitzeit: Nicht gefunden!";
                             }
                             }
                         }

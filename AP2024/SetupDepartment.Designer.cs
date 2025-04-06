@@ -28,10 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SetupDepartment));
             label1 = new Label();
             departmentText = new TextBox();
             button1 = new Button();
+            toolTip1 = new ToolTip(components);
             SuspendLayout();
             // 
             // label1
@@ -49,6 +51,7 @@
             departmentText.Name = "departmentText";
             departmentText.Size = new Size(253, 23);
             departmentText.TabIndex = 1;
+            toolTip1.SetToolTip(departmentText, "Name Ihrer Abteilung");
             // 
             // button1
             // 
@@ -59,6 +62,13 @@
             button1.Text = "Speichern";
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
+            // 
+            // toolTip1
+            // 
+            toolTip1.IsBalloon = true;
+            toolTip1.ShowAlways = true;
+            toolTip1.ToolTipIcon = ToolTipIcon.Info;
+            toolTip1.ToolTipTitle = "Abteilung";
             // 
             // SetupDepartment
             // 
@@ -84,5 +94,6 @@
         private Label label1;
         private TextBox departmentText;
         private Button button1;
+        private ToolTip toolTip1;
     }
 }
