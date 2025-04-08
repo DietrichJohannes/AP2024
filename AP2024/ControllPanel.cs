@@ -10,18 +10,12 @@ using System.Windows.Forms;
 
 namespace AP2024
 {
-    public partial class RoleManagement : Form
+    public partial class ControllPanel: Form
     {
-        public RoleManagement()
+        public ControllPanel()
         {
             InitializeComponent();
             ThemeManager.ApplyTheme(this);
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-            RoleInfo roleInfo = new RoleInfo();
-            roleInfo.ShowDialog();
         }
     }
 }

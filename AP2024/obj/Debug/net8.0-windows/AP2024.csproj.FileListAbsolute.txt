@@ -57,3 +57,6 @@ G:\Programme\C#\AP2024\AP2024\obj\Debug\net8.0-windows\AP2024.NewAbsenceType.res
 G:\Programme\C#\AP2024\AP2024\obj\Debug\net8.0-windows\AP2024.UserAddThemselves.resources
 G:\Programme\C#\AP2024\AP2024\obj\Debug\net8.0-windows\AP2024.NoAccess.resources
 G:\Programme\C#\AP2024\AP2024\obj\Debug\net8.0-windows\AP2024.AddFlextime.resources
+G:\Programme\C#\AP2024\AP2024\obj\Debug\net8.0-windows\AP2024.ControllPanel.resources
+G:\Programme\C#\AP2024\AP2024\obj\Debug\net8.0-windows\AP2024.RoleInfo.resources
+G:\Programme\C#\AP2024\AP2024\obj\Debug\net8.0-windows\AP2024.AddCommentTimePicker.resources

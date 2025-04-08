@@ -53,6 +53,7 @@ namespace AP2024
             return dateTime.ToString("HH:mm:ss");
         }
 
+
         public static string GetCurrentWindowsUser()
         {
             string user = Environment.UserName.ToLower();

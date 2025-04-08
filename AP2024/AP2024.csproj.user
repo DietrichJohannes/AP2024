@@ -10,10 +10,16 @@
     <Compile Update="AddComment.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="AddCommentTimePicker.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="AddFlextime.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="AdminManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="ControllPanel.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="DevInfo.cs">
@@ -47,6 +53,9 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="PublicHolidayManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="RoleInfo.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="RoleManagement.cs">

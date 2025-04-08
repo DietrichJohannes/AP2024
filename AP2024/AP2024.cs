@@ -396,5 +396,17 @@ namespace AP2024
             addFlextime.OnFlextimeSaved += StatusStripController.SetUser;
             addFlextime.ShowDialog();
         }
+
+        private void aP2024SteuerungToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ControllPanel controllPanel = new ControllPanel();
+            controllPanel.Show();
+        }
+
+        private void testToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            AddCommentTimePicker addCommentTimePicker = new AddCommentTimePicker();
+            addCommentTimePicker.ShowDialog();
+        }
     }
 }

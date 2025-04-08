@@ -103,6 +103,24 @@ namespace AP2024
             {
                 ApplyDarkMenuStrip((MenuStrip)control);
             }
+            else if (control is ListView lv)
+            {
+                lv.BackColor = Color.FromArgb(40, 40, 40);
+                lv.ForeColor = Color.White;
+                lv.BorderStyle = BorderStyle.FixedSingle;
+                lv.FullRowSelect = true;
+                lv.HideSelection = false;
+
+                lv.OwnerDraw = false; // optional: true, wenn du Header oder Zeilen komplett selbst zeichnen willst
+                lv.HeaderStyle = ColumnHeaderStyle.Clickable;
+
+                lv.Font = new Font("Segoe UI", 9); // optional: Font vereinheitlichen
+
+                // Auswahlfarben
+                lv.ForeColor = Color.White;
+                lv.BackColor = Color.FromArgb(40, 40, 40);
+            }
+
 
             // Rekursion für Untercontrols
             foreach (Control child in control.Controls)

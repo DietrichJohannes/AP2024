@@ -56,6 +56,7 @@
             adminKonsoleToolStripMenuItem = new ToolStripMenuItem();
             aP2024EinstellungenToolStripMenuItem = new ToolStripMenuItem();
             hilfeToolStripMenuItem = new ToolStripMenuItem();
+            aP2024SteuerungToolStripMenuItem = new ToolStripMenuItem();
             hilfeToolStripMenuItem1 = new ToolStripMenuItem();
             anleitungToolStripMenuItem = new ToolStripMenuItem();
             infoÜberDenEntwicklerToolStripMenuItem = new ToolStripMenuItem();
@@ -72,6 +73,7 @@
             toolStripMenuItem3 = new ToolStripMenuItem();
             button4 = new Button();
             toolTip1 = new ToolTip(components);
+            testToolStripMenuItem1 = new ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)cwView).BeginInit();
             statusStrip1.SuspendLayout();
             menuStrip1.SuspendLayout();
@@ -107,21 +109,21 @@
             cwView.ScrollBars = ScrollBars.None;
             cwView.ShowCellToolTips = false;
             cwView.ShowRowErrors = false;
-            cwView.Size = new Size(866, 20);
+            cwView.Size = new Size(944, 20);
             cwView.TabIndex = 1;
             // 
             // statusStrip1
             // 
             statusStrip1.Items.AddRange(new ToolStripItem[] { time_Admin, user, department, flextime, sick_days, last_updated });
-            statusStrip1.Location = new Point(0, 587);
+            statusStrip1.Location = new Point(0, 641);
             statusStrip1.Name = "statusStrip1";
-            statusStrip1.Size = new Size(1225, 22);
+            statusStrip1.Size = new Size(1303, 22);
             statusStrip1.TabIndex = 3;
             // 
             // time_Admin
             // 
             time_Admin.Name = "time_Admin";
-            time_Admin.Size = new Size(201, 17);
+            time_Admin.Size = new Size(214, 17);
             time_Admin.Spring = true;
             time_Admin.Text = "ZeitAdmin";
             time_Admin.TextAlign = ContentAlignment.MiddleLeft;
@@ -129,7 +131,7 @@
             // user
             // 
             user.Name = "user";
-            user.Size = new Size(201, 17);
+            user.Size = new Size(214, 17);
             user.Spring = true;
             user.Text = "Benutzer";
             user.TextAlign = ContentAlignment.MiddleLeft;
@@ -137,7 +139,7 @@
             // department
             // 
             department.Name = "department";
-            department.Size = new Size(201, 17);
+            department.Size = new Size(214, 17);
             department.Spring = true;
             department.Text = "Abteilung";
             department.TextAlign = ContentAlignment.MiddleLeft;
@@ -145,7 +147,7 @@
             // flextime
             // 
             flextime.Name = "flextime";
-            flextime.Size = new Size(201, 17);
+            flextime.Size = new Size(214, 17);
             flextime.Spring = true;
             flextime.Text = "Gleitzeit";
             flextime.TextAlign = ContentAlignment.MiddleLeft;
@@ -153,7 +155,7 @@
             // sick_days
             // 
             sick_days.Name = "sick_days";
-            sick_days.Size = new Size(201, 17);
+            sick_days.Size = new Size(214, 17);
             sick_days.Spring = true;
             sick_days.Text = "Krankheitstage";
             sick_days.TextAlign = ContentAlignment.MiddleLeft;
@@ -161,7 +163,7 @@
             // last_updated
             // 
             last_updated.Name = "last_updated";
-            last_updated.Size = new Size(201, 17);
+            last_updated.Size = new Size(214, 17);
             last_updated.Spring = true;
             last_updated.Text = "Zuletzt Aktuallisiert:";
             last_updated.TextAlign = ContentAlignment.MiddleRight;
@@ -169,11 +171,11 @@
             // menuStrip1
             // 
             menuStrip1.AutoSize = false;
-            menuStrip1.Items.AddRange(new ToolStripItem[] { meinAP2024ToolStripMenuItem, tESTToolStripMenuItem, administrationToolStripMenuItem, hilfeToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { meinAP2024ToolStripMenuItem, tESTToolStripMenuItem, testToolStripMenuItem1, administrationToolStripMenuItem, hilfeToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.RightToLeft = RightToLeft.No;
-            menuStrip1.Size = new Size(1225, 24);
+            menuStrip1.Size = new Size(1303, 24);
             menuStrip1.TabIndex = 4;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -270,10 +272,17 @@
             // 
             // hilfeToolStripMenuItem
             // 
-            hilfeToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { hilfeToolStripMenuItem1, anleitungToolStripMenuItem, infoÜberDenEntwicklerToolStripMenuItem });
+            hilfeToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { aP2024SteuerungToolStripMenuItem, hilfeToolStripMenuItem1, anleitungToolStripMenuItem, infoÜberDenEntwicklerToolStripMenuItem });
             hilfeToolStripMenuItem.Name = "hilfeToolStripMenuItem";
             hilfeToolStripMenuItem.Size = new Size(44, 20);
             hilfeToolStripMenuItem.Text = "Hilfe";
+            // 
+            // aP2024SteuerungToolStripMenuItem
+            // 
+            aP2024SteuerungToolStripMenuItem.Name = "aP2024SteuerungToolStripMenuItem";
+            aP2024SteuerungToolStripMenuItem.Size = new Size(202, 22);
+            aP2024SteuerungToolStripMenuItem.Text = "AP2024 Steuerung";
+            aP2024SteuerungToolStripMenuItem.Click += aP2024SteuerungToolStripMenuItem_Click;
             // 
             // hilfeToolStripMenuItem1
             // 
@@ -349,7 +358,7 @@
             calendarView.Name = "calendarView";
             calendarView.ReadOnly = true;
             calendarView.RowHeadersVisible = false;
-            calendarView.Size = new Size(1201, 407);
+            calendarView.Size = new Size(1279, 461);
             calendarView.TabIndex = 8;
             calendarView.Scroll += calendarView_Scroll;
             // 
@@ -376,7 +385,7 @@
             monthView.ShowCellToolTips = false;
             monthView.ShowEditingIcon = false;
             monthView.ShowRowErrors = false;
-            monthView.Size = new Size(866, 20);
+            monthView.Size = new Size(944, 20);
             monthView.TabIndex = 9;
             // 
             // viewCB
@@ -432,11 +441,18 @@
             button4.UseVisualStyleBackColor = true;
             button4.Click += button4_Click;
             // 
+            // testToolStripMenuItem1
+            // 
+            testToolStripMenuItem1.Name = "testToolStripMenuItem1";
+            testToolStripMenuItem1.Size = new Size(39, 20);
+            testToolStripMenuItem1.Text = "Test";
+            testToolStripMenuItem1.Click += testToolStripMenuItem1_Click;
+            // 
             // AP2024
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1225, 609);
+            ClientSize = new Size(1303, 663);
             Controls.Add(button4);
             Controls.Add(label1);
             Controls.Add(viewCB);
@@ -450,7 +466,7 @@
             Controls.Add(cwView);
             Icon = (Icon)resources.GetObject("$this.Icon");
             MainMenuStrip = menuStrip1;
-            MinimumSize = new Size(1241, 648);
+            MinimumSize = new Size(1319, 702);
             Name = "AP2024";
             Text = "AP2024";
             WindowState = FormWindowState.Maximized;
@@ -510,5 +526,7 @@
         private ToolStripStatusLabel flextime;
         private Button button4;
         private ToolTip toolTip1;
+        private ToolStripMenuItem aP2024SteuerungToolStripMenuItem;
+        private ToolStripMenuItem testToolStripMenuItem1;
     }
 }
