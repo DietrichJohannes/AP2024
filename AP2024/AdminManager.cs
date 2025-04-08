@@ -16,6 +16,7 @@ namespace AP2024
         public AdminManager()
         {
             InitializeComponent();
+            ThemeManager.ApplyTheme(this);
             LoadAdmins();
         }
 

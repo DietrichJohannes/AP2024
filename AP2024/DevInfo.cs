@@ -15,6 +15,7 @@ namespace AP2024
         public DevInfo()
         {
             InitializeComponent();
+            ThemeManager.ApplyTheme(this);
         }
     }
 }

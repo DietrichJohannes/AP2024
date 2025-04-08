@@ -121,7 +121,7 @@ namespace AP2024
                                                         can_add_themselves_remaining_leave INTEGER NOT NULL DEFAULT 0,
                                                         can_add_themselves_leave_entitlement INTEGER NOT NULL DEFAULT 0,
                                                         department TEXT NOT NULL DEFAULT '[Abteilung]',
-                                                        time_admin TEXT NOT NULL DEFAULT '[ZeitAdmin]'
+                                                        time_admin INTEGER NOT NULL DEFAULT 1
                                                         );";
 
                 ExecuteNonQuery(connection, createSettingsTableQuery);

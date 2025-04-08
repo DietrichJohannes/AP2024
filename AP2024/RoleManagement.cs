@@ -15,6 +15,7 @@ namespace AP2024
         public RoleManagement()
         {
             InitializeComponent();
+            ThemeManager.ApplyTheme(this);
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)

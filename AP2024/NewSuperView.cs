@@ -18,6 +18,7 @@ namespace AP2024
         public NewSuperView(int windowMode)
         {
             InitializeComponent();
+            ThemeManager.ApplyTheme(this);
             _NewSuperView_WindowMode = windowMode;
             GetWindowMode();
         }

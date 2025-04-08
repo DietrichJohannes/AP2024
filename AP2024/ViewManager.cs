@@ -18,6 +18,7 @@ namespace AP2024
         public ViewManager()
         {
             InitializeComponent();
+            ThemeManager.ApplyTheme(this);
             LoadViews();
         }
 

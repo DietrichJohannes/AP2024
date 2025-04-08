@@ -76,33 +76,39 @@ namespace AP2024
                     }
                 }
          }
-      
+
 
 
         public static void SetTimeAdmin()
         {
-            string connectionString = ApplicationContext.GetConnectionString(); // Hole den ConnectionString
+            string connectionString = ApplicationContext.GetConnectionString();
 
             using (SQLiteConnection connection = new SQLiteConnection(connectionString))
             {
                 try
                 {
-                    connection.Open(); // Öffne die Verbindung zur Datenbank
+                    connection.Open();
 
-                    // SQL-Abfrage: Suche den Benutzer mit passendem Windows-Nutzer
-                    string query = "SELECT time_admin, department FROM Settings";
+                    // SQL-Abfrage mit JOIN zwischen Settings und Employees
+                    string query = @"
+                SELECT 
+                    e.first_name, 
+                    e.last_name, 
+                    s.department
+                FROM Settings s
+                LEFT JOIN Employees e ON s.time_admin = e.id";
 
                     using (SQLiteCommand command = new SQLiteCommand(query, connection))
                     {
                         using (SQLiteDataReader reader = command.ExecuteReader())
                         {
-                            if (reader.Read()) // Prüfen, ob ein Datensatz gefunden wurde
+                            if (reader.Read())
                             {
-                                string userName = reader["time_admin"].ToString();
-                                string departmentName = reader["department"].ToString();
+                                string firstName = reader["first_name"]?.ToString() ?? "Unbekannt";
+                                string lastName = reader["last_name"]?.ToString() ?? "";
+                                string departmentName = reader["department"]?.ToString() ?? "Unbekannt";
 
-
-                                timeAdminStrip.Text = "Zeit Admin:".PadRight(16) + $"{userName}";
+                                timeAdminStrip.Text = "Zeit Admin:".PadRight(16) + $"{firstName} {lastName}".Trim();
                                 department.Text = "Abteilung:".PadRight(15) + $"{departmentName}";
                             }
                             else
@@ -118,6 +124,7 @@ namespace AP2024
                 }
             }
         }
+
 
         public static void SetLastUpdated()
         {

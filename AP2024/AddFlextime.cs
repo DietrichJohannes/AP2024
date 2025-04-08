@@ -20,6 +20,7 @@ namespace AP2024
         public AddFlextime()
         {
             InitializeComponent();
+            ThemeManager.ApplyTheme(this);
             LoadFlextime();
         }
 

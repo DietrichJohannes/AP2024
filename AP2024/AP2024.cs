@@ -17,6 +17,8 @@ namespace AP2024
             InitCalendar();                                                                 // Initialisiere den Kalender
             DatabaseController.InitializeDatabase();                                        // Initialisiere (Erstelle) die Datenbank
             ApplicationContext.InitStart();                                                 // Initialisiere die Anwendung
+            ApplicationContext.GetTheme();                                                  // Hole das Theme aus der Datenbank
+            ThemeManager.ApplyTheme(this);                                                  // Wende das Theme an
             LoadViews();                                                                    // Lade die Verfügbaren Views in die ComboBox
             GetSelectedView();                                                              // Hole die ID des ausgewählten Views
             LoadEmployees();                                                                // Lade die Mitarbeiter dem View entsprechend dem View

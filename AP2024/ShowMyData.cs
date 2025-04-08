@@ -19,6 +19,7 @@ namespace AP2024
         public ShowMyData()
         {
             InitializeComponent();
+            ThemeManager.ApplyTheme(this);
             LoadPersonalData();
             GetEditSettings();
             SetSettings();

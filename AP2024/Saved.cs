@@ -15,6 +15,7 @@ namespace AP2024
         public Saved()
         {
             InitializeComponent();
+            ThemeManager.ApplyTheme(this);                                                            // Theme anwenden
 
 
             // Timer erstellen

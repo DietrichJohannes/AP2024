@@ -33,6 +33,8 @@
             label2 = new Label();
             checkBox1 = new CheckBox();
             comboBox1 = new ComboBox();
+            label3 = new Label();
+            checkBox2 = new CheckBox();
             SuspendLayout();
             // 
             // label1
@@ -49,7 +51,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(12, 171);
+            label2.Location = new Point(12, 138);
             label2.Name = "label2";
             label2.Size = new Size(163, 25);
             label2.TabIndex = 1;
@@ -59,26 +61,48 @@
             // 
             checkBox1.Location = new Point(12, 71);
             checkBox1.Name = "checkBox1";
-            checkBox1.Size = new Size(305, 36);
+            checkBox1.Size = new Size(368, 36);
             checkBox1.TabIndex = 2;
-            checkBox1.Text = "Anderen Benutzern deine Abwesenheit verbergen (Ausgenommen Admins)";
+            checkBox1.Text = "Andere Benutzer können Details über deine Abwesenheit sehen (Außgenommen Admins)";
             checkBox1.UseVisualStyleBackColor = true;
             // 
             // comboBox1
             // 
             comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBox1.FormattingEnabled = true;
-            comboBox1.Items.AddRange(new object[] { "Hell", "Dunkel ", "Hoher Kontrast" });
-            comboBox1.Location = new Point(12, 227);
+            comboBox1.Items.AddRange(new object[] { "Hell", "Dunkel" });
+            comboBox1.Location = new Point(12, 190);
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new Size(180, 23);
             comboBox1.TabIndex = 3;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label3.Location = new Point(12, 247);
+            label3.Name = "label3";
+            label3.Size = new Size(84, 25);
+            label3.TabIndex = 4;
+            label3.Text = "Gleitzeit";
+            // 
+            // checkBox2
+            // 
+            checkBox2.AutoSize = true;
+            checkBox2.Location = new Point(12, 304);
+            checkBox2.Name = "checkBox2";
+            checkBox2.Size = new Size(129, 19);
+            checkBox2.TabIndex = 5;
+            checkBox2.Text = "Gleitzeit verwenden";
+            checkBox2.UseVisualStyleBackColor = true;
             // 
             // UserSettings
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(535, 331);
+            ClientSize = new Size(675, 476);
+            Controls.Add(checkBox2);
+            Controls.Add(label3);
             Controls.Add(comboBox1);
             Controls.Add(checkBox1);
             Controls.Add(label2);
@@ -98,5 +122,7 @@
         private Label label2;
         private CheckBox checkBox1;
         private ComboBox comboBox1;
+        private Label label3;
+        private CheckBox checkBox2;
     }
 }

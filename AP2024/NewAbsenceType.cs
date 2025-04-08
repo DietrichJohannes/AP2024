@@ -21,6 +21,7 @@ namespace AP2024
         public NewAbsenceType()
         {
             InitializeComponent();
+            ThemeManager.ApplyTheme(this);
         }
         private void btnChooseColor_Click(object sender, EventArgs e)
         {

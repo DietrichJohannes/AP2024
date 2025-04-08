@@ -11,11 +11,35 @@ namespace AP2024
     {
 
         public static int USER_ID;
+        public static bool LIGHT_MODE = false;
 
         public static string GetConnectionString()
         {
             return "Data Source=data/AP2024.db";
         }
+
+        public static void GetTheme()
+        {
+            using (SQLiteConnection connection = new SQLiteConnection(GetConnectionString()))
+            {
+                connection.Open();
+                using (SQLiteCommand command = new SQLiteCommand(connection))
+                {
+                    command.CommandText = "SELECT light_theme FROM Employees WHERE ID = @id";
+                    command.Parameters.AddWithValue("@id", USER_ID); // USER_ID einbinden
+
+                    using (SQLiteDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            int themeValue = reader.GetInt32(0);
+                            LIGHT_MODE = (themeValue == 1);
+                        }
+                    }
+                }
+            }
+        }
+
 
         public static string GetCurrentDate()
         {

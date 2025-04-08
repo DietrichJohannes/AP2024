@@ -16,6 +16,7 @@ namespace AP2024
         public SuperViewManager()
         {
             InitializeComponent();
+            ThemeManager.ApplyTheme(this);
             LoadSuperViews();
         }
 

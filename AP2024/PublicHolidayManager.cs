@@ -15,6 +15,7 @@ namespace AP2024
         public PublicHolidayManager()
         {
             InitializeComponent();
+            ThemeManager.ApplyTheme(this);
         }
     }
 }

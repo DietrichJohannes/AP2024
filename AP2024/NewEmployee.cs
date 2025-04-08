@@ -19,6 +19,7 @@ namespace AP2024
         public NewEmployee()
         {
             InitializeComponent();
+            ThemeManager.ApplyTheme(this);
             LoadViews();
         }
 

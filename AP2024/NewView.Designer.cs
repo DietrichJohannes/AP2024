@@ -107,7 +107,9 @@
             Controls.Add(button1);
             Controls.Add(superViewCB);
             Controls.Add(viewNameText);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (Icon)resources.GetObject("$this.Icon");
+            MaximizeBox = false;
             Name = "NewView";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Neues View";

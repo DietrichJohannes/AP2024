@@ -19,6 +19,7 @@ namespace AP2024
         public AbsenceManager()
         {
             InitializeComponent();
+            ThemeManager.ApplyTheme(this);
             LoadAbsenceTypes();
         }
 

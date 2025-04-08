@@ -18,6 +18,7 @@ namespace AP2024
         public AddComment()
         {
             InitializeComponent();
+            ThemeManager.ApplyTheme(this);
         }
 
         private void button1_Click(object sender, EventArgs e)

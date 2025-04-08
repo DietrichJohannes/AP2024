@@ -68,7 +68,9 @@
             Controls.Add(button1);
             Controls.Add(label1);
             Controls.Add(superViewNameText);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (Icon)resources.GetObject("$this.Icon");
+            MaximizeBox = false;
             Name = "NewSuperView";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Neues SuperView";

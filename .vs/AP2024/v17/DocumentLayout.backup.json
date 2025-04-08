@@ -3,8 +3,8 @@
   "WorkspaceRootPath": "G:\\Programme\\C#\\AP2024\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{AABDA589-6458-4542-ADE7-3E1819D4C475}|AP2024\\AP2024.csproj|g:\\programme\\c#\\ap2024\\ap2024\\ap2024.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{AABDA589-6458-4542-ADE7-3E1819D4C475}|AP2024\\AP2024.csproj|solutionrelative:ap2024\\ap2024.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{AABDA589-6458-4542-ADE7-3E1819D4C475}|AP2024\\AP2024.csproj|g:\\programme\\c#\\ap2024\\ap2024\\thememanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AABDA589-6458-4542-ADE7-3E1819D4C475}|AP2024\\AP2024.csproj|solutionrelative:ap2024\\thememanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -23,14 +23,15 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "AP2024.cs [Entwurf]",
-              "DocumentMoniker": "G:\\Programme\\C#\\AP2024\\AP2024\\AP2024.cs",
-              "RelativeDocumentMoniker": "AP2024\\AP2024.cs",
-              "ToolTip": "G:\\Programme\\C#\\AP2024\\AP2024\\AP2024.cs [Entwurf]",
-              "RelativeToolTip": "AP2024\\AP2024.cs [Entwurf]",
+              "Title": "ThemeManager.cs",
+              "DocumentMoniker": "G:\\Programme\\C#\\AP2024\\AP2024\\ThemeManager.cs",
+              "RelativeDocumentMoniker": "AP2024\\ThemeManager.cs",
+              "ToolTip": "G:\\Programme\\C#\\AP2024\\AP2024\\ThemeManager.cs*",
+              "RelativeToolTip": "AP2024\\ThemeManager.cs*",
+              "ViewState": "AgIAAC0AAAAAAAAAAAAAAFQAAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-06T15:52:30.217Z",
-              "EditorCaption": " [Entwurf]"
+              "WhenOpened": "2025-04-08T17:10:52.066Z",
+              "EditorCaption": ""
             }
           ]
         }
