@@ -32,50 +32,62 @@ namespace AP2024
 
         public static void SetUser()
         {
-                string connectionString = ApplicationContext.GetConnectionString(); // Hole den ConnectionString
-                string currentUser = ApplicationContext.GetCurrentWindowsUser();    // Erhalte den aktuellen Windows-Benutzer
+            string connectionString = ApplicationContext.GetConnectionString(); // Hole den ConnectionString
+            string currentUser = ApplicationContext.GetCurrentWindowsUser();    // Erhalte den aktuellen Windows-Benutzer
 
-                using (SQLiteConnection connection = new SQLiteConnection(connectionString))
+            using (SQLiteConnection connection = new SQLiteConnection(connectionString))
+            {
+                try
                 {
-                    try
+                    connection.Open(); // Öffne die Verbindung zur Datenbank
+
+                    string query = "SELECT first_name, last_name, sick_days, flextime FROM Employees WHERE windows_username = @windowsUser";
+
+                    using (SQLiteCommand command = new SQLiteCommand(query, connection))
                     {
-                        connection.Open(); // Öffne die Verbindung zur Datenbank
+                        command.Parameters.AddWithValue("@windowsUser", currentUser);
 
-                        // SQL-Abfrage: Suche den Benutzer mit passendem Windows-Nutzer
-                        string query = "SELECT first_name, last_name, sick_days, flextime FROM Employees WHERE windows_username = @windowsUser";
-
-                        using (SQLiteCommand command = new SQLiteCommand(query, connection))
+                        using (SQLiteDataReader reader = command.ExecuteReader())
                         {
-                            command.Parameters.AddWithValue("@windowsUser", currentUser); // Parameter setzen
-
-                            using (SQLiteDataReader reader = command.ExecuteReader())
+                            if (reader.Read())
                             {
-                                if (reader.Read()) // Prüfen, ob ein Datensatz gefunden wurde
-                                {
-                                    string firstName = reader["first_name"].ToString();
-                                    string lastName = reader["last_name"].ToString();
-                                    string sickDays = Convert.ToString(reader["sick_days"]);
-                                    string flextime = Convert.ToString(reader["flextime"]);
+                                string firstName = reader["first_name"].ToString();
+                                string lastName = reader["last_name"].ToString();
+                                string sickDays = reader["sick_days"].ToString();
+                                string flextimeString = reader["flextime"].ToString();
 
-                                    userStrip.Text = "Benutzer:".PadRight(15) + $"{firstName} {lastName}";
-                                    sickDaysStrip.Text = "Krankheitstage:".PadRight(20) + $"{sickDays}";
-                                    flextimeStrip.Text = "Gleitzeit:".PadRight(15) + $"{flextime} Std.";
+                                float flextime = 0;
+                                float.TryParse(flextimeString, out flextime);
+
+                                userStrip.Text = "Benutzer:".PadRight(15) + $"{firstName} {lastName}";
+                                sickDaysStrip.Text = "Krankheitstage:".PadRight(20) + $"{sickDays}";
+                                flextimeStrip.Text = "Gleitzeit:".PadRight(15) + $"{flextime} Std.";
+
+                                if (flextime < 0)
+                                {
+                                    flextimeStrip.BackColor = System.Drawing.Color.Red;
+                                }
+                                else
+                                {
+                                    flextimeStrip.BackColor = System.Drawing.Color.Green;
+                                }
                             }
                             else
-                                {
-                                    userStrip.Text = "Benutzer: Nicht gefunden!";
-                                    sickDaysStrip.Text = "Krankheitstage: Nicht gefunden!";
-                                    flextimeStrip.Text = "Gleitzeit: Nicht gefunden!";
-                            }
+                            {
+                                userStrip.Text = "Benutzer: Nicht gefunden!";
+                                sickDaysStrip.Text = "Krankheitstage: Nicht gefunden!";
+                                flextimeStrip.Text = "Gleitzeit: Nicht gefunden!";
                             }
                         }
                     }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.Message, "AP2024");
-                    }
                 }
-         }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "AP2024");
+                }
+            }
+        }
+
 
 
 

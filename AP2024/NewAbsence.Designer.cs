@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NewAbsence));
-            comboBox1 = new ComboBox();
-            dateTimePicker1 = new DateTimePicker();
-            dateTimePicker2 = new DateTimePicker();
-            richTextBox1 = new RichTextBox();
+            AbsenceTypesCB = new ComboBox();
+            StartDateDTP = new DateTimePicker();
+            EndDateDTP = new DateTimePicker();
+            CommentRTB = new RichTextBox();
             label1 = new Label();
             label2 = new Label();
             label3 = new Label();
@@ -40,36 +40,39 @@
             button1 = new Button();
             SuspendLayout();
             // 
-            // comboBox1
+            // AbsenceTypesCB
             // 
-            comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(172, 12);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(200, 23);
-            comboBox1.TabIndex = 0;
+            AbsenceTypesCB.DropDownStyle = ComboBoxStyle.DropDownList;
+            AbsenceTypesCB.FormattingEnabled = true;
+            AbsenceTypesCB.Location = new Point(172, 12);
+            AbsenceTypesCB.Name = "AbsenceTypesCB";
+            AbsenceTypesCB.Size = new Size(200, 23);
+            AbsenceTypesCB.TabIndex = 0;
             // 
-            // dateTimePicker1
+            // StartDateDTP
             // 
-            dateTimePicker1.Location = new Point(172, 41);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(200, 23);
-            dateTimePicker1.TabIndex = 1;
+            StartDateDTP.CustomFormat = "";
+            StartDateDTP.Location = new Point(172, 41);
+            StartDateDTP.Name = "StartDateDTP";
+            StartDateDTP.Size = new Size(200, 23);
+            StartDateDTP.TabIndex = 1;
+            StartDateDTP.Value = new DateTime(2025, 4, 10, 0, 0, 0, 0);
             // 
-            // dateTimePicker2
+            // EndDateDTP
             // 
-            dateTimePicker2.Location = new Point(172, 70);
-            dateTimePicker2.Name = "dateTimePicker2";
-            dateTimePicker2.Size = new Size(200, 23);
-            dateTimePicker2.TabIndex = 2;
+            EndDateDTP.Location = new Point(172, 70);
+            EndDateDTP.Name = "EndDateDTP";
+            EndDateDTP.Size = new Size(200, 23);
+            EndDateDTP.TabIndex = 2;
+            EndDateDTP.Value = new DateTime(2025, 4, 10, 0, 0, 0, 0);
             // 
-            // richTextBox1
+            // CommentRTB
             // 
-            richTextBox1.Location = new Point(172, 99);
-            richTextBox1.Name = "richTextBox1";
-            richTextBox1.Size = new Size(200, 78);
-            richTextBox1.TabIndex = 3;
-            richTextBox1.Text = "";
+            CommentRTB.Location = new Point(172, 99);
+            CommentRTB.Name = "CommentRTB";
+            CommentRTB.Size = new Size(200, 78);
+            CommentRTB.TabIndex = 3;
+            CommentRTB.Text = "";
             // 
             // label1
             // 
@@ -117,6 +120,7 @@
             button1.Text = "Speichern";
             button1.TextImageRelation = TextImageRelation.ImageBeforeText;
             button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // NewAbsence
             // 
@@ -128,10 +132,10 @@
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
-            Controls.Add(richTextBox1);
-            Controls.Add(dateTimePicker2);
-            Controls.Add(dateTimePicker1);
-            Controls.Add(comboBox1);
+            Controls.Add(CommentRTB);
+            Controls.Add(EndDateDTP);
+            Controls.Add(StartDateDTP);
+            Controls.Add(AbsenceTypesCB);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
@@ -144,10 +148,10 @@
 
         #endregion
 
-        private ComboBox comboBox1;
-        private DateTimePicker dateTimePicker1;
-        private DateTimePicker dateTimePicker2;
-        private RichTextBox richTextBox1;
+        private ComboBox AbsenceTypesCB;
+        private DateTimePicker StartDateDTP;
+        private DateTimePicker EndDateDTP;
+        private RichTextBox CommentRTB;
         private Label label1;
         private Label label2;
         private Label label3;
