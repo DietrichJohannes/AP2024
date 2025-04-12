@@ -30,7 +30,7 @@ namespace AP2024
         private void button1_Click(object sender, EventArgs e)
         {
             CreatedBy = "[" + ApplicationContext.GetCurrentWindowsUser() + "] am " +ApplicationContext.GetCurrentDate() + " um " + ApplicationContext.GetCurrentTime();
-            SelectedAbsenceTypeId = AbsenceTypesCB.SelectedIndex;
+            SelectedAbsenceTypeId = (int)AbsenceTypesCB.SelectedValue;
             StartDate = StartDateDTP.Value;
             EndDate = EndDateDTP.Value;
             Comment = CommentRTB.Text;

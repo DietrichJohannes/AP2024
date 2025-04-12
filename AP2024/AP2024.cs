@@ -1,6 +1,7 @@
 using System.Data.SQLite;
 using System.Diagnostics;
 using System.Windows.Forms;
+using Button = System.Windows.Forms.Button;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace AP2024
@@ -22,8 +23,9 @@ namespace AP2024
             LoadViews();                                                                    // Lade die Verfügbaren Views in die ComboBox
             GetSelectedView();                                                              // Hole die ID des ausgewählten Views
             LoadEmployees();                                                                // Lade die Mitarbeiter dem View entsprechend dem View
-            LoadAbsenceTypes();                                                             // Lade die Abwesenheitsarten in den ContextMenuStrip
-            AbsenceController.LoadAbsence();                                                // Lade die Abwesenheiten in den Kalender
+            CreateAbsenceButtons();                                                         // Erstelle die Abwesenheitstasten
+            LoadAbsenceTypes();                                                             // Lade die Abwesenheitstypen in das Kontextmenü
+            AbsenceController.LoadAbsence(calendarView);                                    // Lade die Abwesenheiten in den Kalender
             RollController.EnableAdminControls(administrationToolStripMenuItem);            // Aktiviere Adminrechte falls vergeben
             StatusStripController.SetStatusStrip(statusStrip1);                             // Setze den StatusStrip
             calendarController.HighlightWeekends(calendarView);                             // Markiere die Wochenenden in der Tagesansicht grau;                                   // Markiere die Wochenenden in der Wochenansicht
@@ -39,7 +41,7 @@ namespace AP2024
         private void button1_Click(object sender, EventArgs e)
         {
             LoadEmployees();                                                                // Lade die Mitarbeeiter neu
-            AbsenceController.LoadAbsence();                                                // Lade die Abwesenheiten neu
+            AbsenceController.LoadAbsence(calendarView);                                    // Lade die Abwesenheiten neu
             calendarController.HighlightHolidays(calendarView);                             // Markiere die Feiertage in der Tagesansicht grau
             calendarController.HighlightWeekends(calendarView);                             // Markiere die Wochenenden in der Tagesansicht grau
             StatusStripController.SetLastUpdated();                                         // Setze den letzten Aktualisierungszeitpunkt
@@ -75,6 +77,64 @@ namespace AP2024
         private void SynchronizeScroll()
         {
 
+        }
+
+        private void CreateAbsenceButtons()
+        {
+            string connectionString = ApplicationContext.GetConnectionString();                     // Hole den ConnectionString
+
+            using (SQLiteConnection conn = new SQLiteConnection(connectionString))
+            {
+                conn.Open();
+                string query = "SELECT * FROM AbsenceTypes LIMIT 10";
+                using (SQLiteCommand cmd = new SQLiteCommand(query, conn))
+                using (SQLiteDataReader reader = cmd.ExecuteReader())
+                {
+                    int x = 347, y = 80;
+
+                    while (reader.Read())
+                    {
+                        string abbreviation = reader["abbreviation"].ToString();
+                        string colorHex = reader["color"].ToString();
+                        int requiresComment = Convert.ToInt32(reader["requires_comment"]);
+                        int id = Convert.ToInt32(reader["id"]);
+                        string typeName = reader["type_name"].ToString();
+
+                        Button btn = new Button();
+                        btn.Text = typeName;
+                        btn.Name = "btnAbsence" + id;
+                        btn.Size = new Size(140, 30);
+                        btn.BackColor = ColorTranslator.FromHtml(colorHex);
+                        btn.Location = new Point(x, y);
+                        btn.Tag = new { Id = id, TypeName = typeName, RequiresComment = requiresComment };
+
+                        btn.Click += AbsenceButton_Click;
+
+                        this.Controls.Add(btn);
+                        x += 146; // Abstand für nächsten Button
+                    }
+                }
+            }
+        }
+
+        private void AbsenceButton_Click(object sender, EventArgs e)
+        {
+            Button btn = sender as Button;
+            dynamic tag = btn.Tag;
+
+            string message = $"Typ: {tag.TypeName}";
+            if (tag.RequiresComment == 1)
+            {
+                message += "\nKommentar erforderlich!";
+            }
+
+            MessageBox.Show(message, "Abwesenheit", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void ReloadViews()
+        {
+            CreateAbsenceButtons();                                                        // Erstelle die Abwesenheitstasten neu
+            LoadViews();                                                                   // Lade die Views neu
         }
 
         private void LoadViews()
@@ -137,60 +197,63 @@ namespace AP2024
 
 
 
-        private void LoadEmployees()                                                             // Methode: Lade die Mitarbeiter in das DataGridView
+        private void LoadEmployees() // Methode: Lade die Mitarbeiter in das DataGridView
         {
-
-            ClearDataGridView();                                                                 // Lösche alle Zeilen aus dem DataGridView
+            ClearDataGridView(); // Lösche alle Zeilen aus dem DataGridView
 
             try
             {
                 using (var connection = new SQLiteConnection(ApplicationContext.GetConnectionString()))
                 {
-                    connection.Open();                                                          // Öffne die Verbindung zur Datenbank
+                    connection.Open(); // Öffne die Verbindung zur Datenbank
 
-                    string query = "SELECT first_name, last_name, remaining_leave FROM Employees  WHERE view = @view ORDER BY last_name ASC";      // SQL-Abfrage um alle Mitarbeiter zu holen
+                    string query = "SELECT id, first_name, last_name, windows_username, remaining_leave FROM Employees WHERE view = @view ORDER BY last_name ASC";
 
                     using (var command = connection.CreateCommand())
                     {
                         command.CommandText = query;
-
-                        command.Parameters.AddWithValue("@view", SelectedView);                                             // View als Parameter hinzufügen
+                        command.Parameters.AddWithValue("@view", SelectedView); // View als Parameter hinzufügen
 
                         using (var reader = command.ExecuteReader())
                         {
-                            int rowIndex = 1;                                                                               // Start ab Zeile 1 im DataGridView
+                            int rowIndex = 1; // Start ab Zeile 0 im DataGridView
 
                             while (reader.Read())
                             {
-
-                                string vorname = reader["first_name"]?.ToString() ?? "Unbekannt";                           // Hole den Vornamen aus der Datenbank
-                                string nachname = reader["last_name"]?.ToString() ?? "Unbekannt";                           // Hole den Nachnamen aus der Datenbank
-                                string fullName = $"{vorname} {nachname}";                                                  // Setze den Namen zusammen
-
-                                // Sicherstellen, dass keine Werte null sind
-                                string resturlaub = reader["remaining_leave"]?.ToString() ?? "0";                           // Hole den Resturlaub aus der Datenbank
+                                string userID = reader["id"]?.ToString() ?? "Unbekannt";
+                                string vorname = reader["first_name"]?.ToString() ?? "Unbekannt";
+                                string nachname = reader["last_name"]?.ToString() ?? "Unbekannt";
+                                string fullName = $"{vorname} {nachname}";
+                                string resturlaub = reader["remaining_leave"]?.ToString() ?? "0";
 
                                 // Dynamisch Zeilen hinzufügen, falls nicht genügend vorhanden
                                 while (calendarView.Rows.Count <= rowIndex)
                                 {
-                                    calendarView.Rows.Add();                                                                // Füge eine neue Zeile hinzu
+                                    calendarView.Rows.Add(); // Füge eine neue Zeile hinzu
                                 }
 
-                                // Werte in die Zellen schreiben
-                                calendarView.Rows[rowIndex].Cells[0].Value = fullName;                                      // Spalte 0: Mitarbeitername
-                                calendarView.Rows[rowIndex].Cells[1].Value = resturlaub;                                    // Spalte 1: Resturlaub
+                                // Zeilenüberschrift auf die ID setzen
+                                calendarView.Rows[rowIndex].HeaderCell.Value = userID;
 
-                                rowIndex++;                                                                                 // Zur nächsten Zeile gehen
+                                // Werte in die Zellen schreiben
+                                calendarView.Rows[rowIndex].Cells[0].Value = fullName; // Spalte 0: Mitarbeitername
+                                calendarView.Rows[rowIndex].Cells[1].Value = resturlaub; // Spalte 1: Resturlaub
+
+                                rowIndex++; // Zur nächsten Zeile gehen
                             }
                         }
                     }
                 }
+
+                // Zeilenköpfe sichtbar machen (falls noch nicht geschehen)
+                calendarView.RowHeadersVisible = false;
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Fehler beim Laden der Mitarbeiterdaten: {ex.Message}", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
 
         private void LoadAbsenceTypes()
         {
@@ -327,7 +390,7 @@ namespace AP2024
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
         {
             ViewManager viewManager = new ViewManager();
-            viewManager.OnViewManagerExit += LoadViews;
+            viewManager.OnViewManagerExit += ReloadViews;
             viewManager.Show();
         }
 
@@ -407,6 +470,12 @@ namespace AP2024
         {
             AddCommentTimePicker addCommentTimePicker = new AddCommentTimePicker();
             addCommentTimePicker.ShowDialog();
+        }
+
+        private void aP2024EinstellungenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AP2024Settings aP2024Settings = new AP2024Settings();
+            aP2024Settings.Show();
         }
     }
 }

@@ -45,7 +45,7 @@
             meineDatenToolStripMenuItem = new ToolStripMenuItem();
             toolStripMenuItem5 = new ToolStripMenuItem();
             einstellungenToolStripMenuItem = new ToolStripMenuItem();
-            tESTToolStripMenuItem = new ToolStripMenuItem();
+            testToolStripMenuItem1 = new ToolStripMenuItem();
             administrationToolStripMenuItem = new ToolStripMenuItem();
             mitarbeiterverwaltungToolStripMenuItem = new ToolStripMenuItem();
             toolStripMenuItem1 = new ToolStripMenuItem();
@@ -73,7 +73,6 @@
             toolStripMenuItem3 = new ToolStripMenuItem();
             button4 = new Button();
             toolTip1 = new ToolTip(components);
-            testToolStripMenuItem1 = new ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)cwView).BeginInit();
             statusStrip1.SuspendLayout();
             menuStrip1.SuspendLayout();
@@ -171,7 +170,7 @@
             // menuStrip1
             // 
             menuStrip1.AutoSize = false;
-            menuStrip1.Items.AddRange(new ToolStripItem[] { meinAP2024ToolStripMenuItem, tESTToolStripMenuItem, testToolStripMenuItem1, administrationToolStripMenuItem, hilfeToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { meinAP2024ToolStripMenuItem, testToolStripMenuItem1, administrationToolStripMenuItem, hilfeToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.RightToLeft = RightToLeft.No;
@@ -207,10 +206,12 @@
             einstellungenToolStripMenuItem.Text = "Einstellungen";
             einstellungenToolStripMenuItem.Click += einstellungenToolStripMenuItem_Click;
             // 
-            // tESTToolStripMenuItem
+            // testToolStripMenuItem1
             // 
-            tESTToolStripMenuItem.Name = "tESTToolStripMenuItem";
-            tESTToolStripMenuItem.Size = new Size(12, 20);
+            testToolStripMenuItem1.Name = "testToolStripMenuItem1";
+            testToolStripMenuItem1.Size = new Size(40, 20);
+            testToolStripMenuItem1.Text = "Test";
+            testToolStripMenuItem1.Click += testToolStripMenuItem1_Click;
             // 
             // administrationToolStripMenuItem
             // 
@@ -269,6 +270,7 @@
             aP2024EinstellungenToolStripMenuItem.Name = "aP2024EinstellungenToolStripMenuItem";
             aP2024EinstellungenToolStripMenuItem.Size = new Size(191, 22);
             aP2024EinstellungenToolStripMenuItem.Text = "AP2024 Einstellungen";
+            aP2024EinstellungenToolStripMenuItem.Click += aP2024EinstellungenToolStripMenuItem_Click;
             // 
             // hilfeToolStripMenuItem
             // 
@@ -441,13 +443,6 @@
             button4.UseVisualStyleBackColor = true;
             button4.Click += button4_Click;
             // 
-            // testToolStripMenuItem1
-            // 
-            testToolStripMenuItem1.Name = "testToolStripMenuItem1";
-            testToolStripMenuItem1.Size = new Size(39, 20);
-            testToolStripMenuItem1.Text = "Test";
-            testToolStripMenuItem1.Click += testToolStripMenuItem1_Click;
-            // 
             // AP2024
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -522,7 +517,6 @@
         private ToolStripStatusLabel last_updated;
         private ToolStripStatusLabel department;
         private ToolStripMenuItem toolStripMenuItem5;
-        private ToolStripMenuItem tESTToolStripMenuItem;
         private ToolStripStatusLabel flextime;
         private Button button4;
         private ToolTip toolTip1;

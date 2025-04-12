@@ -19,6 +19,9 @@
     <Compile Update="AdminManager.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="AP2024Settings.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="ControllPanel.cs">
       <SubType>Form</SubType>
     </Compile>
