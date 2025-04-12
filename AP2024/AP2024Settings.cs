@@ -10,11 +10,32 @@ using System.Windows.Forms;
 
 namespace AP2024
 {
-    public partial class AP2024Settings: Form
+    public partial class AP2024Settings : Form
     {
         public AP2024Settings()
         {
             InitializeComponent();
+            LoadSettings();
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            SaveSettings();
+        }
+
+        private void LoadSettings()
+        {
+
+        }
+
+        private void SaveSettings()
+        {
+
         }
     }
 }
