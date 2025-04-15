@@ -60,11 +60,6 @@ namespace AP2024
             return user;
         }
 
-        public static void InitStart()
-        {
-            GetUserIDByWindowsUser();
-        }
-
         public static void GetUserIDByWindowsUser()
         {
             string user = GetCurrentWindowsUser();

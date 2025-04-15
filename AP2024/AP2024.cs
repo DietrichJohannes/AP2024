@@ -17,7 +17,6 @@ namespace AP2024
             InitDataGridView();
             InitCalendar();                                                                 // Initialisiere den Kalender
             DatabaseController.InitializeDatabase();                                        // Initialisiere (Erstelle) die Datenbank
-            ApplicationContext.InitStart();                                                 // Initialisiere die Anwendung
             ApplicationContext.GetTheme();                                                  // Hole das Theme aus der Datenbank
             ThemeManager.ApplyTheme(this);                                                  // Wende das Theme an
             LoadViews();                                                                    // Lade die Verfügbaren Views in die ComboBox
@@ -476,6 +475,12 @@ namespace AP2024
         {
             AP2024Settings aP2024Settings = new AP2024Settings();
             aP2024Settings.Show();
+        }
+
+        private void feiertagsverwaltungToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PublicHolidayManager publicHolidayManager = new PublicHolidayManager();
+            publicHolidayManager.Show();
         }
     }
 }

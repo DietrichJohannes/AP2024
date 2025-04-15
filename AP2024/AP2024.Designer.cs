@@ -45,7 +45,6 @@
             meineDatenToolStripMenuItem = new ToolStripMenuItem();
             toolStripMenuItem5 = new ToolStripMenuItem();
             einstellungenToolStripMenuItem = new ToolStripMenuItem();
-            testToolStripMenuItem1 = new ToolStripMenuItem();
             administrationToolStripMenuItem = new ToolStripMenuItem();
             mitarbeiterverwaltungToolStripMenuItem = new ToolStripMenuItem();
             toolStripMenuItem1 = new ToolStripMenuItem();
@@ -170,7 +169,7 @@
             // menuStrip1
             // 
             menuStrip1.AutoSize = false;
-            menuStrip1.Items.AddRange(new ToolStripItem[] { meinAP2024ToolStripMenuItem, testToolStripMenuItem1, administrationToolStripMenuItem, hilfeToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { meinAP2024ToolStripMenuItem, administrationToolStripMenuItem, hilfeToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.RightToLeft = RightToLeft.No;
@@ -205,13 +204,6 @@
             einstellungenToolStripMenuItem.Size = new Size(205, 22);
             einstellungenToolStripMenuItem.Text = "Einstellungen";
             einstellungenToolStripMenuItem.Click += einstellungenToolStripMenuItem_Click;
-            // 
-            // testToolStripMenuItem1
-            // 
-            testToolStripMenuItem1.Name = "testToolStripMenuItem1";
-            testToolStripMenuItem1.Size = new Size(40, 20);
-            testToolStripMenuItem1.Text = "Test";
-            testToolStripMenuItem1.Click += testToolStripMenuItem1_Click;
             // 
             // administrationToolStripMenuItem
             // 
@@ -252,6 +244,7 @@
             feiertagsverwaltungToolStripMenuItem.Name = "feiertagsverwaltungToolStripMenuItem";
             feiertagsverwaltungToolStripMenuItem.Size = new Size(191, 22);
             feiertagsverwaltungToolStripMenuItem.Text = "Feiertagsverwaltung";
+            feiertagsverwaltungToolStripMenuItem.Click += feiertagsverwaltungToolStripMenuItem_Click;
             // 
             // toolStripSeparator2
             // 
@@ -521,6 +514,5 @@
         private Button button4;
         private ToolTip toolTip1;
         private ToolStripMenuItem aP2024SteuerungToolStripMenuItem;
-        private ToolStripMenuItem testToolStripMenuItem1;
     }
 }

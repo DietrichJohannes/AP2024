@@ -41,7 +41,8 @@ namespace AP2024
                 {
                     connection.Open();
 
-                    string query = "SELECT first_name, last_name, leave_entitlement, remaining_leave, windows_username, view FROM Employees ORDER BY last_name ASC";
+                    string query = "SELECT id, first_name, last_name, leave_entitlement, remaining_leave, windows_username, view, sick_days FROM Employees ORDER BY last_name ASC";
+
 
                     using (var command = connection.CreateCommand())
                     {
@@ -63,16 +64,21 @@ namespace AP2024
                                 string resturlaub = reader["remaining_leave"]?.ToString() ?? "0";
                                 string windowsBenutzername = reader["windows_username"]?.ToString() ?? "Unbekannt";
                                 string view = reader["view"]?.ToString() ?? "Keine Ansicht";
+                                string krankheitstage = reader["sick_days"]?.ToString() ?? "0"; // Krankheitstage lesen
 
                                 // SubItems hinzufügen und null-geschützte Werte einfügen
+                                int mitarbeiterId = Convert.ToInt32(reader["id"]); // ID lesen
+
                                 var item = new ListViewItem(fullName);
                                 item.SubItems.Add(windowsBenutzername);
                                 item.SubItems.Add(view);
+                                item.SubItems.Add(krankheitstage);
                                 item.SubItems.Add(resturlaub);
                                 item.SubItems.Add(tarifurlaub);
+                                item.Tag = mitarbeiterId; // ID im Tag speichern
 
-                                // Füge das Item in die ListView ein
                                 employeeListView.Items.Add(item);
+
                             }
                         }
                     }
@@ -91,13 +97,56 @@ namespace AP2024
 
         private void button5_Click(object sender, EventArgs e)
         {
-            RoleManagement roleManagement = new RoleManagement();
-            roleManagement.ShowDialog();
+            if (employeeListView.SelectedItems.Count == 0)
+            {
+                MessageBox.Show("Bitte wählen Sie einen Mitarbeiter aus.");
+                return;
+            }
+
+            var selectedItem = employeeListView.SelectedItems[0];
+            if (selectedItem.Tag is int mitarbeiterId)
+            {
+                RoleManagement roleManagement = new RoleManagement(mitarbeiterId);
+                roleManagement.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Mitarbeiter-ID konnte nicht gelesen werden.");
+            }
         }
 
         private void EmployeeManager_FormClosing(object sender, FormClosingEventArgs e)
         {
             OnEmployeeManagerExit?.Invoke();
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            bool result = MessageBox.Show("Möchten Sie wirklich alle Krankheitstage zurücksetzen?", "AP2024", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes;
+            
+            if (result) {
+                LeaveHandler.ResetSickdays();
+                LoadEmployees();
+            }
+            else
+            {
+                MessageBox.Show("Aktion abgebrochen.");
+            }
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            bool result = MessageBox.Show("Möchten Sie wirklich ALLEN Mitarbeitern den Tarifurlaub zuweisen?", "AP2024", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes;
+
+            if (result)
+            {
+                LeaveHandler.DistributeVacationdays();
+                LoadEmployees();
+            }
+            else
+            {
+                MessageBox.Show("Aktion abgebrochen.");
+            }
         }
     }
 }

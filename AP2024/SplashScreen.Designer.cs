@@ -78,6 +78,8 @@
             FormBorderStyle = FormBorderStyle.None;
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "SplashScreen";
+            ShowIcon = false;
+            ShowInTaskbar = false;
             StartPosition = FormStartPosition.CenterScreen;
             Text = "AP2024";
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();

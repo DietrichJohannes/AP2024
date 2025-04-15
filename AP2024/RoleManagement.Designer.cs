@@ -32,7 +32,7 @@
             comboBox1 = new ComboBox();
             label1 = new Label();
             label2 = new Label();
-            label3 = new Label();
+            employee_Name = new Label();
             button1 = new Button();
             pictureBox1 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -66,13 +66,13 @@
             label2.TabIndex = 2;
             label2.Text = "Rolle";
             // 
-            // label3
+            // employee_Name
             // 
-            label3.Location = new Point(301, 9);
-            label3.Name = "label3";
-            label3.Size = new Size(268, 23);
-            label3.TabIndex = 3;
-            label3.Text = "[Mitarbeiter Name]";
+            employee_Name.Location = new Point(301, 9);
+            employee_Name.Name = "employee_Name";
+            employee_Name.Size = new Size(268, 23);
+            employee_Name.TabIndex = 3;
+            employee_Name.Text = "[Mitarbeiter Name]";
             // 
             // button1
             // 
@@ -101,7 +101,7 @@
             ClientSize = new Size(581, 142);
             Controls.Add(pictureBox1);
             Controls.Add(button1);
-            Controls.Add(label3);
+            Controls.Add(employee_Name);
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(comboBox1);
@@ -118,7 +118,7 @@
         private ComboBox comboBox1;
         private Label label1;
         private Label label2;
-        private Label label3;
+        private Label employee_Name;
         private Button button1;
         private PictureBox pictureBox1;
     }

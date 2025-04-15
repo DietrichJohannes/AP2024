@@ -11,6 +11,9 @@ namespace AP2024
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
+            ApplicationContext.GetUserIDByWindowsUser();
+            ApplicationContext.GetTheme();
+
             // SplashScreen anzeigen
             SplashScreen splash = new SplashScreen();
             splash.Show();

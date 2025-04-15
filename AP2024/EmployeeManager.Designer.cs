@@ -43,15 +43,16 @@
             button6 = new Button();
             button7 = new Button();
             button8 = new Button();
+            columnHeader6 = new ColumnHeader();
             SuspendLayout();
             // 
             // employeeListView
             // 
             employeeListView.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            employeeListView.Columns.AddRange(new ColumnHeader[] { columnHeader1, columnHeader2, columnHeader3, columnHeader4, columnHeader5 });
+            employeeListView.Columns.AddRange(new ColumnHeader[] { columnHeader1, columnHeader2, columnHeader3, columnHeader6, columnHeader4, columnHeader5 });
             employeeListView.Location = new Point(12, 12);
             employeeListView.Name = "employeeListView";
-            employeeListView.Size = new Size(1006, 441);
+            employeeListView.Size = new Size(1057, 441);
             employeeListView.TabIndex = 0;
             employeeListView.UseCompatibleStateImageBehavior = false;
             employeeListView.View = View.Details;
@@ -74,17 +75,17 @@
             // columnHeader4
             // 
             columnHeader4.Text = "Rest Urlaub";
-            columnHeader4.Width = 200;
+            columnHeader4.Width = 150;
             // 
             // columnHeader5
             // 
             columnHeader5.Text = "Tarifurlaub";
-            columnHeader5.Width = 200;
+            columnHeader5.Width = 150;
             // 
             // button1
             // 
             button1.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            button1.Location = new Point(943, 459);
+            button1.Location = new Point(994, 459);
             button1.Name = "button1";
             button1.Size = new Size(75, 23);
             button1.TabIndex = 1;
@@ -94,7 +95,7 @@
             // button2
             // 
             button2.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            button2.Location = new Point(862, 459);
+            button2.Location = new Point(913, 459);
             button2.Name = "button2";
             button2.Size = new Size(75, 23);
             button2.TabIndex = 2;
@@ -104,7 +105,7 @@
             // button3
             // 
             button3.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            button3.Location = new Point(862, 488);
+            button3.Location = new Point(913, 488);
             button3.Name = "button3";
             button3.Size = new Size(156, 23);
             button3.TabIndex = 3;
@@ -153,6 +154,7 @@
             button7.TabIndex = 7;
             button7.Text = "Krankheitstage für ALLE Zurücksetzen";
             button7.UseVisualStyleBackColor = true;
+            button7.Click += button7_Click;
             // 
             // button8
             // 
@@ -163,12 +165,18 @@
             button8.TabIndex = 8;
             button8.Text = "Urlaub für ALLE vergeben\r\n";
             button8.UseVisualStyleBackColor = true;
+            button8.Click += button8_Click;
+            // 
+            // columnHeader6
+            // 
+            columnHeader6.Text = "Krankheitstage";
+            columnHeader6.Width = 150;
             // 
             // EmployeeManager
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1030, 522);
+            ClientSize = new Size(1081, 522);
             Controls.Add(button8);
             Controls.Add(button7);
             Controls.Add(button6);
@@ -203,5 +211,6 @@
         private Button button6;
         private Button button7;
         private Button button8;
+        private ColumnHeader columnHeader6;
     }
 }
