@@ -107,6 +107,7 @@
             Controls.Add(adminListView);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "AdminManager";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Admin Konsole";
             ResumeLayout(false);
         }

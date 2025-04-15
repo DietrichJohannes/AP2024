@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AP2024Settings));
-            add_themselvesCB = new CheckBox();
-            edit_themselvesCB = new CheckBox();
+            user_can_add_themselvesCB = new CheckBox();
+            user_can_edit_themselvesCB = new CheckBox();
             button1 = new Button();
             departmentTB = new TextBox();
             label1 = new Label();
@@ -39,33 +39,33 @@
             label4 = new Label();
             label5 = new Label();
             label6 = new Label();
-            numericUpDown1 = new NumericUpDown();
-            numericUpDown2 = new NumericUpDown();
+            leave_entitlementNUD = new NumericUpDown();
+            remaining_leaveNUD = new NumericUpDown();
             label7 = new Label();
             label8 = new Label();
             button2 = new Button();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)leave_entitlementNUD).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)remaining_leaveNUD).BeginInit();
             SuspendLayout();
             // 
-            // add_themselvesCB
+            // user_can_add_themselvesCB
             // 
-            add_themselvesCB.AutoSize = true;
-            add_themselvesCB.Location = new Point(307, 184);
-            add_themselvesCB.Name = "add_themselvesCB";
-            add_themselvesCB.Size = new Size(15, 14);
-            add_themselvesCB.TabIndex = 0;
-            add_themselvesCB.UseVisualStyleBackColor = true;
-            add_themselvesCB.CheckedChanged += checkBox1_CheckedChanged;
+            user_can_add_themselvesCB.AutoSize = true;
+            user_can_add_themselvesCB.Location = new Point(307, 184);
+            user_can_add_themselvesCB.Name = "user_can_add_themselvesCB";
+            user_can_add_themselvesCB.Size = new Size(15, 14);
+            user_can_add_themselvesCB.TabIndex = 0;
+            user_can_add_themselvesCB.UseVisualStyleBackColor = true;
+
             // 
-            // edit_themselvesCB
+            // user_can_edit_themselvesCB
             // 
-            edit_themselvesCB.AutoSize = true;
-            edit_themselvesCB.Location = new Point(307, 321);
-            edit_themselvesCB.Name = "edit_themselvesCB";
-            edit_themselvesCB.Size = new Size(15, 14);
-            edit_themselvesCB.TabIndex = 1;
-            edit_themselvesCB.UseVisualStyleBackColor = true;
+            user_can_edit_themselvesCB.AutoSize = true;
+            user_can_edit_themselvesCB.Location = new Point(307, 321);
+            user_can_edit_themselvesCB.Name = "user_can_edit_themselvesCB";
+            user_can_edit_themselvesCB.Size = new Size(15, 14);
+            user_can_edit_themselvesCB.TabIndex = 1;
+            user_can_edit_themselvesCB.UseVisualStyleBackColor = true;
             // 
             // button1
             // 
@@ -142,19 +142,19 @@
             label6.TabIndex = 9;
             label6.Text = "Standartwerte";
             // 
-            // numericUpDown1
+            // leave_entitlementNUD
             // 
-            numericUpDown1.Location = new Point(202, 241);
-            numericUpDown1.Name = "numericUpDown1";
-            numericUpDown1.Size = new Size(120, 23);
-            numericUpDown1.TabIndex = 10;
+            leave_entitlementNUD.Location = new Point(202, 241);
+            leave_entitlementNUD.Name = "leave_entitlementNUD";
+            leave_entitlementNUD.Size = new Size(120, 23);
+            leave_entitlementNUD.TabIndex = 10;
             // 
-            // numericUpDown2
+            // remaining_leaveNUD
             // 
-            numericUpDown2.Location = new Point(202, 270);
-            numericUpDown2.Name = "numericUpDown2";
-            numericUpDown2.Size = new Size(120, 23);
-            numericUpDown2.TabIndex = 11;
+            remaining_leaveNUD.Location = new Point(202, 270);
+            remaining_leaveNUD.Name = "remaining_leaveNUD";
+            remaining_leaveNUD.Size = new Size(120, 23);
+            remaining_leaveNUD.TabIndex = 11;
             // 
             // label7
             // 
@@ -191,8 +191,8 @@
             Controls.Add(button2);
             Controls.Add(label8);
             Controls.Add(label7);
-            Controls.Add(numericUpDown2);
-            Controls.Add(numericUpDown1);
+            Controls.Add(remaining_leaveNUD);
+            Controls.Add(leave_entitlementNUD);
             Controls.Add(label6);
             Controls.Add(label5);
             Controls.Add(label4);
@@ -201,22 +201,22 @@
             Controls.Add(label1);
             Controls.Add(departmentTB);
             Controls.Add(button1);
-            Controls.Add(edit_themselvesCB);
-            Controls.Add(add_themselvesCB);
+            Controls.Add(user_can_edit_themselvesCB);
+            Controls.Add(user_can_add_themselvesCB);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "AP2024Settings";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "AP2024 Einstellungen";
-            ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)leave_entitlementNUD).EndInit();
+            ((System.ComponentModel.ISupportInitialize)remaining_leaveNUD).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private CheckBox add_themselvesCB;
-        private CheckBox edit_themselvesCB;
+        private CheckBox user_can_add_themselvesCB;
+        private CheckBox user_can_edit_themselvesCB;
         private Button button1;
         private TextBox departmentTB;
         private Label label1;
@@ -225,8 +225,8 @@
         private Label label4;
         private Label label5;
         private Label label6;
-        private NumericUpDown numericUpDown1;
-        private NumericUpDown numericUpDown2;
+        private NumericUpDown leave_entitlementNUD;
+        private NumericUpDown remaining_leaveNUD;
         private Label label7;
         private Label label8;
         private Button button2;

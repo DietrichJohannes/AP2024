@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AP2024")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3f6cb0d39d4ed679f705e5d6352d369895ccc367")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+41a3a7d3cb937679f25fea38c72175a7c2e59a9a")]
 [assembly: System.Reflection.AssemblyProductAttribute("AP2024")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AP2024")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

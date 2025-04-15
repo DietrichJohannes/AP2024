@@ -119,8 +119,8 @@ namespace AP2024
                                                         id INTEGER PRIMARY KEY AUTOINCREMENT,
                                                         can_add_themselves INTEGER NOT NULL DEFAULT 0,
                                                         can_edit_themselves INTEGER NOT NULL DEFAULT 0,
-                                                        can_add_themselves_remaining_leave INTEGER NOT NULL DEFAULT 0,
-                                                        can_add_themselves_leave_entitlement INTEGER NOT NULL DEFAULT 0,
+                                                        can_add_themselves_remaining_leave INTEGER NOT NULL DEFAULT 10,
+                                                        can_add_themselves_leave_entitlement INTEGER NOT NULL DEFAULT 30,
                                                         department TEXT NOT NULL DEFAULT '[Abteilung]',
                                                         time_admin INTEGER NOT NULL DEFAULT 1
                                                         );";
