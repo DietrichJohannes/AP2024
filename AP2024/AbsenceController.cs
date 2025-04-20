@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Data.SQLite;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -43,82 +44,132 @@ namespace AP2024
         }
 
 
-        public static void LoadAbsence(DataGridView dgv)
+        public static List<(int EmployeeId, DateTime Start, DateTime End, string Abbr, Color Color)> LoadAbsence()
         {
-            // Connection String für die Datenbank
-            string connectionString = ApplicationContext.GetConnectionString();
+            var absences = new List<(int, DateTime, DateTime, string, Color)>();
 
-            using (SQLiteConnection connection = new SQLiteConnection(connectionString))
+            try
             {
-                try
+                using (var connection = new SQLiteConnection(ApplicationContext.GetConnectionString()))
                 {
-                    // Datenbankverbindung öffnen
                     connection.Open();
 
-                    // SQL-Abfrage, die alle Abwesenheiten mit Typinformationen enthält
                     string query = @"
-                SELECT a.employee_id, a.start_date, a.end_date, t.abbreviation, t.color
-                FROM Absences a
-                JOIN AbsenceTypes t ON a.absence_type_id = t.id";
+SELECT a.employee_id, a.start_date, a.end_date, t.abbreviation, t.color
+FROM Absences a
+JOIN AbsenceTypes t ON a.absence_type_id = t.id
+ORDER BY a.employee_id, a.start_date";
 
-                    using (SQLiteCommand command = new SQLiteCommand(query, connection))
-                    using (SQLiteDataReader reader = command.ExecuteReader())
+                    using (var command = new SQLiteCommand(query, connection))
+                    using (var reader = command.ExecuteReader())
                     {
-                        // Liste zum Zwischenspeichern der Daten
-                        var absences = new List<(int EmployeeId, DateTime Start, DateTime End, string Abbr, string Color)>();
-
                         while (reader.Read())
                         {
-                            absences.Add((
-                                Convert.ToInt32(reader["employee_id"]),
-                                DateTime.Parse(reader["start_date"].ToString()),
-                                DateTime.Parse(reader["end_date"].ToString()),
-                                reader["abbreviation"].ToString(),
-                                reader["color"].ToString()
-                            ));
-                        }
+                            int employeeId = Convert.ToInt32(reader["employee_id"]);
+                            DateTime start = DateTime.Parse(reader["start_date"].ToString());
+                            DateTime end = DateTime.Parse(reader["end_date"].ToString());
+                            string abbr = reader["abbreviation"]?.ToString() ?? "";
+                            string colorHex = reader["color"]?.ToString() ?? "#FFFFFF";
 
-                        // Alle Zeilen im Kalender durchgehen (eine Zeile pro Mitarbeiter)
-                        foreach (DataGridViewRow row in dgv.Rows)
-                        {
-                            if (row.HeaderCell.Value == null)
-                                continue;
+                            Color color;
+                            try { color = ColorTranslator.FromHtml(colorHex); }
+                            catch { color = Color.White; }
 
-                            if (!int.TryParse(row.HeaderCell.Value.ToString(), out int employeeId))
-                                continue;
-
-                            // Alle Abwesenheiten für diesen Mitarbeiter
-                            var employeeAbsences = absences.Where(a => a.EmployeeId == employeeId);
-
-                            foreach (var absence in employeeAbsences)
-                            {
-                                // Jeden Tag im Zeitraum markieren
-                                for (DateTime date = absence.Start; date <= absence.End; date = date.AddDays(1))
-                                {
-                                    foreach (DataGridViewColumn col in dgv.Columns)
-                                    {
-                                        if (DateTime.TryParseExact(col.HeaderText, "dd.MM.yyyy", null, System.Globalization.DateTimeStyles.None, out DateTime colDate)
-                                            && colDate.Date == date.Date)
-                                        {
-                                            var cell = row.Cells[col.Index];
-                                            cell.Value = absence.Abbr;
-                                            cell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                                            cell.Style.BackColor = ColorTranslator.FromHtml(absence.Color);
-                                            cell.Style.ForeColor = Color.Black;
-                                            break;
-                                        }
-                                    }
-                                }
-                            }
+                            absences.Add((employeeId, start, end, abbr, color));
                         }
                     }
                 }
-                catch (Exception ex)
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Fehler beim Laden der Abwesenheiten: " + ex.Message, "AP2024");
+            }
+
+            return absences;
+        }
+
+
+
+
+
+public static void ApplyAbsences(DataGridView dgv)
+    {
+        if (dgv == null) return;
+
+        var absences = LoadAbsence();
+        if (absences == null || absences.Count == 0) return;
+
+        SuspendRedraw(dgv);
+
+        dgv.SuspendLayout();
+
+        // 1. Mapping: Datum → Spalte
+        Dictionary<DateTime, int> columnIndexByDate = new();
+        foreach (DataGridViewColumn col in dgv.Columns)
+        {
+            if (DateTime.TryParseExact(col.HeaderText, "dd.MM.yyyy", null,
+                System.Globalization.DateTimeStyles.None, out DateTime date))
+            {
+                columnIndexByDate[date.Date] = col.Index;
+            }
+        }
+
+        // 2. Mapping: Mitarbeiter-ID → DataGridViewRow
+        Dictionary<int, DataGridViewRow> employeeRows = new();
+        foreach (DataGridViewRow row in dgv.Rows)
+        {
+            if (row.HeaderCell.Value != null && int.TryParse(row.HeaderCell.Value.ToString(), out int id))
+            {
+                employeeRows[id] = row;
+            }
+        }
+
+        // 3. Anwenden
+        foreach (var absence in absences)
+        {
+            if (!employeeRows.TryGetValue(absence.EmployeeId, out DataGridViewRow row))
+                continue;
+
+            for (DateTime day = absence.Start.Date; day <= absence.End.Date; day = day.AddDays(1))
+            {
+                if (columnIndexByDate.TryGetValue(day, out int colIndex))
                 {
-                    MessageBox.Show("Fehler beim Laden der Abwesenheiten: " + ex.Message, "AP2024");
+                    var cell = row.Cells[colIndex];
+
+                    if (cell.Value?.ToString() != absence.Abbr)
+                        cell.Value = absence.Abbr;
+
+                    if (cell.Style.BackColor != absence.Color)
+                    {
+                        cell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                        cell.Style.BackColor = absence.Color;
+                        cell.Style.ForeColor = Color.Black;
+                    }
                 }
             }
         }
+
+        dgv.ResumeLayout();
+        ResumeRedraw(dgv);
+        dgv.Invalidate(); // Neu zeichnen
+    }
+
+
+        [DllImport("user32.dll")]
+        private static extern int SendMessage(IntPtr hWnd, int msg, bool wParam, int lParam);
+
+        private const int WM_SETREDRAW = 11;
+
+        private static void SuspendRedraw(Control control)
+        {
+            SendMessage(control.Handle, WM_SETREDRAW, false, 0);
+        }
+
+        private static void ResumeRedraw(Control control)
+        {
+            SendMessage(control.Handle, WM_SETREDRAW, true, 0);
+        }
+
 
         public static void SaveAbsence()
         {

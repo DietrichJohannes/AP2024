@@ -190,6 +190,7 @@ public class CalendarController
                         for (int j = 1; j < dgv.Rows.Count; j++)
                         {
                             dgv.Rows[j].Cells[i].Style.BackColor = Color.Gray;
+                            dgv.Rows[j].Cells[i].Value = "";
                         }
                     }
                 }

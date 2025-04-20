@@ -11,6 +11,7 @@ namespace AP2024
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
+            DatabaseController.InitializeDatabase();
             ApplicationContext.GetUserIDByWindowsUser();
             ApplicationContext.GetTheme();
 
