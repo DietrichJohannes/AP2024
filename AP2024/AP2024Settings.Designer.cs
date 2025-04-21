@@ -56,7 +56,6 @@
             user_can_add_themselvesCB.Size = new Size(15, 14);
             user_can_add_themselvesCB.TabIndex = 0;
             user_can_add_themselvesCB.UseVisualStyleBackColor = true;
-
             // 
             // user_can_edit_themselvesCB
             // 
@@ -182,6 +181,7 @@
             button2.TabIndex = 14;
             button2.Text = "Bearbeiten";
             button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // AP2024Settings
             // 

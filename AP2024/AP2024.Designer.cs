@@ -267,7 +267,7 @@
             // 
             // hilfeToolStripMenuItem
             // 
-            hilfeToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { aP2024SteuerungToolStripMenuItem, hilfeToolStripMenuItem1, anleitungToolStripMenuItem, infoÜberDenEntwicklerToolStripMenuItem });
+            hilfeToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { hilfeToolStripMenuItem1, anleitungToolStripMenuItem, infoÜberDenEntwicklerToolStripMenuItem, aP2024SteuerungToolStripMenuItem });
             hilfeToolStripMenuItem.Name = "hilfeToolStripMenuItem";
             hilfeToolStripMenuItem.Size = new Size(44, 20);
             hilfeToolStripMenuItem.Text = "Hilfe";

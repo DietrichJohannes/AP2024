@@ -40,7 +40,7 @@
             // 
             listView1.Location = new Point(12, 12);
             listView1.Name = "listView1";
-            listView1.Size = new Size(1099, 432);
+            listView1.Size = new Size(1099, 483);
             listView1.TabIndex = 0;
             listView1.UseCompatibleStateImageBehavior = false;
             // 
@@ -73,7 +73,7 @@
             // 
             // button4
             // 
-            button4.Location = new Point(955, 472);
+            button4.Location = new Point(793, 501);
             button4.Name = "button4";
             button4.Size = new Size(156, 23);
             button4.TabIndex = 4;
@@ -92,6 +92,7 @@
             Controls.Add(listView1);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "PublicHolidayManager";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Feiertagsverwaltung";
             ResumeLayout(false);
         }

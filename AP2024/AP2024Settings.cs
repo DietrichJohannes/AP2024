@@ -24,13 +24,17 @@ namespace AP2024
         public AP2024Settings()
         {
             InitializeComponent();
+            LoadAndApplySettings();                                                        // Lade die Einstellungen und wende sie an
+        }
+
+        private void LoadAndApplySettings()
+        {
             LoadSettings();
             ApplySettings();
         }
 
-
         private void button1_Click(object sender, EventArgs e)
-        {   
+        {
             GetSettings();
             SaveSettings();
         }
@@ -145,6 +149,13 @@ namespace AP2024
             remaining_leaveNUD.Value = remainingLeave;                                            // Setze die Resturlaubstage
             user_can_add_themselvesCB.Checked = UserCanAddThemselves;                              // Setze die Checkbox für User kann sich selbst hinzufügen
             user_can_edit_themselvesCB.Checked = UserCanEditThemselves;                            // Setze die Checkbox für User kann sich selbst bearbeiten
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            EditDepartment editDepartment = new EditDepartment();                                          // Erstelle ein neues Formular für die Abteilung
+            editDepartment.OnDepartmentEdit += LoadAndApplySettings;
+            editDepartment.ShowDialog();                                                                  // Zeige das Formular an
         }
     }
 }

@@ -28,6 +28,9 @@
     <Compile Update="DevInfo.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="EditDepartment.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="EmployeeManager.cs">
       <SubType>Form</SubType>
     </Compile>
