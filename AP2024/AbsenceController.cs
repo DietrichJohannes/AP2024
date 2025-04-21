@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Data.SQLite;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -44,9 +45,9 @@ namespace AP2024
         }
 
 
-        public static List<(int EmployeeId, DateTime Start, DateTime End, string Abbr, Color Color)> LoadAbsence()
+        public static List<(int EmployeeId, DateTime Start, DateTime End, string Abbr, string TypeName, Color Color, string Comment)> LoadAbsences()
         {
-            var absences = new List<(int, DateTime, DateTime, string, Color)>();
+            var absences = new List<(int, DateTime, DateTime, string, string, Color, string)>();
 
             try
             {
@@ -55,10 +56,10 @@ namespace AP2024
                     connection.Open();
 
                     string query = @"
-SELECT a.employee_id, a.start_date, a.end_date, t.abbreviation, t.color
+SELECT a.employee_id, a.start_date, a.end_date, a.comment, t.abbreviation, t.type_name, t.color
 FROM Absences a
 JOIN AbsenceTypes t ON a.absence_type_id = t.id
-ORDER BY a.employee_id, a.start_date";
+ORDER BY a.id ASC";
 
                     using (var command = new SQLiteCommand(query, connection))
                     using (var reader = command.ExecuteReader())
@@ -69,13 +70,15 @@ ORDER BY a.employee_id, a.start_date";
                             DateTime start = DateTime.Parse(reader["start_date"].ToString());
                             DateTime end = DateTime.Parse(reader["end_date"].ToString());
                             string abbr = reader["abbreviation"]?.ToString() ?? "";
+                            string typeName = reader["type_name"]?.ToString() ?? "Unbekannt";
+                            string comment = reader["comment"]?.ToString() ?? "";
                             string colorHex = reader["color"]?.ToString() ?? "#FFFFFF";
 
                             Color color;
                             try { color = ColorTranslator.FromHtml(colorHex); }
                             catch { color = Color.White; }
 
-                            absences.Add((employeeId, start, end, abbr, color));
+                            absences.Add((employeeId, start, end, abbr, typeName, color, comment));
                         }
                     }
                 }
@@ -88,71 +91,73 @@ ORDER BY a.employee_id, a.start_date";
             return absences;
         }
 
-
-
-
-
-public static void ApplyAbsences(DataGridView dgv)
-    {
-        if (dgv == null) return;
-
-        var absences = LoadAbsence();
-        if (absences == null || absences.Count == 0) return;
-
-        SuspendRedraw(dgv);
-
-        dgv.SuspendLayout();
-
-        // 1. Mapping: Datum → Spalte
-        Dictionary<DateTime, int> columnIndexByDate = new();
-        foreach (DataGridViewColumn col in dgv.Columns)
+        public static void ApplyAbsences(DataGridView dgv, List<(int EmployeeId, DateTime Start, DateTime End, string Abbr, string TypeName, Color Color, string Comment)> absences)
         {
-            if (DateTime.TryParseExact(col.HeaderText, "dd.MM.yyyy", null,
-                System.Globalization.DateTimeStyles.None, out DateTime date))
-            {
-                columnIndexByDate[date.Date] = col.Index;
-            }
-        }
+            if (dgv == null || absences == null || absences.Count == 0) return;
 
-        // 2. Mapping: Mitarbeiter-ID → DataGridViewRow
-        Dictionary<int, DataGridViewRow> employeeRows = new();
-        foreach (DataGridViewRow row in dgv.Rows)
-        {
-            if (row.HeaderCell.Value != null && int.TryParse(row.HeaderCell.Value.ToString(), out int id))
-            {
-                employeeRows[id] = row;
-            }
-        }
+            SuspendRedraw(dgv);
+            dgv.SuspendLayout();
 
-        // 3. Anwenden
-        foreach (var absence in absences)
-        {
-            if (!employeeRows.TryGetValue(absence.EmployeeId, out DataGridViewRow row))
-                continue;
-
-            for (DateTime day = absence.Start.Date; day <= absence.End.Date; day = day.AddDays(1))
+            try
             {
-                if (columnIndexByDate.TryGetValue(day, out int colIndex))
+                Dictionary<string, int> columnIndexByName = dgv.Columns
+                    .Cast<DataGridViewColumn>()
+                    .Where(c => DateTime.TryParseExact(c.HeaderText, "dd.MM.yyyy", null, DateTimeStyles.None, out _))
+                    .ToDictionary(c => c.HeaderText, c => c.Index);
+
+                Dictionary<int, DataGridViewRow> employeeRows = dgv.Rows
+                    .Cast<DataGridViewRow>()
+                    .Where(r => int.TryParse(r.HeaderCell.Value?.ToString(), out _))
+                    .ToDictionary(r => int.Parse(r.HeaderCell.Value.ToString()), r => r);
+
+                foreach (var absence in absences)
                 {
-                    var cell = row.Cells[colIndex];
-
-                    if (cell.Value?.ToString() != absence.Abbr)
-                        cell.Value = absence.Abbr;
-
-                    if (cell.Style.BackColor != absence.Color)
+                    if (!employeeRows.TryGetValue(absence.EmployeeId, out DataGridViewRow row))
                     {
+                        System.Diagnostics.Debug.WriteLine($"⚠ Mitarbeiter-ID {absence.EmployeeId} nicht in dgv gefunden.");
+                        continue;
+                    }
+
+                    for (DateTime date = absence.Start.Date; date <= absence.End.Date; date = date.AddDays(1))
+                    {
+                        string colName = date.ToString("dd.MM.yyyy");
+
+                        if (!columnIndexByName.TryGetValue(colName, out int colIndex))
+                        {
+                            System.Diagnostics.Debug.WriteLine($"⚠ Spalte für Datum {colName} nicht vorhanden.");
+                            continue;
+                        }
+
+                        if (colIndex >= row.Cells.Count)
+                        {
+                            System.Diagnostics.Debug.WriteLine($"❌ Ungültiger Zellindex: {colIndex} für Zeile {row.Index}");
+                            continue;
+                        }
+
+                        var cell = row.Cells[colIndex];
+                        cell.Value = absence.Abbr;
                         cell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
                         cell.Style.BackColor = absence.Color;
                         cell.Style.ForeColor = Color.Black;
+                        cell.ToolTipText = !string.IsNullOrEmpty(absence.Comment)
+                            ? $"{absence.TypeName}: {absence.Comment}"
+                            : absence.TypeName;
                     }
                 }
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Fehler beim Laden der Abwesenheiten: " + ex.Message, "AP2024");
+            }
+            finally
+            {
+                dgv.ResumeLayout();
+                ResumeRedraw(dgv);
+                dgv.Invalidate();
+            }
         }
 
-        dgv.ResumeLayout();
-        ResumeRedraw(dgv);
-        dgv.Invalidate(); // Neu zeichnen
-    }
+
 
 
         [DllImport("user32.dll")]

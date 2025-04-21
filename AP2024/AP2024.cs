@@ -24,8 +24,7 @@ namespace AP2024
             LoadEmployees();                                                                // Lade die Mitarbeiter dem View entsprechend dem View
             CreateAbsenceButtons();                                                         // Erstelle die Abwesenheitstasten
             LoadAbsenceTypes();                                                             // Lade die Abwesenheitstypen in das Kontextmenü
-            AbsenceController.LoadAbsence();
-            AbsenceController.ApplyAbsences(calendarView);
+            LoadAndApplyAbsence();
             RollController.EnableAdminControls(administrationToolStripMenuItem);            // Aktiviere Adminrechte falls vergeben
             StatusStripController.SetStatusStrip(statusStrip1);                             // Setze den StatusStrip
             calendarController.HighlightWeekends(calendarView);                             // Markiere die Wochenenden in der Tagesansicht grau;                                   // Markiere die Wochenenden in der Wochenansicht
@@ -41,8 +40,7 @@ namespace AP2024
         private void button1_Click(object sender, EventArgs e)
         {
             LoadEmployees();                                                                // Lade die Mitarbeeiter neu
-            AbsenceController.LoadAbsence();                                                // Lade die Abwesenheiten neu
-            AbsenceController.ApplyAbsences(calendarView);                                   // Wende die Abwesenheiten auf den Kalender an
+            LoadAndApplyAbsence();                                                          // Lade die Abwesenheiten neu
             calendarController.HighlightHolidays(calendarView);                             // Markiere die Feiertage in der Tagesansicht grau
             calendarController.HighlightWeekends(calendarView);                             // Markiere die Wochenenden in der Tagesansicht grau
             StatusStripController.SetLastUpdated();                                         // Setze den letzten Aktualisierungszeitpunkt
@@ -77,6 +75,13 @@ namespace AP2024
 
         private void SynchronizeScroll()
         {
+
+        }
+
+        private void LoadAndApplyAbsence()
+        {
+            var absences = AbsenceController.LoadAbsences();
+            AbsenceController.ApplyAbsences(calendarView, absences);
 
         }
 
