@@ -22,6 +22,12 @@ https://ap2024.de
 
 Dieses Projekt steht unter der MIT-Lizenz. Weitere Informationen finden Sie in der Lizenzdatei.
 
+
+## NutGet Pakete
+
++ Microsoft.Web.WebView2
++ System.Data.SQLite
+
 ## Kontakt
 
 Bei Fragen oder Vorschlägen wenden Sie sich bitte an:
