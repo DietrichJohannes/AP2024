@@ -66,3 +66,13 @@ G:\Programme\C#\AP2024\AP2024\obj\Debug\net8.0-windows\AP2024.EditVacationAndSic
 G:\Programme\C#\AP2024\AP2024\obj\Debug\net8.0-windows\AP2024.Deleted.resources
 G:\Programme\C#\AP2024\AP2024\obj\Debug\net8.0-windows\AP2024.SelectEmployee.resources
 G:\Programme\C#\AP2024\AP2024\obj\Debug\net8.0-windows\AP2024.Updated.resources
+G:\Programme\C#\AP2024\AP2024\bin\Debug\net8.0-windows\runtimes\win-x86\native\WebView2Loader.dll
+G:\Programme\C#\AP2024\AP2024\bin\Debug\net8.0-windows\runtimes\win-x64\native\WebView2Loader.dll
+G:\Programme\C#\AP2024\AP2024\bin\Debug\net8.0-windows\runtimes\win-arm64\native\WebView2Loader.dll
+G:\Programme\C#\AP2024\AP2024\bin\Debug\net8.0-windows\Microsoft.Web.WebView2.Core.dll
+G:\Programme\C#\AP2024\AP2024\bin\Debug\net8.0-windows\Microsoft.Web.WebView2.WinForms.dll
+G:\Programme\C#\AP2024\AP2024\bin\Debug\net8.0-windows\Microsoft.Web.WebView2.Wpf.dll
+G:\Programme\C#\AP2024\AP2024\bin\Debug\net8.0-windows\Microsoft.Web.WebView2.Core.xml
+G:\Programme\C#\AP2024\AP2024\bin\Debug\net8.0-windows\Microsoft.Web.WebView2.WinForms.xml
+G:\Programme\C#\AP2024\AP2024\bin\Debug\net8.0-windows\Microsoft.Web.WebView2.Wpf.xml
+G:\Programme\C#\AP2024\AP2024\obj\Debug\net8.0-windows\AP2024.GeneralWebView.resources

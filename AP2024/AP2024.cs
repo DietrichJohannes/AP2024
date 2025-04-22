@@ -432,13 +432,15 @@ namespace AP2024
         private void hilfeToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             // Öffnet die HTML-Datei im Standardbrowser
-            Process.Start(new ProcessStartInfo("https://www.ap2024.de") { UseShellExecute = true });
+            GeneralWebView webView = new GeneralWebView("https://block-quiz.de/");
+            webView.Show();
         }
 
         private void anleitungToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // Öffnet die HTML-Datei im Standardbrowser
-            Process.Start(new ProcessStartInfo("https://www.ap2024.de/directions") { UseShellExecute = true });
+            GeneralWebView webView = new GeneralWebView("https://github.com");
+            webView.Show();
         }
 
         private void meineDatenToolStripMenuItem_Click(object sender, EventArgs e)

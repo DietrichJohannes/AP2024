@@ -43,6 +43,9 @@
     <Compile Update="AP2024.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="GeneralWebView.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="ImportHolidays.cs">
       <SubType>Form</SubType>
     </Compile>
