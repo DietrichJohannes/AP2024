@@ -33,6 +33,7 @@
             columnHeader1 = new ColumnHeader();
             columnHeader2 = new ColumnHeader();
             columnHeader3 = new ColumnHeader();
+            columnHeader6 = new ColumnHeader();
             columnHeader4 = new ColumnHeader();
             columnHeader5 = new ColumnHeader();
             button1 = new Button();
@@ -43,7 +44,6 @@
             button6 = new Button();
             button7 = new Button();
             button8 = new Button();
-            columnHeader6 = new ColumnHeader();
             SuspendLayout();
             // 
             // employeeListView
@@ -72,6 +72,11 @@
             columnHeader3.Text = "View";
             columnHeader3.Width = 200;
             // 
+            // columnHeader6
+            // 
+            columnHeader6.Text = "Krankheitstage";
+            columnHeader6.Width = 150;
+            // 
             // columnHeader4
             // 
             columnHeader4.Text = "Rest Urlaub";
@@ -91,6 +96,7 @@
             button1.TabIndex = 1;
             button1.Text = "Löschen";
             button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // button2
             // 
@@ -101,6 +107,7 @@
             button2.TabIndex = 2;
             button2.Text = "Bearbeiten";
             button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // button3
             // 
@@ -144,6 +151,7 @@
             button6.TabIndex = 6;
             button6.Text = "Krankheitstage Bearbeiten";
             button6.UseVisualStyleBackColor = true;
+            button6.Click += button6_Click;
             // 
             // button7
             // 
@@ -166,11 +174,6 @@
             button8.Text = "Urlaub für ALLE vergeben\r\n";
             button8.UseVisualStyleBackColor = true;
             button8.Click += button8_Click;
-            // 
-            // columnHeader6
-            // 
-            columnHeader6.Text = "Krankheitstage";
-            columnHeader6.Width = 150;
             // 
             // EmployeeManager
             // 

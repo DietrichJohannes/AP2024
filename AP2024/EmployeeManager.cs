@@ -92,14 +92,30 @@ namespace AP2024
 
         private void button4_Click(object sender, EventArgs e)
         {
+            int mode = 1; // 0 = Edit Sickdays, 1 = Edit Vacationdays
 
+            if (employeeListView.SelectedItems.Count == 0)
+            {
+                NotificationController.SelectItem();
+                return;
+            }
+
+            var selectedItem = employeeListView.SelectedItems[0];
+            if (selectedItem.Tag is int mitarbeiterId)
+            {
+                OpenEditForm(mitarbeiterId, mode);
+            }
+            else
+            {
+                MessageBox.Show("Mitarbeiter-ID konnte nicht gelesen werden.");
+            }
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
             if (employeeListView.SelectedItems.Count == 0)
             {
-                MessageBox.Show("Bitte wählen Sie einen Mitarbeiter aus.");
+                NotificationController.SelectItem();
                 return;
             }
 
@@ -123,8 +139,9 @@ namespace AP2024
         private void button7_Click(object sender, EventArgs e)
         {
             bool result = MessageBox.Show("Möchten Sie wirklich alle Krankheitstage zurücksetzen?", "AP2024", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes;
-            
-            if (result) {
+
+            if (result)
+            {
                 LeaveHandler.ResetSickdays();
                 LoadEmployees();
             }
@@ -148,5 +165,91 @@ namespace AP2024
                 MessageBox.Show("Aktion abgebrochen.");
             }
         }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            int mode = 0; // 0 = Edit Sickdays, 1 = Edit Vacationdays
+
+            if (employeeListView.SelectedItems.Count == 0)
+            {
+                NotificationController.SelectItem();
+                return;
+            }
+
+            var selectedItem = employeeListView.SelectedItems[0];
+            if (selectedItem.Tag is int mitarbeiterId)
+            {
+                OpenEditForm(mitarbeiterId, mode);
+            }
+            else
+            {
+                MessageBox.Show("Mitarbeiter-ID konnte nicht gelesen werden.");
+            }
+        }
+
+        private void OpenEditForm(int EmployeeID, int mode)
+        {
+            EditVacationAndSickDays editForm = new EditVacationAndSickDays(EmployeeID, mode);
+            editForm.OnEditFormExit += LoadEmployees;
+            editForm.ShowDialog();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (employeeListView.SelectedItems.Count == 0)
+            {
+                NotificationController.SelectItem();
+                return;
+            }
+
+            var selectedItem = employeeListView.SelectedItems[0];
+            if (selectedItem.Tag is int mitarbeiterId)
+            {
+                var result = MessageBox.Show("Möchtest du diesen Mitarbeiter wirklich löschen?", "Löschen bestätigen", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (result != DialogResult.Yes)
+                    return;
+
+                try
+                {
+                    using (var connection = new SQLiteConnection(ApplicationContext.GetConnectionString()))
+                    {
+                        connection.Open();
+
+                        using (var command = connection.CreateCommand())
+                        {
+                            command.CommandText = "DELETE FROM Employees WHERE id = @id";
+                            command.Parameters.AddWithValue("@id", mitarbeiterId);
+
+                            int rowsAffected = command.ExecuteNonQuery();
+
+                            if (rowsAffected > 0)
+                            {
+                                employeeListView.Items.Remove(selectedItem);
+                                NotificationController.Deleted();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Kein Mitarbeiter wurde gelöscht. Überprüfe die ID.");
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Fehler beim Löschen des Mitarbeiters: {ex.Message}", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Mitarbeiter-ID konnte nicht gelesen werden.");
+            }
+        }
+
+
     }
 }

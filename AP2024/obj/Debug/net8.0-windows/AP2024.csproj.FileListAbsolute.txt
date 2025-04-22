@@ -62,3 +62,7 @@ G:\Programme\C#\AP2024\AP2024\obj\Debug\net8.0-windows\AP2024.RoleInfo.resources
 G:\Programme\C#\AP2024\AP2024\obj\Debug\net8.0-windows\AP2024.AddCommentTimePicker.resources
 G:\Programme\C#\AP2024\AP2024\obj\Debug\net8.0-windows\AP2024.AP2024Settings.resources
 G:\Programme\C#\AP2024\AP2024\obj\Debug\net8.0-windows\AP2024.EditDepartment.resources
+G:\Programme\C#\AP2024\AP2024\obj\Debug\net8.0-windows\AP2024.EditVacationAndSickDays.resources
+G:\Programme\C#\AP2024\AP2024\obj\Debug\net8.0-windows\AP2024.Deleted.resources
+G:\Programme\C#\AP2024\AP2024\obj\Debug\net8.0-windows\AP2024.SelectEmployee.resources
+G:\Programme\C#\AP2024\AP2024\obj\Debug\net8.0-windows\AP2024.Updated.resources

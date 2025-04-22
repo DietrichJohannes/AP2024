@@ -53,7 +53,7 @@
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "RoleInfo";
-            StartPosition = FormStartPosition.Manual;
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Rolln Info";
             ResumeLayout(false);
         }
