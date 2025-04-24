@@ -25,8 +25,8 @@ Dieses Projekt steht unter der MIT-Lizenz. Weitere Informationen finden Sie in d
 
 ## NutGet Pakete
 
-+ Microsoft.Web.WebView2
-+ System.Data.SQLite
++ Microsoft.Web.WebView2 (WebView)
++ System.Data.SQLite     (SQLite)
 
 ## Kontakt
 

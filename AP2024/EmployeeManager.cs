@@ -25,7 +25,7 @@ namespace AP2024
 
         private void button3_Click(object sender, EventArgs e)
         {
-            NewEmployee newEmployee = new NewEmployee();
+            NewEmployee newEmployee = new NewEmployee(0, 0);
             newEmployee.OnEmployeeSaved += LoadEmployees;
             newEmployee.Show();
         }
@@ -196,8 +196,27 @@ namespace AP2024
 
         private void button2_Click(object sender, EventArgs e)
         {
+            int mode = 1; // 0 = Add, 1 = Edit
 
+            if (employeeListView.SelectedItems.Count == 0)
+            {
+                NotificationController.SelectItem();
+                return;
+            }
+
+            var selectedItem = employeeListView.SelectedItems[0];
+            if (selectedItem.Tag is int mitarbeiterId)
+            {
+                NewEmployee newEmployee = new NewEmployee(mitarbeiterId, mode);
+                newEmployee.OnEmployeeSaved += LoadEmployees; 
+                newEmployee.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Mitarbeiter-ID konnte nicht gelesen werden.");
+            }
         }
+
 
         private void button1_Click(object sender, EventArgs e)
         {

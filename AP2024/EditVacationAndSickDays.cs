@@ -136,6 +136,7 @@ namespace AP2024
                         else
                         {
                             NotificationController.Updated();
+                            OnEditFormExit.Invoke();
                             this.Close();
                         }
                     }

@@ -55,10 +55,10 @@
             adminKonsoleToolStripMenuItem = new ToolStripMenuItem();
             aP2024EinstellungenToolStripMenuItem = new ToolStripMenuItem();
             hilfeToolStripMenuItem = new ToolStripMenuItem();
-            aP2024SteuerungToolStripMenuItem = new ToolStripMenuItem();
             hilfeToolStripMenuItem1 = new ToolStripMenuItem();
             anleitungToolStripMenuItem = new ToolStripMenuItem();
             infoÜberDenEntwicklerToolStripMenuItem = new ToolStripMenuItem();
+            aP2024SteuerungToolStripMenuItem = new ToolStripMenuItem();
             button1 = new Button();
             button2 = new Button();
             button3 = new Button();
@@ -272,13 +272,6 @@
             hilfeToolStripMenuItem.Size = new Size(44, 20);
             hilfeToolStripMenuItem.Text = "Hilfe";
             // 
-            // aP2024SteuerungToolStripMenuItem
-            // 
-            aP2024SteuerungToolStripMenuItem.Name = "aP2024SteuerungToolStripMenuItem";
-            aP2024SteuerungToolStripMenuItem.Size = new Size(202, 22);
-            aP2024SteuerungToolStripMenuItem.Text = "AP2024 Steuerung";
-            aP2024SteuerungToolStripMenuItem.Click += aP2024SteuerungToolStripMenuItem_Click;
-            // 
             // hilfeToolStripMenuItem1
             // 
             hilfeToolStripMenuItem1.Name = "hilfeToolStripMenuItem1";
@@ -299,6 +292,13 @@
             infoÜberDenEntwicklerToolStripMenuItem.Size = new Size(202, 22);
             infoÜberDenEntwicklerToolStripMenuItem.Text = "Info über den Entwickler";
             infoÜberDenEntwicklerToolStripMenuItem.Click += infoÜberDenEntwicklerToolStripMenuItem_Click;
+            // 
+            // aP2024SteuerungToolStripMenuItem
+            // 
+            aP2024SteuerungToolStripMenuItem.Name = "aP2024SteuerungToolStripMenuItem";
+            aP2024SteuerungToolStripMenuItem.Size = new Size(202, 22);
+            aP2024SteuerungToolStripMenuItem.Text = "AP2024 Steuerung";
+            aP2024SteuerungToolStripMenuItem.Click += aP2024SteuerungToolStripMenuItem_Click;
             // 
             // button1
             // 

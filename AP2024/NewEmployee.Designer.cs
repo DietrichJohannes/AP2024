@@ -43,7 +43,7 @@
             label5 = new Label();
             label6 = new Label();
             moreEmployees = new CheckBox();
-            label7 = new Label();
+            moreEmployeesText = new Label();
             ((System.ComponentModel.ISupportInitialize)leaveEntitlementNUD).BeginInit();
             ((System.ComponentModel.ISupportInitialize)remainingLeaveNUD).BeginInit();
             SuspendLayout();
@@ -136,7 +136,7 @@
             label4.AutoSize = true;
             label4.Location = new Point(12, 165);
             label4.Name = "label4";
-            label4.Size = new Size(63, 15);
+            label4.Size = new Size(64, 15);
             label4.TabIndex = 10;
             label4.Text = "Tarifurlaub";
             // 
@@ -167,21 +167,21 @@
             moreEmployees.TabIndex = 14;
             moreEmployees.UseVisualStyleBackColor = true;
             // 
-            // label7
+            // moreEmployeesText
             // 
-            label7.AutoSize = true;
-            label7.Location = new Point(12, 255);
-            label7.Name = "label7";
-            label7.Size = new Size(178, 15);
-            label7.TabIndex = 15;
-            label7.Text = "Weiteren Mitarbeiter hinzufügen";
+            moreEmployeesText.AutoSize = true;
+            moreEmployeesText.Location = new Point(12, 255);
+            moreEmployeesText.Name = "moreEmployeesText";
+            moreEmployeesText.Size = new Size(178, 15);
+            moreEmployeesText.TabIndex = 15;
+            moreEmployeesText.Text = "Weiteren Mitarbeiter hinzufügen";
             // 
             // NewEmployee
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(513, 290);
-            Controls.Add(label7);
+            Controls.Add(moreEmployeesText);
             Controls.Add(moreEmployees);
             Controls.Add(label6);
             Controls.Add(label5);
@@ -196,7 +196,9 @@
             Controls.Add(lastNameText);
             Controls.Add(firstNameText);
             Controls.Add(button1);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (Icon)resources.GetObject("$this.Icon");
+            MinimizeBox = false;
             Name = "NewEmployee";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Neuer Mitarbeiter";
@@ -222,6 +224,6 @@
         private Label label5;
         private Label label6;
         private CheckBox moreEmployees;
-        private Label label7;
+        private Label moreEmployeesText;
     }
 }
